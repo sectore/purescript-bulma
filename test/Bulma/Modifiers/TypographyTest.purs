@@ -1,0 +1,98 @@
+module Bulma.Modifiers.TypographyTest where
+
+import Prelude
+
+import Bulma.Modifiers.Typography (alignment, colors, responsiveSize1, responsiveSize2, responsiveSize3, responsiveSize4, responsiveSize5, responsiveSize6, responsiveSize7, sizes, weight)
+import Control.Monad.Free (Free)
+import Test.Unit (TestF, suite, test)
+import Test.Unit.Assert (equal)
+
+testSuiteTypography :: forall e. Free (TestF e) Unit
+testSuiteTypography =
+  suite "Typography" do
+    test "sizes" do
+      sizes.isSize1 `equal` "is-size-1"
+      sizes.isSize2 `equal` "is-size-2"
+      sizes.isSize3 `equal` "is-size-3"
+      sizes.isSize4 `equal` "is-size-4"
+      sizes.isSize5 `equal` "is-size-5"
+      sizes.isSize6 `equal` "is-size-6"
+      sizes.isSize7 `equal` "is-size-7"
+    test "responsiveSize1" do
+      responsiveSize1.mobile `equal` "is-size-1-mobile"
+      responsiveSize1.tablet `equal` "is-size-1-tablet"
+      responsiveSize1.touch `equal` "is-size-1-touch"
+      responsiveSize1.desktop `equal` "is-size-1-desktop"
+      responsiveSize1.widescreen `equal` "is-size-1-widescreen"
+      responsiveSize1.fullHD `equal` "is-size-1-fullhd"
+    test "responsiveSize2" do
+      responsiveSize2.mobile `equal` "is-size-2-mobile"
+      responsiveSize2.tablet `equal` "is-size-2-tablet"
+      responsiveSize2.touch `equal` "is-size-2-touch"
+      responsiveSize2.desktop `equal` "is-size-2-desktop"
+      responsiveSize2.widescreen `equal` "is-size-2-widescreen"
+      responsiveSize2.fullHD `equal` "is-size-2-fullhd"
+    test "responsiveSize3" do
+      responsiveSize3.mobile `equal` "is-size-3-mobile"
+      responsiveSize3.tablet `equal` "is-size-3-tablet"
+      responsiveSize3.touch `equal` "is-size-3-touch"
+      responsiveSize3.desktop `equal` "is-size-3-desktop"
+      responsiveSize3.widescreen `equal` "is-size-3-widescreen"
+      responsiveSize3.fullHD `equal` "is-size-3-fullhd"
+    test "responsiveSize4" do
+      responsiveSize4.mobile `equal` "is-size-4-mobile"
+      responsiveSize4.tablet `equal` "is-size-4-tablet"
+      responsiveSize4.touch `equal` "is-size-4-touch"
+      responsiveSize4.desktop `equal` "is-size-4-desktop"
+      responsiveSize4.widescreen `equal` "is-size-4-widescreen"
+      responsiveSize4.fullHD `equal` "is-size-4-fullhd"
+    test "responsiveSize5" do
+      responsiveSize5.mobile `equal` "is-size-5-mobile"
+      responsiveSize5.tablet `equal` "is-size-5-tablet"
+      responsiveSize5.touch `equal` "is-size-5-touch"
+      responsiveSize5.desktop `equal` "is-size-5-desktop"
+      responsiveSize5.widescreen `equal` "is-size-5-widescreen"
+      responsiveSize5.fullHD `equal` "is-size-5-fullhd"
+    test "responsiveSize6" do
+      responsiveSize6.mobile `equal` "is-size-6-mobile"
+      responsiveSize6.tablet `equal` "is-size-6-tablet"
+      responsiveSize6.touch `equal` "is-size-6-touch"
+      responsiveSize6.desktop `equal` "is-size-6-desktop"
+      responsiveSize6.widescreen `equal` "is-size-6-widescreen"
+      responsiveSize6.fullHD `equal` "is-size-6-fullhd"
+    test "responsiveSize7" do
+      responsiveSize7.mobile `equal` "is-size-7-mobile"
+      responsiveSize7.tablet `equal` "is-size-7-tablet"
+      responsiveSize7.touch `equal` "is-size-7-touch"
+      responsiveSize7.desktop `equal` "is-size-7-desktop"
+      responsiveSize7.widescreen `equal` "is-size-7-widescreen"
+      responsiveSize7.fullHD `equal` "is-size-7-fullhd"
+    test "colors" do
+      colors.hasTextWhite `equal` "has-text-white"
+      colors.hasTextBlack `equal` "has-text-black"
+      colors.hasTextLight `equal` "has-text-light"
+      colors.hasTextDark `equal` "has-text-dark"
+      colors.hasTextPrimary `equal` "has-text-primary"
+      colors.hasTextInfo `equal` "has-text-info"
+      colors.hasTextSuccess `equal` "has-text-success"
+      colors.hasTextWarning `equal` "has-text-warning"
+      colors.hasTextDanger `equal` "has-text-danger"
+      colors.hasTextBlackBis `equal` "has-text-black-bis"
+      colors.hasTextBlackTer `equal` "has-text-black-ter"
+      colors.hasTextGreyDarker `equal` "has-text-grey-darker"
+      colors.hasTextGreyDark `equal` "has-text-grey-dark"
+      colors.hasTextGrey `equal` "has-text-grey"
+      colors.hasTextGreyLight `equal` "has-text-grey-light"
+      colors.hasTextGreyLighter `equal` "has-text-grey-lighter"
+      colors.hasTextWhiteTer `equal` "has-text-white-ter"
+      colors.hasTextWhiteBis `equal` "has-text-white-bis"
+    test "alignment" do
+      alignment.hasTextCentered `equal` "has-text-centered"
+      alignment.hasTextJustified `equal` "has-text-justified"
+      alignment.hasTextLeft `equal` "has-text-left"
+      alignment.hasTextRight `equal` "has-text-right"
+    test "weight" do
+      weight.light `equal` "has-text-weight-light"
+      weight.normal `equal` "has-text-weight-normal"
+      weight.semibold `equal` "has-text-semibold"
+      weight.bold `equal` "has-text-bold"
