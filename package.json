@@ -1,0 +1,24 @@
+{
+  "name": "purescript-bulma",
+  "version": "0.1.0",
+  "description": "PureScript bindings for Bulma",
+  "repository": {
+     "type": "git",
+     "url": "git+https://github.com/sectore/purescript-bulma.git"
+  },
+  "author": "Jens Krause",
+  "license": "MIT",
+  "bugs": {
+   "url": "https://github.com/sectore/purescript-isomorphic-fetch/issues"
+  },
+  "homepage": "https://github.com/sectore/purescript-isomorphic-fetch#readme",
+  "scripts": {
+    "clean": "rimraf output && rimraf .pulp-cache && rimraf .psci_modules",
+    "postinstall": "bower cache clean && bower install",
+    "build": "pulp build",
+    "test": "pulp test"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.2"
+  }
+}
