@@ -2,7 +2,7 @@ module Bulma.Modifiers.HelpersTest where
 
 import Prelude
 
-import Bulma.Modifiers.Helpers (float, others, spacing)
+import Bulma.Modifiers.Helpers (Helpers(..), helper)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
@@ -10,17 +10,15 @@ import Test.Unit.Assert (equal)
 testSuiteHelpers :: forall e. Free (TestF e) Unit
 testSuiteHelpers =
   suite "Helpers" do
-    test "float" do
-      float.isClearfix `equal` "is-clearfix"
-      float.isPulledLeft `equal` "is-pulled-left"
-      float.isPulledRight `equal` "is-pulled-right"
-    test "spacing" do
-      spacing.isMarginless `equal` "is-marginless"
-      spacing.isPaddingless `equal` "is-paddingless"
-    test "others" do
-      others.isOverlay `equal` "is-overlay"
-      others.isClipped `equal` "is-clipped"
-      others.isRadiusless `equal` "is-radiusless"
-      others.isShadowless `equal` "is-shadowless"
-      others.isUnsectable `equal` "is-unselectable"
-      others.isInvisible `equal` "is-invisible"
+    test "helper" do
+      helper Clearfix `equal` "is-clearfix"
+      helper PulledLeft `equal` "is-pulled-left"
+      helper PulledRight `equal` "is-pulled-right"
+      helper Marginless `equal` "is-marginless"
+      helper Paddingless `equal` "is-paddingless"
+      helper Overlay `equal` "is-overlay"
+      helper Clipped `equal` "is-clipped"
+      helper Radiusless `equal` "is-radiusless"
+      helper Shadowless `equal` "is-shadowless"
+      helper Unsectable `equal` "is-unselectable"
+      helper Invisible `equal` "is-invisible"

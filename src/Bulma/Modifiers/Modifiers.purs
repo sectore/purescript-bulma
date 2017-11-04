@@ -1,54 +1,65 @@
-module Bulma.Modifiers.Modifiers where
+-- | Modifier classes
+-- https://bulma.io/documentation/modifiers/syntax/
+
+module Bulma.Modifiers.Modifiers
+  ( Colors(..)
+  , color
+  , Sizes(..)
+  , size
+  , State(..)
+  , state
+  ) where
 
 import Prelude
 
-import Bulma.Modifiers.Util (ModifierColors(..), is, toString)
+import Bulma.Modifiers.Util (class ClazzHelper, is, toString)
 import Bulma.Types (Clazz)
 
--- | Modifier classes
--- See https://bulma.io/documentation/modifiers/syntax/
+data Colors
+  = Primary
+  | Link
+  | Info
+  | Success
+  | Warning
+  | Danger
 
-type Colors =
-  { isPrimary :: Clazz
-  , isLink :: Clazz
-  , isInfo :: Clazz
-  , isSuccess :: Clazz
-  , isWarning :: Clazz
-  , isDanger :: Clazz
-  }
+instance chColors :: ClazzHelper Colors where
+  toString Primary = "primary"
+  toString Link = "link"
+  toString Info = "info"
+  toString Success = "success"
+  toString Warning = "warning"
+  toString Danger = "danger"
 
-colors :: Colors
-colors =
-  { isPrimary: is $ toString Primary
-  , isLink: is $ toString Link
-  , isInfo: is $ toString Info
-  , isSuccess: is $ toString Success
-  , isWarning: is $ toString Warning
-  , isDanger: is $ toString Danger
-  }
+color :: Colors -> Clazz
+color c = is $ toString c
 
-type Size =
-  { isSmall :: Clazz
-  , isMedium :: Clazz
-  , isLarge :: Clazz
-  }
+data Sizes
+  = Small
+  | Medium
+  | Large
 
-size :: Size
-size =
-  { isSmall: is "small"
-  , isMedium: is "medium"
-  , isLarge: is "large"
-  }
+instance chSizes :: ClazzHelper Sizes where
+  toString Small = "small"
+  toString Medium = "medium"
+  toString Large = "large"
 
-type State =
-  { isOutlined :: Clazz
-  , isLoading :: Clazz
-  , disabled :: Clazz
-  }
+size :: Sizes -> Clazz
+size s = is $ toString s
 
-state :: State
-state =
-  { isOutlined: is "outlined"
-  , isLoading: is "loading"
-  , disabled: "[disabled]"
-  }
+
+data State
+  = Outlined
+  | Loading
+  | Disabled
+
+instance chState :: ClazzHelper State where
+  toString Outlined = "outlined"
+  toString Loading = "loading"
+  toString Disabled = "[disabled]"
+
+state :: State -> Clazz
+state st =
+  case st of
+    Disabled -> toString st
+    _ -> is $ toString st

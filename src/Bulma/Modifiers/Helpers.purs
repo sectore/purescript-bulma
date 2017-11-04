@@ -1,50 +1,42 @@
-module Bulma.Modifiers.Helpers  where
-
-import Bulma.Types (Clazz)
-import Bulma.Modifiers.Util (is)
-
 -- | Modifier helpers
--- See https://bulma.io/documentation/modifiers/helpers/
+-- https://bulma.io/documentation/modifiers/helpers/
 
-type Float =
-  { isClearfix :: Clazz
-  , isPulledLeft :: Clazz
-  , isPulledRight :: Clazz
-  }
+module Bulma.Modifiers.Helpers
+  ( Helpers(..)
+  , helper
+  )where
 
-float :: Float
-float =
-  { isClearfix: is "clearfix"
-  , isPulledLeft: is "pulled-left"
-  , isPulledRight: is "pulled-right"
-  }
+import Prelude
 
-type Spacing =
-  { isMarginless :: Clazz
-  , isPaddingless :: Clazz
-  }
+import Bulma.Modifiers.Util (class ClazzHelper, is, toString)
+import Bulma.Types (Clazz)
 
-spacing :: Spacing
-spacing =
-  { isMarginless: is "marginless"
-  , isPaddingless: is "paddingless"
-  }
 
-type Others =
-  { isOverlay :: Clazz
-  , isClipped :: Clazz
-  , isRadiusless :: Clazz
-  , isShadowless :: Clazz
-  , isUnsectable :: Clazz
-  , isInvisible :: Clazz
-  }
+data Helpers
+  = Clearfix
+  | PulledLeft
+  | PulledRight
+  | Marginless
+  | Paddingless
+  | Overlay
+  | Clipped
+  | Radiusless
+  | Shadowless
+  | Unsectable
+  | Invisible
 
-others :: Others
-others =
-  { isOverlay: is "overlay"
-  , isClipped: is "clipped"
-  , isRadiusless: is "radiusless"
-  , isShadowless: is "shadowless"
-  , isUnsectable: is "unselectable"
-  , isInvisible: is "invisible"
-  }
+instance chHelpers :: ClazzHelper Helpers where
+  toString Clearfix = "clearfix"
+  toString PulledLeft = "pulled-left"
+  toString PulledRight = "pulled-right"
+  toString Marginless = "marginless"
+  toString Paddingless = "paddingless"
+  toString Overlay = "overlay"
+  toString Clipped = "clipped"
+  toString Radiusless = "radiusless"
+  toString Shadowless = "shadowless"
+  toString Unsectable = "unselectable"
+  toString Invisible = "invisible"
+
+helper :: Helpers -> Clazz
+helper h = is $ toString h

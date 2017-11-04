@@ -6,21 +6,11 @@ import Bulma.Types (Clazz)
 class ClazzHelper a where
   toString :: a -> String
 
-data ModifierColors
-  = Primary
-  | Link
-  | Info
-  | Success
-  | Warning
-  | Danger
+clazzDelemiter :: String
+clazzDelemiter = "-"
 
-instance chModifierColors :: ClazzHelper ModifierColors where
-  toString Primary = "primary"
-  toString Link = "link"
-  toString Info = "info"
-  toString Success = "success"
-  toString Warning = "warning"
-  toString Danger = "danger"
+clazzNotSupported :: Clazz
+clazzNotSupported = "clazz-is-not-supported"
 
 data BreakPoints
   = Mobile
