@@ -12,8 +12,7 @@ module Bulma.Columns.Sizes
 
 import Prelude
 
-import Bulma.Core (class ClazzHelper, BreakPoints, clazzDelemiter, is, toString)
-import Bulma.Types (Clazz)
+import Bulma.Core (class ClazzHelper, BreakPoints, combine, is, toString)
 
 data PercentSizes
   = ThreeQuarters
@@ -37,12 +36,12 @@ instance chPercentSizes :: ClazzHelper PercentSizes where
   toString TwoFifths = "two-fifths"
   toString OneFifth = "one-fifth"
 
-percentSize :: PercentSizes -> Clazz
+percentSize :: PercentSizes -> String
 percentSize = is <<< toString
 
-responsivePercentSize :: PercentSizes -> BreakPoints -> Clazz
+responsivePercentSize :: PercentSizes -> BreakPoints -> String
 responsivePercentSize s bp =
-  is $ toString s <> clazzDelemiter <> toString bp
+  is $ combine [toString s, toString bp]
 
 data Sizes
   = Size2
@@ -68,23 +67,23 @@ instance chSizes :: ClazzHelper Sizes where
   toString Size10 = "10"
   toString Size11 = "11"
 
-size :: Sizes -> Clazz
+size :: Sizes -> String
 size = is <<< toString
 
-offset :: Sizes -> Clazz
+offset :: Sizes -> String
 offset = isOffset <<< toString
 
-percentOffset :: PercentSizes -> Clazz
+percentOffset :: PercentSizes -> String
 percentOffset = isOffset <<< toString
 
-narrow :: Clazz
+narrow :: String
 narrow = is "narrow"
 
-responsiveNarrow :: BreakPoints -> Clazz
-responsiveNarrow bp = is "narrow" <> clazzDelemiter <> toString bp
+responsiveNarrow :: BreakPoints -> String
+responsiveNarrow bp = is $ combine ["narrow", toString bp]
 
 
 -- private helpers
 
-isOffset :: String -> Clazz
-isOffset s = is $ "offset" <> clazzDelemiter <> s
+isOffset :: String -> String
+isOffset s = is $ combine ["offset", s]

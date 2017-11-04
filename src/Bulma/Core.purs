@@ -1,15 +1,14 @@
 module Bulma.Core where
 
-import Prelude
-import Bulma.Types (Clazz)
+import Data.String (joinWith)
 
 class ClazzHelper a where
   toString :: a -> String
 
-clazzDelemiter :: String
-clazzDelemiter = "-"
+clazzDelimiter :: String
+clazzDelimiter = "-"
 
-clazzNotSupported :: Clazz
+clazzNotSupported :: String
 clazzNotSupported = "clazz-is-not-supported"
 
 data BreakPoints
@@ -34,10 +33,13 @@ instance chBreakPoints :: ClazzHelper BreakPoints where
   toString WidescreenOnly = "widescreen-only"
   toString FullHD = "fullhd"
 
-is :: String -> Clazz
+is :: String -> String
 is str =
-  "is-" <> str
+  combine ["is", str]
 
-has :: String -> Clazz
+has :: String -> String
 has str =
-  "has-" <> str
+  combine ["has", str]
+
+combine :: Array String -> String
+combine = joinWith clazzDelimiter

@@ -9,7 +9,6 @@ module Bulma.Modifiers.Helpers
 import Prelude
 
 import Bulma.Core (class ClazzHelper, is, toString)
-import Bulma.Types (Clazz)
 
 
 data Helpers
@@ -38,5 +37,5 @@ instance chHelpers :: ClazzHelper Helpers where
   toString Unsectable = "unselectable"
   toString Invisible = "invisible"
 
-helper :: Helpers -> Clazz
+helper :: Helpers -> String
 helper h = is $ toString h

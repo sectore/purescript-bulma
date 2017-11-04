@@ -18,8 +18,7 @@ module Bulma.Modifiers.Typography
 
 import Prelude
 
-import Bulma.Core (class ClazzHelper, BreakPoints(..), clazzDelemiter, clazzNotSupported, has, is, toString)
-import Bulma.Types (Clazz)
+import Bulma.Core (class ClazzHelper, BreakPoints(..), clazzNotSupported, combine, has, is, toString)
 
 -- | Typography sizes
 -- https://bulma.io/documentation/modifiers/typography-helpers/#size
@@ -42,20 +41,20 @@ instance chSizes :: ClazzHelper Sizes where
   toString Size6 = "size-6"
   toString Size7 = "size-7"
 
-size :: Sizes -> Clazz
+size :: Sizes -> String
 size s = is $ toString s
 
 
 -- | Responsive size
 -- https://bulma.io/documentation/modifiers/typography-helpers/#responsive-size
 
-responsiveSize :: Sizes -> BreakPoints -> Clazz
+responsiveSize :: Sizes -> BreakPoints -> String
 responsiveSize s bp =
   case bp of
     DesktopOnly -> clazzNotSupported
     WidescreenOnly -> clazzNotSupported
     TabletOnly -> clazzNotSupported
-    _ -> is $ toString s <> clazzDelemiter <> toString bp
+    _ -> is $ combine [toString s, toString bp]
 
 -- | Text colors
 -- https://bulma.io/documentation/modifiers/typography-helpers/#colors
@@ -102,7 +101,7 @@ instance chColors :: ClazzHelper Colors where
   toString WhiteTer = "white-ter"
   toString WhiteBis = "white-bis"
 
-color :: Colors -> Clazz
+color :: Colors -> String
 color c = hasText $ toString c
 
 -- | Typography alignment
@@ -119,12 +118,12 @@ instance chAlignment :: ClazzHelper Alignment where
   toString Left = "left"
   toString Right = "right"
 
-alignment :: Alignment -> Clazz
+alignment :: Alignment -> String
 alignment a = hasText $ toString a
 
-responsiveAlignment :: Alignment -> BreakPoints -> Clazz
+responsiveAlignment :: Alignment -> BreakPoints -> String
 responsiveAlignment a bp =
-  hasText $ toString a <> clazzDelemiter <> toString bp
+  hasText $ combine [toString a, toString bp]
 
 
 -- | Typography transformation
@@ -139,7 +138,7 @@ instance chTransformation :: ClazzHelper Transformation where
   toString Lowercase = "lowercase"
   toString Uppercase = "uppercase"
 
-transformation :: Transformation -> Clazz
+transformation :: Transformation -> String
 transformation a = is $ toString a
 
 -- | Typography weight
@@ -159,11 +158,11 @@ instance chWeight :: ClazzHelper Weight where
   toString Semibold = "weight-semibold"
   toString Bold = "weight-bold"
 
-weight :: Weight -> Clazz
+weight :: Weight -> String
 weight w = hasText $ toString w
 
 -- | Private helpers
 
-hasText :: String -> Clazz
+hasText :: String -> String
 hasText str =
   has "text-" <> str

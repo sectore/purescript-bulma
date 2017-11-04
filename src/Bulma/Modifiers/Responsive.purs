@@ -13,52 +13,51 @@ module Bulma.Modifiers.Responsive
 
 import Prelude
 
-import Bulma.Core (BreakPoints, clazzDelemiter, is, toString)
-import Bulma.Types (Clazz)
+import Bulma.Core (BreakPoints, combine, is, toString)
 
-showFlex :: BreakPoints -> Clazz
+showFlex :: BreakPoints -> String
 showFlex bp = is $ flex $ toString bp
 
-showBlock :: BreakPoints -> Clazz
+showBlock :: BreakPoints -> String
 showBlock bp = is $ block $ toString bp
 
-showInline :: BreakPoints -> Clazz
+showInline :: BreakPoints -> String
 showInline bp = is $ inline $ toString bp
 
-showInlineBlock :: BreakPoints -> Clazz
+showInlineBlock :: BreakPoints -> String
 showInlineBlock bp = is $ inlineBlock $ toString bp
 
-showInlineFlex :: BreakPoints -> Clazz
+showInlineFlex :: BreakPoints -> String
 showInlineFlex bp = is $ inlineFlex $ toString bp
 
-hide :: BreakPoints -> Clazz
-hide bp = is "hidden" <> clazzDelemiter <> toString bp
+hide :: BreakPoints -> String
+hide bp = is $ combine ["hidden", toString bp]
 
-breakpoint :: BreakPoints -> Clazz
+breakpoint :: BreakPoints -> String
 breakpoint = is <<< toString
 
 -- | Private helpers
 
 flex :: String -> String
 flex str =
-  "flex" <> clazzDelemiter <> str
+  combine ["flex", str]
 
 block :: String -> String
 block str =
-  "block" <> clazzDelemiter <> str
+  combine ["block", str]
 
 inline :: String -> String
 inline str =
-  "inline" <> clazzDelemiter <> str
+  combine ["inline", str]
 
 inlineBlock :: String -> String
 inlineBlock str =
-  inline $ "block" <> clazzDelemiter <> str
+  inline $ combine ["block", str]
 
 inlineFlex :: String -> String
 inlineFlex str =
-  inline $ "flex" <> clazzDelemiter <> str
+  inline $ combine ["flex", str]
 
 hidden :: String -> String
 hidden str =
-  "hidden" <> clazzDelemiter <> str
+  combine ["hidden", str]

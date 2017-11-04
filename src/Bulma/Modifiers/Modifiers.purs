@@ -13,7 +13,6 @@ module Bulma.Modifiers.Modifiers
 import Prelude
 
 import Bulma.Core (class ClazzHelper, is, toString)
-import Bulma.Types (Clazz)
 
 data Colors
   = Primary
@@ -31,7 +30,7 @@ instance chColors :: ClazzHelper Colors where
   toString Warning = "warning"
   toString Danger = "danger"
 
-color :: Colors -> Clazz
+color :: Colors -> String
 color c = is $ toString c
 
 data Sizes
@@ -44,7 +43,7 @@ instance chSizes :: ClazzHelper Sizes where
   toString Medium = "medium"
   toString Large = "large"
 
-size :: Sizes -> Clazz
+size :: Sizes -> String
 size s = is $ toString s
 
 
@@ -58,7 +57,7 @@ instance chState :: ClazzHelper State where
   toString Loading = "loading"
   toString Disabled = "[disabled]"
 
-state :: State -> Clazz
+state :: State -> String
 state st =
   case st of
     Disabled -> toString st
