@@ -5,6 +5,7 @@ module Bulma.Columns.Sizes
   , PercentSizes(..)
   , percentOffset
   , percentSize
+  , responsivePercentSize
   , Sizes(..)
   , size
   ) where
@@ -15,29 +16,33 @@ import Bulma.Core (class ClazzHelper, BreakPoints, clazzDelemiter, is, toString)
 import Bulma.Types (Clazz)
 
 data PercentSizes
-  = THREE_QUATERS
-  | TWO_THIRDS
-  | HALF
-  | ONE_THIRD
-  | ONE_QUARTER
-  | FOUR_FIFTHS
-  | THREE_FIFTHS
-  | TWO_FIFTHS
-  | ONE_FIFTH
+  = ThreeQuarters
+  | TwoThirds
+  | Half
+  | OneThird
+  | OneQuarter
+  | FourFifths
+  | ThreeFifths
+  | TwoFifths
+  | OneFifth
 
 instance chPercentSizes :: ClazzHelper PercentSizes where
-  toString THREE_QUATERS = "three-quarters"
-  toString TWO_THIRDS = "two-thirds"
-  toString HALF = "half"
-  toString ONE_THIRD = "one-third"
-  toString ONE_QUARTER = "one-quarter"
-  toString FOUR_FIFTHS = "four-fifths"
-  toString THREE_FIFTHS = "three-fifths"
-  toString TWO_FIFTHS = "two-fifths"
-  toString ONE_FIFTH = "one-fifth"
+  toString ThreeQuarters = "three-quarters"
+  toString TwoThirds = "two-thirds"
+  toString Half = "half"
+  toString OneThird = "one-third"
+  toString OneQuarter = "one-quarter"
+  toString FourFifths = "four-fifths"
+  toString ThreeFifths = "three-fifths"
+  toString TwoFifths = "two-fifths"
+  toString OneFifth = "one-fifth"
 
 percentSize :: PercentSizes -> Clazz
 percentSize = is <<< toString
+
+responsivePercentSize :: PercentSizes -> BreakPoints -> Clazz
+responsivePercentSize s bp =
+  is $ toString s <> clazzDelemiter <> toString bp
 
 data Sizes
   = Size2
