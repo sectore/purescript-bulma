@@ -31,7 +31,7 @@ instance chColors :: ClazzHelper Colors where
   toClazzPart Danger = ClazzPart "danger"
 
 color :: Colors -> ClazzName
-color c = is $ toClazzPart c
+color = is <<< toClazzPart
 
 data Sizes
   = Small
@@ -44,7 +44,7 @@ instance chSizes :: ClazzHelper Sizes where
   toClazzPart Large = ClazzPart "large"
 
 size :: Sizes -> ClazzName
-size s = is $ toClazzPart s
+size = is <<< toClazzPart
 
 
 data State

@@ -1,7 +1,9 @@
 module Bulma.Columns.Columns where
 
-columns :: String
-columns = "columns"
+import Bulma.Core (ClazzName(..))
 
-column :: String
-column = "column"
+columns :: ClazzName
+columns = ClazzName "columns"
+
+column :: ClazzName
+column = ClazzName "column"

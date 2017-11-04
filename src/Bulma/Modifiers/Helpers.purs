@@ -38,4 +38,4 @@ instance chHelpers :: ClazzHelper Helpers where
   toClazzPart Invisible = ClazzPart "invisible"
 
 helper :: Helpers -> ClazzName
-helper h = is $ toClazzPart h
+helper = is <<< toClazzPart

@@ -42,7 +42,7 @@ instance chSizes :: ClazzHelper Sizes where
   toClazzPart Size7 = ClazzPart "size-7"
 
 size :: Sizes -> ClazzName
-size s = is $ toClazzPart s
+size = is <<< toClazzPart
 
 
 -- | Responsive size
@@ -102,7 +102,7 @@ instance chColors :: ClazzHelper Colors where
   toClazzPart WhiteBis = ClazzPart "white-bis"
 
 color :: Colors -> ClazzName
-color c = hasText $ toClazzPart c
+color = hasText <<< toClazzPart
 
 -- | Typography alignment
 -- https://bulma.io/documentation/modifiers/typography-helpers/#alignment
@@ -119,7 +119,7 @@ instance chAlignment :: ClazzHelper Alignment where
   toClazzPart Right = ClazzPart "right"
 
 alignment :: Alignment -> ClazzName
-alignment a = hasText $ toClazzPart a
+alignment = hasText <<< toClazzPart
 
 responsiveAlignment :: Alignment -> BreakPoints -> ClazzName
 responsiveAlignment a bp =
@@ -159,7 +159,7 @@ instance chWeight :: ClazzHelper Weight where
   toClazzPart Bold = ClazzPart "weight-bold"
 
 weight :: Weight -> ClazzName
-weight w = hasText $ toClazzPart w
+weight = hasText <<< toClazzPart
 
 -- | Private helpers
 

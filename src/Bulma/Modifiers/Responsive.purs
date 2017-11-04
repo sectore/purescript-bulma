@@ -13,22 +13,22 @@ module Bulma.Modifiers.Responsive
 
 import Prelude
 
-import Bulma.Core (BreakPoints, ClazzName, ClazzPart(..), is, joinClazzParts, toClazzPart, toClazzPart)
+import Bulma.Core (BreakPoints, ClazzName, ClazzPart(..), is, joinClazzParts, toClazzPart)
 
 showFlex :: BreakPoints -> ClazzName
-showFlex bp = is $ flex $ toClazzPart bp
+showFlex = is <<< flex <<< toClazzPart
 
 showBlock :: BreakPoints -> ClazzName
-showBlock bp = is $ block $ toClazzPart bp
+showBlock = is <<< block <<< toClazzPart
 
 showInline :: BreakPoints -> ClazzName
-showInline bp = is $ inline $ toClazzPart bp
+showInline = is <<< inline <<< toClazzPart
 
 showInlineBlock :: BreakPoints -> ClazzName
-showInlineBlock bp = is $ inlineBlock $ toClazzPart bp
+showInlineBlock = is <<< inlineBlock <<< toClazzPart
 
 showInlineFlex :: BreakPoints -> ClazzName
-showInlineFlex bp = is $ inlineFlex $ toClazzPart bp
+showInlineFlex = is <<< inlineFlex <<< toClazzPart
 
 hide :: BreakPoints -> ClazzName
 hide bp = is $ joinClazzParts [ClazzPart "hidden", toClazzPart bp]
