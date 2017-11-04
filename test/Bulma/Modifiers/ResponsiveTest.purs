@@ -2,7 +2,7 @@ module Bulma.Modifiers.ResponsiveTest where
 
 import Prelude
 
-import Bulma.Modifiers.Responsive (hide, showBlock, showFlex, showInline, showInlineBlock, showInlineFlex)
+import Bulma.Modifiers.Responsive (breakpoint, hide, showBlock, showFlex, showInline, showInlineBlock, showInlineFlex)
 import Bulma.Core (BreakPoints(..))
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
@@ -71,3 +71,13 @@ testSuiteResponsive =
       hide Widescreen `equal` "is-hidden-widescreen"
       hide WidescreenOnly `equal` "is-hidden-widescreen-only"
       hide FullHD `equal` "is-hidden-fullhd"
+    test "breakpoint" do
+      breakpoint Mobile `equal` "is-mobile"
+      breakpoint Tablet `equal` "is-tablet"
+      breakpoint TabletOnly `equal` "is-tablet-only"
+      breakpoint Touch `equal` "is-touch"
+      breakpoint Desktop `equal` "is-desktop"
+      breakpoint DesktopOnly `equal` "is-desktop-only"
+      breakpoint Widescreen `equal` "is-widescreen"
+      breakpoint WidescreenOnly `equal` "is-widescreen-only"
+      breakpoint FullHD `equal` "is-fullhd"

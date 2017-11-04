@@ -2,7 +2,8 @@
 -- See https://bulma.io/documentation/modifiers/responsive-helpers/
 
 module Bulma.Modifiers.Responsive
-  ( hide
+  ( breakpoint
+  , hide
   , showBlock
   , showFlex
   , showInline
@@ -32,6 +33,9 @@ showInlineFlex bp = is $ inlineFlex $ toString bp
 
 hide :: BreakPoints -> Clazz
 hide bp = is "hidden" <> clazzDelemiter <> toString bp
+
+breakpoint :: BreakPoints -> Clazz
+breakpoint = is <<< toString
 
 -- | Private helpers
 
