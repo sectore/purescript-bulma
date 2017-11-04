@@ -8,7 +8,7 @@ module Bulma.Modifiers.Helpers
 
 import Prelude
 
-import Bulma.Modifiers.Util (class ClazzHelper, is, toString)
+import Bulma.Core (class ClazzHelper, is, toString)
 import Bulma.Types (Clazz)
 
 

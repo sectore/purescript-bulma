@@ -12,7 +12,7 @@ module Bulma.Modifiers.Responsive
 
 import Prelude
 
-import Bulma.Modifiers.Util (BreakPoints, clazzDelemiter, is, toString)
+import Bulma.Core (BreakPoints, clazzDelemiter, is, toString)
 import Bulma.Types (Clazz)
 
 showFlex :: BreakPoints -> Clazz

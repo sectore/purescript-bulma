@@ -3,7 +3,7 @@ module Bulma.Modifiers.TypographyTest where
 import Prelude
 
 import Bulma.Modifiers.Typography (Alignment(..), Colors(..), Sizes(..), Transformation(..), Weight(..), alignment, color, responsiveSize, responsiveAlignment, size, transformation, weight)
-import Bulma.Modifiers.Util (BreakPoints(..), clazzNotSupported)
+import Bulma.Core (BreakPoints(..), clazzNotSupported)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)

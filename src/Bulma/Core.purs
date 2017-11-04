@@ -1,4 +1,4 @@
-module Bulma.Modifiers.Util where
+module Bulma.Core where
 
 import Prelude
 import Bulma.Types (Clazz)

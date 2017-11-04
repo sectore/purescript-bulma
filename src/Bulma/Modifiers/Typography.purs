@@ -18,7 +18,7 @@ module Bulma.Modifiers.Typography
 
 import Prelude
 
-import Bulma.Modifiers.Util (class ClazzHelper, BreakPoints(..), clazzDelemiter, clazzNotSupported, has, is, toString)
+import Bulma.Core (class ClazzHelper, BreakPoints(..), clazzDelemiter, clazzNotSupported, has, is, toString)
 import Bulma.Types (Clazz)
 
 -- | Typography sizes

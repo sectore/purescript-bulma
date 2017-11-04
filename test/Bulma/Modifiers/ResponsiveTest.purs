@@ -3,7 +3,7 @@ module Bulma.Modifiers.ResponsiveTest where
 import Prelude
 
 import Bulma.Modifiers.Responsive (hide, showBlock, showFlex, showInline, showInlineBlock, showInlineFlex)
-import Bulma.Modifiers.Util (BreakPoints(..))
+import Bulma.Core (BreakPoints(..))
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
