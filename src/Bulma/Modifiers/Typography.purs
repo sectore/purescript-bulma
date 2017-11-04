@@ -18,7 +18,7 @@ module Bulma.Modifiers.Typography
 
 import Prelude
 
-import Bulma.Core (class ClazzHelper, BreakPoints(..), clazzNotSupported, combine, has, is, toString)
+import Bulma.Core (class ClazzHelper, BreakPoints(..), ClazzName, ClazzPart(..), clazzNotSupported, has, is, joinClazzParts, toClazzPart)
 
 -- | Typography sizes
 -- https://bulma.io/documentation/modifiers/typography-helpers/#size
@@ -33,28 +33,28 @@ data Sizes
   | Size7
 
 instance chSizes :: ClazzHelper Sizes where
-  toString Size1 = "size-1"
-  toString Size2 = "size-2"
-  toString Size3 = "size-3"
-  toString Size4 = "size-4"
-  toString Size5 = "size-5"
-  toString Size6 = "size-6"
-  toString Size7 = "size-7"
+  toClazzPart Size1 = ClazzPart "size-1"
+  toClazzPart Size2 = ClazzPart "size-2"
+  toClazzPart Size3 = ClazzPart "size-3"
+  toClazzPart Size4 = ClazzPart "size-4"
+  toClazzPart Size5 = ClazzPart "size-5"
+  toClazzPart Size6 = ClazzPart "size-6"
+  toClazzPart Size7 = ClazzPart "size-7"
 
-size :: Sizes -> String
-size s = is $ toString s
+size :: Sizes -> ClazzName
+size s = is $ toClazzPart s
 
 
 -- | Responsive size
 -- https://bulma.io/documentation/modifiers/typography-helpers/#responsive-size
 
-responsiveSize :: Sizes -> BreakPoints -> String
+responsiveSize :: Sizes -> BreakPoints -> ClazzName
 responsiveSize s bp =
   case bp of
     DesktopOnly -> clazzNotSupported
     WidescreenOnly -> clazzNotSupported
     TabletOnly -> clazzNotSupported
-    _ -> is $ combine [toString s, toString bp]
+    _ -> is $ joinClazzParts [toClazzPart s, toClazzPart bp]
 
 -- | Text colors
 -- https://bulma.io/documentation/modifiers/typography-helpers/#colors
@@ -82,27 +82,27 @@ data Colors
   | WhiteBis
 
 instance chColors :: ClazzHelper Colors where
-  toString White = "white"
-  toString Black = "black"
-  toString LightColor = "light"
-  toString Dark = "dark"
-  toString Primary = "primary"
-  toString Info = "info"
-  toString Success = "success"
-  toString Warning = "warning"
-  toString Danger = "danger"
-  toString BlackBis = "black-bis"
-  toString BlackTer = "black-ter"
-  toString GreyDarker = "grey-darker"
-  toString GreyDark = "grey-dark"
-  toString Grey = "grey"
-  toString GreyLight = "grey-light"
-  toString GreyLighter = "grey-lighter"
-  toString WhiteTer = "white-ter"
-  toString WhiteBis = "white-bis"
+  toClazzPart White = ClazzPart "white"
+  toClazzPart Black = ClazzPart "black"
+  toClazzPart LightColor = ClazzPart "light"
+  toClazzPart Dark = ClazzPart "dark"
+  toClazzPart Primary = ClazzPart "primary"
+  toClazzPart Info = ClazzPart "info"
+  toClazzPart Success = ClazzPart "success"
+  toClazzPart Warning = ClazzPart "warning"
+  toClazzPart Danger = ClazzPart "danger"
+  toClazzPart BlackBis = ClazzPart "black-bis"
+  toClazzPart BlackTer = ClazzPart "black-ter"
+  toClazzPart GreyDarker = ClazzPart "grey-darker"
+  toClazzPart GreyDark = ClazzPart "grey-dark"
+  toClazzPart Grey = ClazzPart "grey"
+  toClazzPart GreyLight = ClazzPart "grey-light"
+  toClazzPart GreyLighter = ClazzPart "grey-lighter"
+  toClazzPart WhiteTer = ClazzPart "white-ter"
+  toClazzPart WhiteBis = ClazzPart "white-bis"
 
-color :: Colors -> String
-color c = hasText $ toString c
+color :: Colors -> ClazzName
+color c = hasText $ toClazzPart c
 
 -- | Typography alignment
 -- https://bulma.io/documentation/modifiers/typography-helpers/#alignment
@@ -113,17 +113,17 @@ data Alignment
   | Right
 
 instance chAlignment :: ClazzHelper Alignment where
-  toString Centered = "centered"
-  toString Justified = "justified"
-  toString Left = "left"
-  toString Right = "right"
+  toClazzPart Centered = ClazzPart "centered"
+  toClazzPart Justified = ClazzPart "justified"
+  toClazzPart Left = ClazzPart "left"
+  toClazzPart Right = ClazzPart "right"
 
-alignment :: Alignment -> String
-alignment a = hasText $ toString a
+alignment :: Alignment -> ClazzName
+alignment a = hasText $ toClazzPart a
 
-responsiveAlignment :: Alignment -> BreakPoints -> String
+responsiveAlignment :: Alignment -> BreakPoints -> ClazzName
 responsiveAlignment a bp =
-  hasText $ combine [toString a, toString bp]
+  hasText $ joinClazzParts [toClazzPart a, toClazzPart bp]
 
 
 -- | Typography transformation
@@ -134,12 +134,12 @@ data Transformation
   | Uppercase
 
 instance chTransformation :: ClazzHelper Transformation where
-  toString Capitalized = "capitalized"
-  toString Lowercase = "lowercase"
-  toString Uppercase = "uppercase"
+  toClazzPart Capitalized = ClazzPart "capitalized"
+  toClazzPart Lowercase = ClazzPart "lowercase"
+  toClazzPart Uppercase = ClazzPart "uppercase"
 
-transformation :: Transformation -> String
-transformation a = is $ toString a
+transformation :: Transformation -> ClazzName
+transformation = is <<< toClazzPart
 
 -- | Typography weight
 -- https://bulma.io/documentation/modifiers/typography-helpers/#weight
@@ -153,16 +153,16 @@ data Weight
   | Bold
 
 instance chWeight :: ClazzHelper Weight where
-  toString LightWeight = "weight-light"
-  toString Normal = "weight-normal"
-  toString Semibold = "weight-semibold"
-  toString Bold = "weight-bold"
+  toClazzPart LightWeight = ClazzPart "weight-light"
+  toClazzPart Normal = ClazzPart "weight-normal"
+  toClazzPart Semibold = ClazzPart "weight-semibold"
+  toClazzPart Bold = ClazzPart "weight-bold"
 
-weight :: Weight -> String
-weight w = hasText $ toString w
+weight :: Weight -> ClazzName
+weight w = hasText $ toClazzPart w
 
 -- | Private helpers
 
-hasText :: String -> String
+hasText :: ClazzPart -> ClazzName
 hasText str =
-  has "text-" <> str
+  has $ joinClazzParts [ClazzPart "text", str]

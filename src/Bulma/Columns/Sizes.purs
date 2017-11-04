@@ -12,7 +12,7 @@ module Bulma.Columns.Sizes
 
 import Prelude
 
-import Bulma.Core (class ClazzHelper, BreakPoints, combine, is, toString)
+import Bulma.Core (class ClazzHelper, BreakPoints, ClazzName(..), ClazzPart(..), is, joinClazzParts, toClazzPart)
 
 data PercentSizes
   = ThreeQuarters
@@ -26,22 +26,22 @@ data PercentSizes
   | OneFifth
 
 instance chPercentSizes :: ClazzHelper PercentSizes where
-  toString ThreeQuarters = "three-quarters"
-  toString TwoThirds = "two-thirds"
-  toString Half = "half"
-  toString OneThird = "one-third"
-  toString OneQuarter = "one-quarter"
-  toString FourFifths = "four-fifths"
-  toString ThreeFifths = "three-fifths"
-  toString TwoFifths = "two-fifths"
-  toString OneFifth = "one-fifth"
+  toClazzPart ThreeQuarters = ClazzPart "three-quarters"
+  toClazzPart TwoThirds = ClazzPart "two-thirds"
+  toClazzPart Half = ClazzPart "half"
+  toClazzPart OneThird = ClazzPart "one-third"
+  toClazzPart OneQuarter = ClazzPart "one-quarter"
+  toClazzPart FourFifths = ClazzPart "four-fifths"
+  toClazzPart ThreeFifths = ClazzPart "three-fifths"
+  toClazzPart TwoFifths = ClazzPart "two-fifths"
+  toClazzPart OneFifth = ClazzPart "one-fifth"
 
-percentSize :: PercentSizes -> String
-percentSize = is <<< toString
+percentSize :: PercentSizes -> ClazzName
+percentSize = is <<< toClazzPart
 
-responsivePercentSize :: PercentSizes -> BreakPoints -> String
+responsivePercentSize :: PercentSizes -> BreakPoints -> ClazzName
 responsivePercentSize s bp =
-  is $ combine [toString s, toString bp]
+  is $ joinClazzParts [toClazzPart s, toClazzPart bp]
 
 data Sizes
   = Size2
@@ -56,34 +56,34 @@ data Sizes
   | Size11
 
 instance chSizes :: ClazzHelper Sizes where
-  toString Size2 = "2"
-  toString Size3 = "3"
-  toString Size4 = "4"
-  toString Size5 = "5"
-  toString Size6 = "6"
-  toString Size7 = "7"
-  toString Size8 = "8"
-  toString Size9 = "9"
-  toString Size10 = "10"
-  toString Size11 = "11"
+  toClazzPart Size2 = ClazzPart "2"
+  toClazzPart Size3 = ClazzPart "3"
+  toClazzPart Size4 = ClazzPart "4"
+  toClazzPart Size5 = ClazzPart "5"
+  toClazzPart Size6 = ClazzPart "6"
+  toClazzPart Size7 = ClazzPart "7"
+  toClazzPart Size8 = ClazzPart "8"
+  toClazzPart Size9 = ClazzPart "9"
+  toClazzPart Size10 = ClazzPart "10"
+  toClazzPart Size11 = ClazzPart "11"
 
-size :: Sizes -> String
-size = is <<< toString
+size :: Sizes -> ClazzName
+size = is <<< toClazzPart
 
-offset :: Sizes -> String
-offset = isOffset <<< toString
+offset :: Sizes -> ClazzName
+offset = isOffset <<< toClazzPart
 
-percentOffset :: PercentSizes -> String
-percentOffset = isOffset <<< toString
+percentOffset :: PercentSizes -> ClazzName
+percentOffset = isOffset <<< toClazzPart
 
-narrow :: String
-narrow = is "narrow"
+narrow :: ClazzName
+narrow = is $ ClazzPart "narrow"
 
-responsiveNarrow :: BreakPoints -> String
-responsiveNarrow bp = is $ combine ["narrow", toString bp]
+responsiveNarrow :: BreakPoints -> ClazzName
+responsiveNarrow bp = is $ joinClazzParts [ClazzPart "narrow", toClazzPart bp]
 
 
 -- private helpers
 
-isOffset :: String -> String
-isOffset s = is $ combine ["offset", s]
+isOffset :: ClazzPart -> ClazzName
+isOffset s = is $ joinClazzParts [ClazzPart "offset", s]

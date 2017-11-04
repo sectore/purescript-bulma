@@ -12,7 +12,7 @@ module Bulma.Modifiers.Modifiers
 
 import Prelude
 
-import Bulma.Core (class ClazzHelper, is, toString)
+import Bulma.Core (class ClazzHelper, ClazzName, ClazzPart(..), is, toClazzName, toClazzPart)
 
 data Colors
   = Primary
@@ -23,15 +23,15 @@ data Colors
   | Danger
 
 instance chColors :: ClazzHelper Colors where
-  toString Primary = "primary"
-  toString Link = "link"
-  toString Info = "info"
-  toString Success = "success"
-  toString Warning = "warning"
-  toString Danger = "danger"
+  toClazzPart Primary = ClazzPart "primary"
+  toClazzPart Link = ClazzPart "link"
+  toClazzPart Info = ClazzPart "info"
+  toClazzPart Success = ClazzPart "success"
+  toClazzPart Warning = ClazzPart "warning"
+  toClazzPart Danger = ClazzPart "danger"
 
-color :: Colors -> String
-color c = is $ toString c
+color :: Colors -> ClazzName
+color c = is $ toClazzPart c
 
 data Sizes
   = Small
@@ -39,12 +39,12 @@ data Sizes
   | Large
 
 instance chSizes :: ClazzHelper Sizes where
-  toString Small = "small"
-  toString Medium = "medium"
-  toString Large = "large"
+  toClazzPart Small = ClazzPart "small"
+  toClazzPart Medium = ClazzPart "medium"
+  toClazzPart Large = ClazzPart "large"
 
-size :: Sizes -> String
-size s = is $ toString s
+size :: Sizes -> ClazzName
+size s = is $ toClazzPart s
 
 
 data State
@@ -53,12 +53,12 @@ data State
   | Disabled
 
 instance chState :: ClazzHelper State where
-  toString Outlined = "outlined"
-  toString Loading = "loading"
-  toString Disabled = "[disabled]"
+  toClazzPart Outlined = ClazzPart "outlined"
+  toClazzPart Loading = ClazzPart "loading"
+  toClazzPart Disabled = ClazzPart "[disabled]"
 
-state :: State -> String
+state :: State -> ClazzName
 state st =
   case st of
-    Disabled -> toString st
-    _ -> is $ toString st
+    Disabled -> toClazzName $ toClazzPart st
+    _ -> is $ toClazzPart st

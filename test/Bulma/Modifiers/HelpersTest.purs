@@ -2,6 +2,7 @@ module Bulma.Modifiers.HelpersTest where
 
 import Prelude
 
+import Bulma.Core (ClazzName(..))
 import Bulma.Modifiers.Helpers (Helpers(..), helper)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
@@ -11,14 +12,14 @@ testSuiteHelpers :: forall e. Free (TestF e) Unit
 testSuiteHelpers =
   suite "Helpers" do
     test "helper" do
-      helper Clearfix `equal` "is-clearfix"
-      helper PulledLeft `equal` "is-pulled-left"
-      helper PulledRight `equal` "is-pulled-right"
-      helper Marginless `equal` "is-marginless"
-      helper Paddingless `equal` "is-paddingless"
-      helper Overlay `equal` "is-overlay"
-      helper Clipped `equal` "is-clipped"
-      helper Radiusless `equal` "is-radiusless"
-      helper Shadowless `equal` "is-shadowless"
-      helper Unsectable `equal` "is-unselectable"
-      helper Invisible `equal` "is-invisible"
+      helper Clearfix `equal` ClazzName "is-clearfix"
+      helper PulledLeft `equal` ClazzName "is-pulled-left"
+      helper PulledRight `equal` ClazzName "is-pulled-right"
+      helper Marginless `equal` ClazzName "is-marginless"
+      helper Paddingless `equal` ClazzName "is-paddingless"
+      helper Overlay `equal` ClazzName "is-overlay"
+      helper Clipped `equal` ClazzName "is-clipped"
+      helper Radiusless `equal` ClazzName "is-radiusless"
+      helper Shadowless `equal` ClazzName "is-shadowless"
+      helper Unsectable `equal` ClazzName "is-unselectable"
+      helper Invisible `equal` ClazzName "is-invisible"

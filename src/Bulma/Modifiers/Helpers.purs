@@ -8,7 +8,7 @@ module Bulma.Modifiers.Helpers
 
 import Prelude
 
-import Bulma.Core (class ClazzHelper, is, toString)
+import Bulma.Core (class ClazzHelper, ClazzName, ClazzPart(..), is, toClazzPart)
 
 
 data Helpers
@@ -25,17 +25,17 @@ data Helpers
   | Invisible
 
 instance chHelpers :: ClazzHelper Helpers where
-  toString Clearfix = "clearfix"
-  toString PulledLeft = "pulled-left"
-  toString PulledRight = "pulled-right"
-  toString Marginless = "marginless"
-  toString Paddingless = "paddingless"
-  toString Overlay = "overlay"
-  toString Clipped = "clipped"
-  toString Radiusless = "radiusless"
-  toString Shadowless = "shadowless"
-  toString Unsectable = "unselectable"
-  toString Invisible = "invisible"
+  toClazzPart Clearfix = ClazzPart "clearfix"
+  toClazzPart PulledLeft = ClazzPart "pulled-left"
+  toClazzPart PulledRight = ClazzPart "pulled-right"
+  toClazzPart Marginless = ClazzPart "marginless"
+  toClazzPart Paddingless = ClazzPart "paddingless"
+  toClazzPart Overlay = ClazzPart "overlay"
+  toClazzPart Clipped = ClazzPart "clipped"
+  toClazzPart Radiusless = ClazzPart "radiusless"
+  toClazzPart Shadowless = ClazzPart "shadowless"
+  toClazzPart Unsectable = ClazzPart "unselectable"
+  toClazzPart Invisible = ClazzPart "invisible"
 
-helper :: Helpers -> String
-helper h = is $ toString h
+helper :: Helpers -> ClazzName
+helper h = is $ toClazzPart h

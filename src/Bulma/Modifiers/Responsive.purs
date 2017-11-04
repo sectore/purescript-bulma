@@ -13,51 +13,51 @@ module Bulma.Modifiers.Responsive
 
 import Prelude
 
-import Bulma.Core (BreakPoints, combine, is, toString)
+import Bulma.Core (BreakPoints, ClazzName, ClazzPart(..), is, joinClazzParts, toClazzPart, toClazzPart)
 
-showFlex :: BreakPoints -> String
-showFlex bp = is $ flex $ toString bp
+showFlex :: BreakPoints -> ClazzName
+showFlex bp = is $ flex $ toClazzPart bp
 
-showBlock :: BreakPoints -> String
-showBlock bp = is $ block $ toString bp
+showBlock :: BreakPoints -> ClazzName
+showBlock bp = is $ block $ toClazzPart bp
 
-showInline :: BreakPoints -> String
-showInline bp = is $ inline $ toString bp
+showInline :: BreakPoints -> ClazzName
+showInline bp = is $ inline $ toClazzPart bp
 
-showInlineBlock :: BreakPoints -> String
-showInlineBlock bp = is $ inlineBlock $ toString bp
+showInlineBlock :: BreakPoints -> ClazzName
+showInlineBlock bp = is $ inlineBlock $ toClazzPart bp
 
-showInlineFlex :: BreakPoints -> String
-showInlineFlex bp = is $ inlineFlex $ toString bp
+showInlineFlex :: BreakPoints -> ClazzName
+showInlineFlex bp = is $ inlineFlex $ toClazzPart bp
 
-hide :: BreakPoints -> String
-hide bp = is $ combine ["hidden", toString bp]
+hide :: BreakPoints -> ClazzName
+hide bp = is $ joinClazzParts [ClazzPart "hidden", toClazzPart bp]
 
-breakpoint :: BreakPoints -> String
-breakpoint = is <<< toString
+breakpoint :: BreakPoints -> ClazzName
+breakpoint = is <<< toClazzPart
 
 -- | Private helpers
 
-flex :: String -> String
+flex :: ClazzPart -> ClazzPart
 flex str =
-  combine ["flex", str]
+  joinClazzParts [ClazzPart "flex", str]
 
-block :: String -> String
+block :: ClazzPart -> ClazzPart
 block str =
-  combine ["block", str]
+  joinClazzParts [ClazzPart "block", str]
 
-inline :: String -> String
+inline :: ClazzPart -> ClazzPart
 inline str =
-  combine ["inline", str]
+  joinClazzParts [ClazzPart "inline", str]
 
-inlineBlock :: String -> String
+inlineBlock :: ClazzPart -> ClazzPart
 inlineBlock str =
-  inline $ combine ["block", str]
+  inline $ joinClazzParts [ClazzPart "block", str]
 
-inlineFlex :: String -> String
+inlineFlex :: ClazzPart -> ClazzPart
 inlineFlex str =
-  inline $ combine ["flex", str]
+  inline $ joinClazzParts [ClazzPart "flex", str]
 
-hidden :: String -> String
+hidden :: ClazzPart -> ClazzPart
 hidden str =
-  combine ["hidden", str]
+  joinClazzParts [ClazzPart "hidden", str]
