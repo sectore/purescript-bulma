@@ -2,7 +2,7 @@ module Bulma.Modifiers.TypographyTest where
 
 import Prelude
 
-import Bulma.Core (BreakPoints(..), ClazzName(..), clazzNotSupported, runClazzName)
+import Bulma.Core (BreakPoints(..), ClazzName(..), runClazzName)
 import Bulma.Modifiers.Typography (Alignment(..), Colors(..), Sizes(..), Transformation(..), Weight(..), alignment, color, responsiveSize, responsiveAlignment, size, transformation, weight)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
@@ -69,9 +69,12 @@ testSuiteTypography =
       responsiveSize Size7 Widescreen `equal` ClazzName "is-size-7-widescreen"
       responsiveSize Size7 FullHD `equal` ClazzName "is-size-7-fullhd"
     test "responsive size is not supported by some breakpoints" do
-      responsiveSize Size1 DesktopOnly `equal` clazzNotSupported
-      responsiveSize Size1 WidescreenOnly `equal` clazzNotSupported
-      responsiveSize Size1 TabletOnly `equal` clazzNotSupported
+      responsiveSize Size1 DesktopOnly `equal`
+        ClazzName "is-size-1-desktop-only-IS-NOT-SUPPORTED-HERE"
+      responsiveSize Size1 WidescreenOnly `equal`
+        ClazzName "is-size-1-widescreen-only-IS-NOT-SUPPORTED-HERE"
+      responsiveSize Size1 TabletOnly `equal`
+        ClazzName "is-size-1-tablet-only-IS-NOT-SUPPORTED-HERE"
     test "color" do
       color White `equal` ClazzName "has-text-white"
       color Black `equal` ClazzName "has-text-black"

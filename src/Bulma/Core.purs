@@ -3,17 +3,45 @@ module Bulma.Core where
 import Prelude
 
 import Data.Generic (class Generic, gShow)
-import Data.Newtype (class Newtype, unwrap)
+import Data.Newtype (class Newtype, over, unwrap, wrap)
 import Data.String (joinWith)
 
 class ClazzHelper a where
   toClazzPart :: a -> ClazzPart
 
-clazzDelimiter :: String
-clazzDelimiter = "-"
+notSupported :: ClazzName -> ClazzName
+notSupported = over ClazzName (flip (<>) "-IS-NOT-SUPPORTED-HERE")
 
-clazzNotSupported :: ClazzName
-clazzNotSupported = ClazzName "clazz-is-not-supported"
+data Sizes
+  = Size1
+  | Size2
+  | Size3
+  | Size4
+  | Size5
+  | Size6
+  | Size7
+  | Size8
+  | Size9
+  | Size10
+  | Size11
+  | Size12
+
+derive instance eqSizes :: Eq Sizes
+derive instance ordSizes :: Ord Sizes
+
+instance chSize :: ClazzHelper Sizes where
+  toClazzPart Size1 = ClazzPart "1"
+  toClazzPart Size2 = ClazzPart "2"
+  toClazzPart Size3 = ClazzPart "3"
+  toClazzPart Size4 = ClazzPart "4"
+  toClazzPart Size5 = ClazzPart "5"
+  toClazzPart Size6 = ClazzPart "6"
+  toClazzPart Size7 = ClazzPart "7"
+  toClazzPart Size8 = ClazzPart "8"
+  toClazzPart Size9 = ClazzPart "9"
+  toClazzPart Size10 = ClazzPart "10"
+  toClazzPart Size11 = ClazzPart "11"
+  toClazzPart Size12 = ClazzPart "12"
 
 data BreakPoints
   = Mobile
@@ -40,6 +68,8 @@ instance chBreakPoints :: ClazzHelper BreakPoints where
 
 newtype ClazzName = ClazzName String
 derive instance eqClazzPart :: Eq ClazzName
+derive instance ntClazzName :: Newtype ClazzName _
+
 derive instance gClazzPart :: Generic ClazzName
 instance sClazzPart :: Show ClazzName where
   show = gShow
@@ -56,10 +86,10 @@ has cp =
   toClazzName $ joinClazzParts [ClazzPart "has", cp]
 
 joinClazzParts :: Array ClazzPart -> ClazzPart
-joinClazzParts arr = ClazzPart $ joinWith clazzDelimiter $ map unwrap arr
+joinClazzParts arr = ClazzPart $ joinWith "-" $ map unwrap arr
 
 toClazzName :: ClazzPart -> ClazzName
-toClazzName = ClazzName <<< unwrap
+toClazzName = wrap <<< unwrap
 
 runClazzName :: ClazzName -> String
 runClazzName (ClazzName name) = name

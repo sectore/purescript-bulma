@@ -2,8 +2,8 @@ module Bulma.Columns.SizesTest where
 
 import Prelude
 
-import Bulma.Columns.Sizes (PercentSizes(..), Sizes(..), narrow, offset, percentOffset, percentSize, responsiveNarrow, responsivePercentSize, size)
-import Bulma.Core (BreakPoints(..), ClazzName(..))
+import Bulma.Columns.Sizes (PercentSizes(..), narrow, offset, percentOffset, percentSize, responsiveNarrow, responsivePercentSize, size)
+import Bulma.Core (BreakPoints(..), ClazzName(..), Sizes(..))
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
@@ -12,6 +12,7 @@ testSuiteSizes :: forall e. Free (TestF e) Unit
 testSuiteSizes =
   suite "Sizes" do
     test "sizes" do
+      size Size1 `equal` ClazzName "is-1-IS-NOT-SUPPORTED-HERE"
       size Size2 `equal` ClazzName "is-2"
       size Size3 `equal` ClazzName "is-3"
       size Size4 `equal` ClazzName "is-4"
@@ -22,6 +23,7 @@ testSuiteSizes =
       size Size9 `equal` ClazzName "is-9"
       size Size10 `equal` ClazzName "is-10"
       size Size11 `equal` ClazzName "is-11"
+      size Size12 `equal` ClazzName "is-12-IS-NOT-SUPPORTED-HERE"
     test "percent sizes" do
       percentSize ThreeQuarters `equal` ClazzName "is-three-quarters"
       percentSize TwoThirds `equal` ClazzName "is-two-thirds"

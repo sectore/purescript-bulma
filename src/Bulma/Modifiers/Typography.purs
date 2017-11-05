@@ -18,7 +18,7 @@ module Bulma.Modifiers.Typography
 
 import Prelude
 
-import Bulma.Core (class ClazzHelper, BreakPoints(..), ClazzName, ClazzPart(..), clazzNotSupported, has, is, joinClazzParts, toClazzPart)
+import Bulma.Core (class ClazzHelper, BreakPoints(..), ClazzName, ClazzPart(..), has, is, joinClazzParts, notSupported, toClazzPart)
 
 -- | Typography sizes
 -- https://bulma.io/documentation/modifiers/typography-helpers/#size
@@ -50,11 +50,12 @@ size = is <<< toClazzPart
 
 responsiveSize :: Sizes -> BreakPoints -> ClazzName
 responsiveSize s bp =
+  let clazzName = is $ joinClazzParts [toClazzPart s, toClazzPart bp] in
   case bp of
-    DesktopOnly -> clazzNotSupported
-    WidescreenOnly -> clazzNotSupported
-    TabletOnly -> clazzNotSupported
-    _ -> is $ joinClazzParts [toClazzPart s, toClazzPart bp]
+    DesktopOnly -> notSupported clazzName
+    WidescreenOnly -> notSupported clazzName
+    TabletOnly -> notSupported clazzName
+    _ -> clazzName
 
 -- | Text colors
 -- https://bulma.io/documentation/modifiers/typography-helpers/#colors
