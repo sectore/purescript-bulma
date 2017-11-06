@@ -6,44 +6,44 @@ import Data.Generic (class Generic, gShow)
 import Data.Newtype (class Newtype, over, unwrap, wrap)
 import Data.String (joinWith)
 
-class ClazzHelper a where
+class ClassHelper a where
   toClassPart :: a -> ClassPart
 
 notSupported :: ClassName -> ClassName
 notSupported = over ClassName (flip (<>) "-IS-NOT-SUPPORTED-HERE")
 
-data Sizes
-  = Size1
-  | Size2
-  | Size3
-  | Size4
-  | Size5
-  | Size6
-  | Size7
-  | Size8
-  | Size9
-  | Size10
-  | Size11
-  | Size12
+data Is
+  = Is1
+  | Is2
+  | Is3
+  | Is4
+  | Is5
+  | Is6
+  | Is7
+  | Is8
+  | Is9
+  | Is10
+  | Is11
+  | Is12
 
-derive instance eqSizes :: Eq Sizes
-derive instance ordSizes :: Ord Sizes
+derive instance eqIs :: Eq Is
+derive instance ordIs :: Ord Is
 
-instance chSize :: ClazzHelper Sizes where
-  toClassPart Size1 = ClassPart "1"
-  toClassPart Size2 = ClassPart "2"
-  toClassPart Size3 = ClassPart "3"
-  toClassPart Size4 = ClassPart "4"
-  toClassPart Size5 = ClassPart "5"
-  toClassPart Size6 = ClassPart "6"
-  toClassPart Size7 = ClassPart "7"
-  toClassPart Size8 = ClassPart "8"
-  toClassPart Size9 = ClassPart "9"
-  toClassPart Size10 = ClassPart "10"
-  toClassPart Size11 = ClassPart "11"
-  toClassPart Size12 = ClassPart "12"
+instance chIs :: ClassHelper Is where
+  toClassPart Is1 = ClassPart "1"
+  toClassPart Is2 = ClassPart "2"
+  toClassPart Is3 = ClassPart "3"
+  toClassPart Is4 = ClassPart "4"
+  toClassPart Is5 = ClassPart "5"
+  toClassPart Is6 = ClassPart "6"
+  toClassPart Is7 = ClassPart "7"
+  toClassPart Is8 = ClassPart "8"
+  toClassPart Is9 = ClassPart "9"
+  toClassPart Is10 = ClassPart "10"
+  toClassPart Is11 = ClassPart "11"
+  toClassPart Is12 = ClassPart "12"
 
-data BreakPoints
+data Breakpoint
   = Mobile
   | Tablet
   | TabletOnly
@@ -55,7 +55,7 @@ data BreakPoints
   | FullHD
 
 
-instance chBreakPoints :: ClazzHelper BreakPoints where
+instance chBreakpoint :: ClassHelper Breakpoint where
   toClassPart Mobile = ClassPart "mobile"
   toClassPart Tablet = ClassPart "tablet"
   toClassPart TabletOnly = ClassPart "tablet-only"
@@ -77,12 +77,12 @@ instance sClassPart :: Show ClassName where
 newtype ClassPart = ClassPart String
 derive instance ntClassPart :: Newtype ClassPart _
 
-is :: ClassPart -> ClassName
-is cp =
+isClass :: ClassPart -> ClassName
+isClass cp =
   toClassName $ joinClassParts [ClassPart "is", cp]
 
-has :: ClassPart -> ClassName
-has cp =
+hasClass :: ClassPart -> ClassName
+hasClass cp =
   toClassName $ joinClassParts [ClassPart "has", cp]
 
 joinClassParts :: Array ClassPart -> ClassPart

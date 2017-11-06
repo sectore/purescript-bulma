@@ -2,19 +2,19 @@
 -- https://bulma.io/documentation/modifiers/syntax/
 
 module Bulma.Modifiers.Modifiers
-  ( Colors(..)
-  , color
-  , Sizes(..)
-  , size
+  ( Color(..)
+  , isColor
+  , Size(..)
+  , isSize
   , State(..)
-  , state
+  , isState
   ) where
 
 import Prelude
 
-import Bulma.Core (class ClazzHelper, ClassName, ClassPart(..), is, toClassName, toClassPart)
+import Bulma.Core (class ClassHelper, ClassName, ClassPart(..), isClass, toClassName, toClassPart)
 
-data Colors
+data Color
   = Primary
   | Link
   | Info
@@ -22,7 +22,7 @@ data Colors
   | Warning
   | Danger
 
-instance chColors :: ClazzHelper Colors where
+instance chColor :: ClassHelper Color where
   toClassPart Primary = ClassPart "primary"
   toClassPart Link = ClassPart "link"
   toClassPart Info = ClassPart "info"
@@ -30,21 +30,22 @@ instance chColors :: ClazzHelper Colors where
   toClassPart Warning = ClassPart "warning"
   toClassPart Danger = ClassPart "danger"
 
-color :: Colors -> ClassName
-color = is <<< toClassPart
+isColor :: Color -> ClassName
+isColor = isClass <<< toClassPart
 
-data Sizes
+
+data Size
   = Small
   | Medium
   | Large
 
-instance chSizes :: ClazzHelper Sizes where
+instance chSize :: ClassHelper Size where
   toClassPart Small = ClassPart "small"
   toClassPart Medium = ClassPart "medium"
   toClassPart Large = ClassPart "large"
 
-size :: Sizes -> ClassName
-size = is <<< toClassPart
+isSize :: Size -> ClassName
+isSize = isClass <<< toClassPart
 
 
 data State
@@ -52,13 +53,13 @@ data State
   | Loading
   | Disabled
 
-instance chState :: ClazzHelper State where
+instance chState :: ClassHelper State where
   toClassPart Outlined = ClassPart "outlined"
   toClassPart Loading = ClassPart "loading"
   toClassPart Disabled = ClassPart "[disabled]"
 
-state :: State -> ClassName
-state st =
+isState :: State -> ClassName
+isState st =
   case st of
     Disabled -> toClassName $ toClassPart st
-    _ -> is $ toClassPart st
+    _ -> isClass $ toClassPart st

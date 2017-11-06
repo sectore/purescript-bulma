@@ -1,19 +1,19 @@
-module Bulma.Columns.Sizes
-  ( narrow
-  , responsiveNarrow
-  , offset
-  , PercentSizes(..)
-  , percentOffset
-  , percentSize
-  , responsivePercentSize
-  , size
+module Bulma.Columns.Size
+  ( isNarrow
+  , isNarrowResponsive
+  , isOffset
+  , PercentSize(..)
+  , isPercentOffset
+  , isPercentSize
+  , isPercentSizeResponsive
+  , isSize
   ) where
 
 import Prelude
 
-import Bulma.Core (class ClazzHelper, BreakPoints, ClassName, ClassPart(..), Sizes(..), notSupported, is, joinClassParts, toClassPart)
+import Bulma.Core (class ClassHelper, Breakpoint, ClassName, ClassPart(..), Is(..), notSupported, isClass, joinClassParts, toClassPart)
 
-data PercentSizes
+data PercentSize
   = ThreeQuarters
   | TwoThirds
   | Half
@@ -24,7 +24,7 @@ data PercentSizes
   | TwoFifths
   | OneFifth
 
-instance chPercentSizes :: ClazzHelper PercentSizes where
+instance chPercentSize :: ClassHelper PercentSize where
   toClassPart ThreeQuarters = ClassPart "three-quarters"
   toClassPart TwoThirds = ClassPart "two-thirds"
   toClassPart Half = ClassPart "half"
@@ -35,34 +35,34 @@ instance chPercentSizes :: ClazzHelper PercentSizes where
   toClassPart TwoFifths = ClassPart "two-fifths"
   toClassPart OneFifth = ClassPart "one-fifth"
 
-percentSize :: PercentSizes -> ClassName
-percentSize = is <<< toClassPart
+isPercentSize :: PercentSize -> ClassName
+isPercentSize = isClass <<< toClassPart
 
-responsivePercentSize :: PercentSizes -> BreakPoints -> ClassName
-responsivePercentSize s bp =
-  is $ joinClassParts [toClassPart s, toClassPart bp]
+isPercentSizeResponsive :: PercentSize -> Breakpoint -> ClassName
+isPercentSizeResponsive s bp =
+  isClass $ joinClassParts [toClassPart s, toClassPart bp]
 
-size :: Sizes -> ClassName
-size s =
-  let clazzName = is $ toClassPart s in
-  if s <= Size1 || s >= Size12
+isSize :: Is -> ClassName
+isSize i =
+  let clazzName = isClass $ toClassPart i in
+  if i <= Is1 || i >= Is12
   then notSupported clazzName
   else clazzName
 
-offset :: Sizes -> ClassName
-offset = isOffset <<< toClassPart
+isOffset :: Is -> ClassName
+isOffset = isOffsetClass <<< toClassPart
 
-percentOffset :: PercentSizes -> ClassName
-percentOffset = isOffset <<< toClassPart
+isPercentOffset :: PercentSize -> ClassName
+isPercentOffset = isOffsetClass <<< toClassPart
 
-narrow :: ClassName
-narrow = is $ ClassPart "narrow"
+isNarrow :: ClassName
+isNarrow = isClass $ ClassPart "narrow"
 
-responsiveNarrow :: BreakPoints -> ClassName
-responsiveNarrow bp = is $ joinClassParts [ClassPart "narrow", toClassPart bp]
+isNarrowResponsive :: Breakpoint -> ClassName
+isNarrowResponsive bp = isClass $ joinClassParts [ClassPart "narrow", toClassPart bp]
 
 
 -- private helpers
 
-isOffset :: ClassPart -> ClassName
-isOffset s = is $ joinClassParts [ClassPart "offset", s]
+isOffsetClass :: ClassPart -> ClassName
+isOffsetClass s = isClass $ joinClassParts [ClassPart "offset", s]

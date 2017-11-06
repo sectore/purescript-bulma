@@ -3,27 +3,27 @@
 
 module Bulma.Modifiers.Typography
   ( Alignment(..)
-  , alignment
-  , Colors(..)
-  , color
-  , responsiveSize
-  , responsiveAlignment
-  , Sizes(..)
-  , size
+  , Color(..)
+  , hasAlignment
+  , hasAlignmentResponsive
+  , hasColor
+  , hasWeight
+  , isSizeResponsive
+  , isTransformed
+  , Size(..)
+  , isSize
   , Transformation(..)
-  , transformation
   , Weight(..)
-  , weight
   ) where
 
 import Prelude
 
-import Bulma.Core (class ClazzHelper, BreakPoints(..), ClassName, ClassPart(..), has, is, joinClassParts, notSupported, toClassPart)
+import Bulma.Core (class ClassHelper, Breakpoint(..), ClassName, ClassPart(..), hasClass, isClass, joinClassParts, notSupported, toClassPart)
 
 -- | Typography sizes
 -- https://bulma.io/documentation/modifiers/typography-helpers/#size
 
-data Sizes
+data Size
   = Size1
   | Size2
   | Size3
@@ -32,7 +32,7 @@ data Sizes
   | Size6
   | Size7
 
-instance chSizes :: ClazzHelper Sizes where
+instance chSize :: ClassHelper Size where
   toClassPart Size1 = ClassPart "size-1"
   toClassPart Size2 = ClassPart "size-2"
   toClassPart Size3 = ClassPart "size-3"
@@ -41,16 +41,16 @@ instance chSizes :: ClazzHelper Sizes where
   toClassPart Size6 = ClassPart "size-6"
   toClassPart Size7 = ClassPart "size-7"
 
-size :: Sizes -> ClassName
-size = is <<< toClassPart
+isSize :: Size -> ClassName
+isSize = isClass <<< toClassPart
 
 
 -- | Responsive size
 -- https://bulma.io/documentation/modifiers/typography-helpers/#responsive-size
 
-responsiveSize :: Sizes -> BreakPoints -> ClassName
-responsiveSize s bp =
-  let clazzName = is $ joinClassParts [toClassPart s, toClassPart bp] in
+isSizeResponsive :: Size -> Breakpoint -> ClassName
+isSizeResponsive s bp =
+  let clazzName = isClass $ joinClassParts [toClassPart s, toClassPart bp] in
   case bp of
     DesktopOnly -> notSupported clazzName
     WidescreenOnly -> notSupported clazzName
@@ -60,7 +60,7 @@ responsiveSize s bp =
 -- | Text colors
 -- https://bulma.io/documentation/modifiers/typography-helpers/#colors
 
-data Colors
+data Color
   = White
   | Black
   | LightColor
@@ -82,7 +82,7 @@ data Colors
   | WhiteTer
   | WhiteBis
 
-instance chColors :: ClazzHelper Colors where
+instance chColor :: ClassHelper Color where
   toClassPart White = ClassPart "white"
   toClassPart Black = ClassPart "black"
   toClassPart LightColor = ClassPart "light"
@@ -102,8 +102,8 @@ instance chColors :: ClazzHelper Colors where
   toClassPart WhiteTer = ClassPart "white-ter"
   toClassPart WhiteBis = ClassPart "white-bis"
 
-color :: Colors -> ClassName
-color = hasText <<< toClassPart
+hasColor :: Color -> ClassName
+hasColor = hasTextClass  <<< toClassPart
 
 -- | Typography alignment
 -- https://bulma.io/documentation/modifiers/typography-helpers/#alignment
@@ -113,18 +113,18 @@ data Alignment
   | Left
   | Right
 
-instance chAlignment :: ClazzHelper Alignment where
+instance chAlignment :: ClassHelper Alignment where
   toClassPart Centered = ClassPart "centered"
   toClassPart Justified = ClassPart "justified"
   toClassPart Left = ClassPart "left"
   toClassPart Right = ClassPart "right"
 
-alignment :: Alignment -> ClassName
-alignment = hasText <<< toClassPart
+hasAlignment :: Alignment -> ClassName
+hasAlignment = hasTextClass <<< toClassPart
 
-responsiveAlignment :: Alignment -> BreakPoints -> ClassName
-responsiveAlignment a bp =
-  hasText $ joinClassParts [toClassPart a, toClassPart bp]
+hasAlignmentResponsive :: Alignment -> Breakpoint -> ClassName
+hasAlignmentResponsive a bp =
+  hasTextClass $ joinClassParts [toClassPart a, toClassPart bp]
 
 
 -- | Typography transformation
@@ -134,13 +134,13 @@ data Transformation
   | Lowercase
   | Uppercase
 
-instance chTransformation :: ClazzHelper Transformation where
+instance chTransformation :: ClassHelper Transformation where
   toClassPart Capitalized = ClassPart "capitalized"
   toClassPart Lowercase = ClassPart "lowercase"
   toClassPart Uppercase = ClassPart "uppercase"
 
-transformation :: Transformation -> ClassName
-transformation = is <<< toClassPart
+isTransformed :: Transformation -> ClassName
+isTransformed = isClass <<< toClassPart
 
 -- | Typography weight
 -- https://bulma.io/documentation/modifiers/typography-helpers/#weight
@@ -148,22 +148,22 @@ transformation = is <<< toClassPart
 data Weight
   = LightWeight
   -- ^ Renamed from `Light` to `LightWeight`
-  -- to avoid conficts of Colors `Light`
+  -- to avoid conficts of Color `Light`
   | Normal
   | Semibold
   | Bold
 
-instance chWeight :: ClazzHelper Weight where
+instance chWeight :: ClassHelper Weight where
   toClassPart LightWeight = ClassPart "weight-light"
   toClassPart Normal = ClassPart "weight-normal"
   toClassPart Semibold = ClassPart "weight-semibold"
   toClassPart Bold = ClassPart "weight-bold"
 
-weight :: Weight -> ClassName
-weight = hasText <<< toClassPart
+hasWeight :: Weight -> ClassName
+hasWeight = hasTextClass <<< toClassPart
 
 -- | Private helpers
 
-hasText :: ClassPart -> ClassName
-hasText str =
-  has $ joinClassParts [ClassPart "text", str]
+hasTextClass  :: ClassPart -> ClassName
+hasTextClass  str =
+  hasClass $ joinClassParts [ClassPart "text", str]

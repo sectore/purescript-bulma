@@ -3,12 +3,12 @@
 
 module Bulma.Modifiers.Helpers
   ( Helpers(..)
-  , helper
+  , is
   )where
 
 import Prelude
 
-import Bulma.Core (class ClazzHelper, ClassName, ClassPart(..), is, toClassPart)
+import Bulma.Core (class ClassHelper, ClassName, ClassPart(..), isClass, toClassPart)
 
 
 data Helpers
@@ -24,7 +24,7 @@ data Helpers
   | Unsectable
   | Invisible
 
-instance chHelpers :: ClazzHelper Helpers where
+instance chHelpers :: ClassHelper Helpers where
   toClassPart Clearfix = ClassPart "clearfix"
   toClassPart PulledLeft = ClassPart "pulled-left"
   toClassPart PulledRight = ClassPart "pulled-right"
@@ -37,5 +37,5 @@ instance chHelpers :: ClazzHelper Helpers where
   toClassPart Unsectable = ClassPart "unselectable"
   toClassPart Invisible = ClassPart "invisible"
 
-helper :: Helpers -> ClassName
-helper = is <<< toClassPart
+is :: Helpers -> ClassName
+is = isClass <<< toClassPart

@@ -2,74 +2,66 @@
 -- See https://bulma.io/documentation/modifiers/responsive-helpers/
 
 module Bulma.Modifiers.Responsive
-  ( breakpoint
-  , hide
-  , showBlock
-  , showFlex
-  , showInline
-  , showInlineBlock
-  , showInlineFlex
-  , showInlineFlex'
+  ( isBreakpoint
+  , isHiddenResponsive
+  , isBlockResponsive
+  , isFlexResponsive
+  , isInlineBlockResponsive
+  , isInlineFlexResponsive
+  , isInlineResponsive
+  , isInlineFlex
   )where
 
 import Prelude
 
-import Bulma.Core (BreakPoints, ClassName, ClassPart(..), is, joinClassParts, toClassPart)
+import Bulma.Core (Breakpoint, ClassName, ClassPart(..), isClass, joinClassParts, toClassPart)
 
-showFlex :: BreakPoints -> ClassName
-showFlex = is <<< flex <<< toClassPart
+isFlexResponsive :: Breakpoint -> ClassName
+isFlexResponsive = isClass <<< flexPart <<< toClassPart
 
-showBlock :: BreakPoints -> ClassName
-showBlock = is <<< block <<< toClassPart
+isBlockResponsive :: Breakpoint -> ClassName
+isBlockResponsive = isClass <<< blockPart <<< toClassPart
 
-showInline :: BreakPoints -> ClassName
-showInline = is <<< inline <<< toClassPart
+isInlineResponsive :: Breakpoint -> ClassName
+isInlineResponsive = isClass <<< inlinePart <<< toClassPart
 
-showInlineBlock :: BreakPoints -> ClassName
-showInlineBlock = is <<< inlineBlock <<< toClassPart
+isInlineBlockResponsive  :: Breakpoint -> ClassName
+isInlineBlockResponsive  = isClass <<< inlineBlockPart <<< toClassPart
 
--- TODO Rename it to `responsiveInlineFlex`
-showInlineFlex :: BreakPoints -> ClassName
-showInlineFlex = is <<< inlineFlex <<< toClassPart
+isInlineFlexResponsive :: Breakpoint -> ClassName
+isInlineFlexResponsive = isClass <<< inlineFlexPart' <<< toClassPart
 
--- TODO Rename it to `inlineFlex`
-showInlineFlex' ::  ClassName
-showInlineFlex' = is inlineFlex'
+isInlineFlex ::  ClassName
+isInlineFlex = isClass inlineFlexPart
 
-hide :: BreakPoints -> ClassName
-hide bp = is $ joinClassParts [ClassPart "hidden", toClassPart bp]
+isHiddenResponsive :: Breakpoint -> ClassName
+isHiddenResponsive bp = isClass $ joinClassParts [ClassPart "hidden", toClassPart bp]
 
-breakpoint :: BreakPoints -> ClassName
-breakpoint = is <<< toClassPart
+isBreakpoint:: Breakpoint -> ClassName
+isBreakpoint= isClass <<< toClassPart
 
 -- | Private helpers
 
-flex :: ClassPart -> ClassPart
-flex str =
+flexPart :: ClassPart -> ClassPart
+flexPart str =
   joinClassParts [ClassPart "flex", str]
 
-block :: ClassPart -> ClassPart
-block str =
+blockPart :: ClassPart -> ClassPart
+blockPart str =
   joinClassParts [ClassPart "block", str]
 
-inline :: ClassPart -> ClassPart
-inline str =
+inlinePart :: ClassPart -> ClassPart
+inlinePart str =
   joinClassParts [ClassPart "inline", str]
 
-inlineBlock :: ClassPart -> ClassPart
-inlineBlock str =
-  inline $ joinClassParts [ClassPart "block", str]
+inlineBlockPart :: ClassPart -> ClassPart
+inlineBlockPart str =
+  inlinePart $ joinClassParts [ClassPart "block", str]
 
--- TODO Rename it to `mkResponsiveInlineFlex`
-inlineFlex :: ClassPart -> ClassPart
-inlineFlex str =
-  inline $ joinClassParts [ClassPart "flex", str]
+inlineFlexPart :: ClassPart
+inlineFlexPart =
+  inlinePart $ ClassPart "flex"
 
--- TODO Rename it to `mkInlineFlex`
-inlineFlex' :: ClassPart
-inlineFlex' =
-  inline $ ClassPart "flex"
-
-hidden :: ClassPart -> ClassPart
-hidden str =
-  joinClassParts [ClassPart "hidden", str]
+inlineFlexPart' :: ClassPart -> ClassPart
+inlineFlexPart' str =
+  inlinePart $ joinClassParts [ClassPart "flex", str]

@@ -1,9 +1,14 @@
 module Bulma.Columns.Columns where
 
-import Bulma.Core (ClassName(..))
+import Prelude
+
+import Bulma.Core (ClassName(..), ClassPart(..), isClass)
 
 columns :: ClassName
 columns = ClassName "columns"
 
 column :: ClassName
 column = ClassName "column"
+
+isMultiline :: ClassName
+isMultiline = isClass $ ClassPart "multiline"
