@@ -7,10 +7,10 @@ import Data.Newtype (class Newtype, over, unwrap, wrap)
 import Data.String (joinWith)
 
 class ClazzHelper a where
-  toClazzPart :: a -> ClazzPart
+  toClassPart :: a -> ClassPart
 
-notSupported :: ClazzName -> ClazzName
-notSupported = over ClazzName (flip (<>) "-IS-NOT-SUPPORTED-HERE")
+notSupported :: ClassName -> ClassName
+notSupported = over ClassName (flip (<>) "-IS-NOT-SUPPORTED-HERE")
 
 data Sizes
   = Size1
@@ -30,18 +30,18 @@ derive instance eqSizes :: Eq Sizes
 derive instance ordSizes :: Ord Sizes
 
 instance chSize :: ClazzHelper Sizes where
-  toClazzPart Size1 = ClazzPart "1"
-  toClazzPart Size2 = ClazzPart "2"
-  toClazzPart Size3 = ClazzPart "3"
-  toClazzPart Size4 = ClazzPart "4"
-  toClazzPart Size5 = ClazzPart "5"
-  toClazzPart Size6 = ClazzPart "6"
-  toClazzPart Size7 = ClazzPart "7"
-  toClazzPart Size8 = ClazzPart "8"
-  toClazzPart Size9 = ClazzPart "9"
-  toClazzPart Size10 = ClazzPart "10"
-  toClazzPart Size11 = ClazzPart "11"
-  toClazzPart Size12 = ClazzPart "12"
+  toClassPart Size1 = ClassPart "1"
+  toClassPart Size2 = ClassPart "2"
+  toClassPart Size3 = ClassPart "3"
+  toClassPart Size4 = ClassPart "4"
+  toClassPart Size5 = ClassPart "5"
+  toClassPart Size6 = ClassPart "6"
+  toClassPart Size7 = ClassPart "7"
+  toClassPart Size8 = ClassPart "8"
+  toClassPart Size9 = ClassPart "9"
+  toClassPart Size10 = ClassPart "10"
+  toClassPart Size11 = ClassPart "11"
+  toClassPart Size12 = ClassPart "12"
 
 data BreakPoints
   = Mobile
@@ -56,43 +56,43 @@ data BreakPoints
 
 
 instance chBreakPoints :: ClazzHelper BreakPoints where
-  toClazzPart Mobile = ClazzPart "mobile"
-  toClazzPart Tablet = ClazzPart "tablet"
-  toClazzPart TabletOnly = ClazzPart "tablet-only"
-  toClazzPart Touch = ClazzPart "touch"
-  toClazzPart Desktop = ClazzPart "desktop"
-  toClazzPart DesktopOnly = ClazzPart "desktop-only"
-  toClazzPart Widescreen = ClazzPart "widescreen"
-  toClazzPart WidescreenOnly = ClazzPart "widescreen-only"
-  toClazzPart FullHD = ClazzPart "fullhd"
+  toClassPart Mobile = ClassPart "mobile"
+  toClassPart Tablet = ClassPart "tablet"
+  toClassPart TabletOnly = ClassPart "tablet-only"
+  toClassPart Touch = ClassPart "touch"
+  toClassPart Desktop = ClassPart "desktop"
+  toClassPart DesktopOnly = ClassPart "desktop-only"
+  toClassPart Widescreen = ClassPart "widescreen"
+  toClassPart WidescreenOnly = ClassPart "widescreen-only"
+  toClassPart FullHD = ClassPart "fullhd"
 
-newtype ClazzName = ClazzName String
-derive instance eqClazzPart :: Eq ClazzName
-derive instance ntClazzName :: Newtype ClazzName _
+newtype ClassName = ClassName String
+derive instance eqClassPart :: Eq ClassName
+derive instance ntClassName :: Newtype ClassName _
 
-derive instance gClazzPart :: Generic ClazzName
-instance sClazzPart :: Show ClazzName where
+derive instance gClassPart :: Generic ClassName
+instance sClassPart :: Show ClassName where
   show = gShow
 
-newtype ClazzPart = ClazzPart String
-derive instance ntClazzPart :: Newtype ClazzPart _
+newtype ClassPart = ClassPart String
+derive instance ntClassPart :: Newtype ClassPart _
 
-is :: ClazzPart -> ClazzName
+is :: ClassPart -> ClassName
 is cp =
-  toClazzName $ joinClazzParts [ClazzPart "is", cp]
+  toClassName $ joinClassParts [ClassPart "is", cp]
 
-has :: ClazzPart -> ClazzName
+has :: ClassPart -> ClassName
 has cp =
-  toClazzName $ joinClazzParts [ClazzPart "has", cp]
+  toClassName $ joinClassParts [ClassPart "has", cp]
 
-joinClazzParts :: Array ClazzPart -> ClazzPart
-joinClazzParts arr = ClazzPart $ joinWith "-" $ map unwrap arr
+joinClassParts :: Array ClassPart -> ClassPart
+joinClassParts arr = ClassPart $ joinWith "-" $ map unwrap arr
 
-toClazzName :: ClazzPart -> ClazzName
-toClazzName = wrap <<< unwrap
+toClassName :: ClassPart -> ClassName
+toClassName = wrap <<< unwrap
 
-runClazzName :: ClazzName -> String
-runClazzName (ClazzName name) = name
+runClassName :: ClassName -> String
+runClassName (ClassName name) = name
 
-runClazzNames :: Array ClazzName -> String
-runClazzNames = joinWith " " <<< map runClazzName
+runClassNames :: Array ClassName -> String
+runClassNames = joinWith " " <<< map runClassName

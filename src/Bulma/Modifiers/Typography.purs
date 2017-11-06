@@ -18,7 +18,7 @@ module Bulma.Modifiers.Typography
 
 import Prelude
 
-import Bulma.Core (class ClazzHelper, BreakPoints(..), ClazzName, ClazzPart(..), has, is, joinClazzParts, notSupported, toClazzPart)
+import Bulma.Core (class ClazzHelper, BreakPoints(..), ClassName, ClassPart(..), has, is, joinClassParts, notSupported, toClassPart)
 
 -- | Typography sizes
 -- https://bulma.io/documentation/modifiers/typography-helpers/#size
@@ -33,24 +33,24 @@ data Sizes
   | Size7
 
 instance chSizes :: ClazzHelper Sizes where
-  toClazzPart Size1 = ClazzPart "size-1"
-  toClazzPart Size2 = ClazzPart "size-2"
-  toClazzPart Size3 = ClazzPart "size-3"
-  toClazzPart Size4 = ClazzPart "size-4"
-  toClazzPart Size5 = ClazzPart "size-5"
-  toClazzPart Size6 = ClazzPart "size-6"
-  toClazzPart Size7 = ClazzPart "size-7"
+  toClassPart Size1 = ClassPart "size-1"
+  toClassPart Size2 = ClassPart "size-2"
+  toClassPart Size3 = ClassPart "size-3"
+  toClassPart Size4 = ClassPart "size-4"
+  toClassPart Size5 = ClassPart "size-5"
+  toClassPart Size6 = ClassPart "size-6"
+  toClassPart Size7 = ClassPart "size-7"
 
-size :: Sizes -> ClazzName
-size = is <<< toClazzPart
+size :: Sizes -> ClassName
+size = is <<< toClassPart
 
 
 -- | Responsive size
 -- https://bulma.io/documentation/modifiers/typography-helpers/#responsive-size
 
-responsiveSize :: Sizes -> BreakPoints -> ClazzName
+responsiveSize :: Sizes -> BreakPoints -> ClassName
 responsiveSize s bp =
-  let clazzName = is $ joinClazzParts [toClazzPart s, toClazzPart bp] in
+  let clazzName = is $ joinClassParts [toClassPart s, toClassPart bp] in
   case bp of
     DesktopOnly -> notSupported clazzName
     WidescreenOnly -> notSupported clazzName
@@ -83,27 +83,27 @@ data Colors
   | WhiteBis
 
 instance chColors :: ClazzHelper Colors where
-  toClazzPart White = ClazzPart "white"
-  toClazzPart Black = ClazzPart "black"
-  toClazzPart LightColor = ClazzPart "light"
-  toClazzPart Dark = ClazzPart "dark"
-  toClazzPart Primary = ClazzPart "primary"
-  toClazzPart Info = ClazzPart "info"
-  toClazzPart Success = ClazzPart "success"
-  toClazzPart Warning = ClazzPart "warning"
-  toClazzPart Danger = ClazzPart "danger"
-  toClazzPart BlackBis = ClazzPart "black-bis"
-  toClazzPart BlackTer = ClazzPart "black-ter"
-  toClazzPart GreyDarker = ClazzPart "grey-darker"
-  toClazzPart GreyDark = ClazzPart "grey-dark"
-  toClazzPart Grey = ClazzPart "grey"
-  toClazzPart GreyLight = ClazzPart "grey-light"
-  toClazzPart GreyLighter = ClazzPart "grey-lighter"
-  toClazzPart WhiteTer = ClazzPart "white-ter"
-  toClazzPart WhiteBis = ClazzPart "white-bis"
+  toClassPart White = ClassPart "white"
+  toClassPart Black = ClassPart "black"
+  toClassPart LightColor = ClassPart "light"
+  toClassPart Dark = ClassPart "dark"
+  toClassPart Primary = ClassPart "primary"
+  toClassPart Info = ClassPart "info"
+  toClassPart Success = ClassPart "success"
+  toClassPart Warning = ClassPart "warning"
+  toClassPart Danger = ClassPart "danger"
+  toClassPart BlackBis = ClassPart "black-bis"
+  toClassPart BlackTer = ClassPart "black-ter"
+  toClassPart GreyDarker = ClassPart "grey-darker"
+  toClassPart GreyDark = ClassPart "grey-dark"
+  toClassPart Grey = ClassPart "grey"
+  toClassPart GreyLight = ClassPart "grey-light"
+  toClassPart GreyLighter = ClassPart "grey-lighter"
+  toClassPart WhiteTer = ClassPart "white-ter"
+  toClassPart WhiteBis = ClassPart "white-bis"
 
-color :: Colors -> ClazzName
-color = hasText <<< toClazzPart
+color :: Colors -> ClassName
+color = hasText <<< toClassPart
 
 -- | Typography alignment
 -- https://bulma.io/documentation/modifiers/typography-helpers/#alignment
@@ -114,17 +114,17 @@ data Alignment
   | Right
 
 instance chAlignment :: ClazzHelper Alignment where
-  toClazzPart Centered = ClazzPart "centered"
-  toClazzPart Justified = ClazzPart "justified"
-  toClazzPart Left = ClazzPart "left"
-  toClazzPart Right = ClazzPart "right"
+  toClassPart Centered = ClassPart "centered"
+  toClassPart Justified = ClassPart "justified"
+  toClassPart Left = ClassPart "left"
+  toClassPart Right = ClassPart "right"
 
-alignment :: Alignment -> ClazzName
-alignment = hasText <<< toClazzPart
+alignment :: Alignment -> ClassName
+alignment = hasText <<< toClassPart
 
-responsiveAlignment :: Alignment -> BreakPoints -> ClazzName
+responsiveAlignment :: Alignment -> BreakPoints -> ClassName
 responsiveAlignment a bp =
-  hasText $ joinClazzParts [toClazzPart a, toClazzPart bp]
+  hasText $ joinClassParts [toClassPart a, toClassPart bp]
 
 
 -- | Typography transformation
@@ -135,12 +135,12 @@ data Transformation
   | Uppercase
 
 instance chTransformation :: ClazzHelper Transformation where
-  toClazzPart Capitalized = ClazzPart "capitalized"
-  toClazzPart Lowercase = ClazzPart "lowercase"
-  toClazzPart Uppercase = ClazzPart "uppercase"
+  toClassPart Capitalized = ClassPart "capitalized"
+  toClassPart Lowercase = ClassPart "lowercase"
+  toClassPart Uppercase = ClassPart "uppercase"
 
-transformation :: Transformation -> ClazzName
-transformation = is <<< toClazzPart
+transformation :: Transformation -> ClassName
+transformation = is <<< toClassPart
 
 -- | Typography weight
 -- https://bulma.io/documentation/modifiers/typography-helpers/#weight
@@ -154,16 +154,16 @@ data Weight
   | Bold
 
 instance chWeight :: ClazzHelper Weight where
-  toClazzPart LightWeight = ClazzPart "weight-light"
-  toClazzPart Normal = ClazzPart "weight-normal"
-  toClazzPart Semibold = ClazzPart "weight-semibold"
-  toClazzPart Bold = ClazzPart "weight-bold"
+  toClassPart LightWeight = ClassPart "weight-light"
+  toClassPart Normal = ClassPart "weight-normal"
+  toClassPart Semibold = ClassPart "weight-semibold"
+  toClassPart Bold = ClassPart "weight-bold"
 
-weight :: Weight -> ClazzName
-weight = hasText <<< toClazzPart
+weight :: Weight -> ClassName
+weight = hasText <<< toClassPart
 
 -- | Private helpers
 
-hasText :: ClazzPart -> ClazzName
+hasText :: ClassPart -> ClassName
 hasText str =
-  has $ joinClazzParts [ClazzPart "text", str]
+  has $ joinClassParts [ClassPart "text", str]

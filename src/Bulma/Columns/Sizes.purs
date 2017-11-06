@@ -11,7 +11,7 @@ module Bulma.Columns.Sizes
 
 import Prelude
 
-import Bulma.Core (class ClazzHelper, BreakPoints, ClazzName, ClazzPart(..), Sizes(..), notSupported, is, joinClazzParts, toClazzPart)
+import Bulma.Core (class ClazzHelper, BreakPoints, ClassName, ClassPart(..), Sizes(..), notSupported, is, joinClassParts, toClassPart)
 
 data PercentSizes
   = ThreeQuarters
@@ -25,44 +25,44 @@ data PercentSizes
   | OneFifth
 
 instance chPercentSizes :: ClazzHelper PercentSizes where
-  toClazzPart ThreeQuarters = ClazzPart "three-quarters"
-  toClazzPart TwoThirds = ClazzPart "two-thirds"
-  toClazzPart Half = ClazzPart "half"
-  toClazzPart OneThird = ClazzPart "one-third"
-  toClazzPart OneQuarter = ClazzPart "one-quarter"
-  toClazzPart FourFifths = ClazzPart "four-fifths"
-  toClazzPart ThreeFifths = ClazzPart "three-fifths"
-  toClazzPart TwoFifths = ClazzPart "two-fifths"
-  toClazzPart OneFifth = ClazzPart "one-fifth"
+  toClassPart ThreeQuarters = ClassPart "three-quarters"
+  toClassPart TwoThirds = ClassPart "two-thirds"
+  toClassPart Half = ClassPart "half"
+  toClassPart OneThird = ClassPart "one-third"
+  toClassPart OneQuarter = ClassPart "one-quarter"
+  toClassPart FourFifths = ClassPart "four-fifths"
+  toClassPart ThreeFifths = ClassPart "three-fifths"
+  toClassPart TwoFifths = ClassPart "two-fifths"
+  toClassPart OneFifth = ClassPart "one-fifth"
 
-percentSize :: PercentSizes -> ClazzName
-percentSize = is <<< toClazzPart
+percentSize :: PercentSizes -> ClassName
+percentSize = is <<< toClassPart
 
-responsivePercentSize :: PercentSizes -> BreakPoints -> ClazzName
+responsivePercentSize :: PercentSizes -> BreakPoints -> ClassName
 responsivePercentSize s bp =
-  is $ joinClazzParts [toClazzPart s, toClazzPart bp]
+  is $ joinClassParts [toClassPart s, toClassPart bp]
 
-size :: Sizes -> ClazzName
+size :: Sizes -> ClassName
 size s =
-  let clazzName = is $ toClazzPart s in
+  let clazzName = is $ toClassPart s in
   if s <= Size1 || s >= Size12
   then notSupported clazzName
   else clazzName
 
-offset :: Sizes -> ClazzName
-offset = isOffset <<< toClazzPart
+offset :: Sizes -> ClassName
+offset = isOffset <<< toClassPart
 
-percentOffset :: PercentSizes -> ClazzName
-percentOffset = isOffset <<< toClazzPart
+percentOffset :: PercentSizes -> ClassName
+percentOffset = isOffset <<< toClassPart
 
-narrow :: ClazzName
-narrow = is $ ClazzPart "narrow"
+narrow :: ClassName
+narrow = is $ ClassPart "narrow"
 
-responsiveNarrow :: BreakPoints -> ClazzName
-responsiveNarrow bp = is $ joinClazzParts [ClazzPart "narrow", toClazzPart bp]
+responsiveNarrow :: BreakPoints -> ClassName
+responsiveNarrow bp = is $ joinClassParts [ClassPart "narrow", toClassPart bp]
 
 
 -- private helpers
 
-isOffset :: ClazzPart -> ClazzName
-isOffset s = is $ joinClazzParts [ClazzPart "offset", s]
+isOffset :: ClassPart -> ClassName
+isOffset s = is $ joinClassParts [ClassPart "offset", s]

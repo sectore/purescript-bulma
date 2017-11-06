@@ -14,62 +14,62 @@ module Bulma.Modifiers.Responsive
 
 import Prelude
 
-import Bulma.Core (BreakPoints, ClazzName, ClazzPart(..), is, joinClazzParts, toClazzPart)
+import Bulma.Core (BreakPoints, ClassName, ClassPart(..), is, joinClassParts, toClassPart)
 
-showFlex :: BreakPoints -> ClazzName
-showFlex = is <<< flex <<< toClazzPart
+showFlex :: BreakPoints -> ClassName
+showFlex = is <<< flex <<< toClassPart
 
-showBlock :: BreakPoints -> ClazzName
-showBlock = is <<< block <<< toClazzPart
+showBlock :: BreakPoints -> ClassName
+showBlock = is <<< block <<< toClassPart
 
-showInline :: BreakPoints -> ClazzName
-showInline = is <<< inline <<< toClazzPart
+showInline :: BreakPoints -> ClassName
+showInline = is <<< inline <<< toClassPart
 
-showInlineBlock :: BreakPoints -> ClazzName
-showInlineBlock = is <<< inlineBlock <<< toClazzPart
+showInlineBlock :: BreakPoints -> ClassName
+showInlineBlock = is <<< inlineBlock <<< toClassPart
 
 -- TODO Rename it to `responsiveInlineFlex`
-showInlineFlex :: BreakPoints -> ClazzName
-showInlineFlex = is <<< inlineFlex <<< toClazzPart
+showInlineFlex :: BreakPoints -> ClassName
+showInlineFlex = is <<< inlineFlex <<< toClassPart
 
 -- TODO Rename it to `inlineFlex`
-showInlineFlex' ::  ClazzName
+showInlineFlex' ::  ClassName
 showInlineFlex' = is inlineFlex'
 
-hide :: BreakPoints -> ClazzName
-hide bp = is $ joinClazzParts [ClazzPart "hidden", toClazzPart bp]
+hide :: BreakPoints -> ClassName
+hide bp = is $ joinClassParts [ClassPart "hidden", toClassPart bp]
 
-breakpoint :: BreakPoints -> ClazzName
-breakpoint = is <<< toClazzPart
+breakpoint :: BreakPoints -> ClassName
+breakpoint = is <<< toClassPart
 
 -- | Private helpers
 
-flex :: ClazzPart -> ClazzPart
+flex :: ClassPart -> ClassPart
 flex str =
-  joinClazzParts [ClazzPart "flex", str]
+  joinClassParts [ClassPart "flex", str]
 
-block :: ClazzPart -> ClazzPart
+block :: ClassPart -> ClassPart
 block str =
-  joinClazzParts [ClazzPart "block", str]
+  joinClassParts [ClassPart "block", str]
 
-inline :: ClazzPart -> ClazzPart
+inline :: ClassPart -> ClassPart
 inline str =
-  joinClazzParts [ClazzPart "inline", str]
+  joinClassParts [ClassPart "inline", str]
 
-inlineBlock :: ClazzPart -> ClazzPart
+inlineBlock :: ClassPart -> ClassPart
 inlineBlock str =
-  inline $ joinClazzParts [ClazzPart "block", str]
+  inline $ joinClassParts [ClassPart "block", str]
 
 -- TODO Rename it to `mkResponsiveInlineFlex`
-inlineFlex :: ClazzPart -> ClazzPart
+inlineFlex :: ClassPart -> ClassPart
 inlineFlex str =
-  inline $ joinClazzParts [ClazzPart "flex", str]
+  inline $ joinClassParts [ClassPart "flex", str]
 
 -- TODO Rename it to `mkInlineFlex`
-inlineFlex' :: ClazzPart
+inlineFlex' :: ClassPart
 inlineFlex' =
-  inline $ ClazzPart "flex"
+  inline $ ClassPart "flex"
 
-hidden :: ClazzPart -> ClazzPart
+hidden :: ClassPart -> ClassPart
 hidden str =
-  joinClazzParts [ClazzPart "hidden", str]
+  joinClassParts [ClassPart "hidden", str]

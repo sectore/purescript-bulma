@@ -3,10 +3,10 @@ module Bulma.Components.NavBar
   , navbarItem
   ) where
 
-import Bulma.Core (ClazzName(..))
+import Bulma.Core (ClassName(..))
 
-navbar :: ClazzName
-navbar = ClazzName "navbar"
+navbar :: ClassName
+navbar = ClassName "navbar"
 
-navbarItem :: ClazzName
-navbarItem = ClazzName "navbar-item"
+navbarItem :: ClassName
+navbarItem = ClassName "navbar-item"

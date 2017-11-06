@@ -12,7 +12,7 @@ module Bulma.Modifiers.Modifiers
 
 import Prelude
 
-import Bulma.Core (class ClazzHelper, ClazzName, ClazzPart(..), is, toClazzName, toClazzPart)
+import Bulma.Core (class ClazzHelper, ClassName, ClassPart(..), is, toClassName, toClassPart)
 
 data Colors
   = Primary
@@ -23,15 +23,15 @@ data Colors
   | Danger
 
 instance chColors :: ClazzHelper Colors where
-  toClazzPart Primary = ClazzPart "primary"
-  toClazzPart Link = ClazzPart "link"
-  toClazzPart Info = ClazzPart "info"
-  toClazzPart Success = ClazzPart "success"
-  toClazzPart Warning = ClazzPart "warning"
-  toClazzPart Danger = ClazzPart "danger"
+  toClassPart Primary = ClassPart "primary"
+  toClassPart Link = ClassPart "link"
+  toClassPart Info = ClassPart "info"
+  toClassPart Success = ClassPart "success"
+  toClassPart Warning = ClassPart "warning"
+  toClassPart Danger = ClassPart "danger"
 
-color :: Colors -> ClazzName
-color = is <<< toClazzPart
+color :: Colors -> ClassName
+color = is <<< toClassPart
 
 data Sizes
   = Small
@@ -39,12 +39,12 @@ data Sizes
   | Large
 
 instance chSizes :: ClazzHelper Sizes where
-  toClazzPart Small = ClazzPart "small"
-  toClazzPart Medium = ClazzPart "medium"
-  toClazzPart Large = ClazzPart "large"
+  toClassPart Small = ClassPart "small"
+  toClassPart Medium = ClassPart "medium"
+  toClassPart Large = ClassPart "large"
 
-size :: Sizes -> ClazzName
-size = is <<< toClazzPart
+size :: Sizes -> ClassName
+size = is <<< toClassPart
 
 
 data State
@@ -53,12 +53,12 @@ data State
   | Disabled
 
 instance chState :: ClazzHelper State where
-  toClazzPart Outlined = ClazzPart "outlined"
-  toClazzPart Loading = ClazzPart "loading"
-  toClazzPart Disabled = ClazzPart "[disabled]"
+  toClassPart Outlined = ClassPart "outlined"
+  toClassPart Loading = ClassPart "loading"
+  toClassPart Disabled = ClassPart "[disabled]"
 
-state :: State -> ClazzName
+state :: State -> ClassName
 state st =
   case st of
-    Disabled -> toClazzName $ toClazzPart st
-    _ -> is $ toClazzPart st
+    Disabled -> toClassName $ toClassPart st
+    _ -> is $ toClassPart st

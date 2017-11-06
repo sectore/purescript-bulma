@@ -3,10 +3,10 @@ module Bulma.Layout.Layout
   , footer
   ) where
 
-import Bulma.Core (ClazzName(..))
+import Bulma.Core (ClassName(..))
 
-container :: ClazzName
-container = ClazzName "container"
+container :: ClassName
+container = ClassName "container"
 
-footer :: ClazzName
-footer = ClazzName "footer"
+footer :: ClassName
+footer = ClassName "footer"
