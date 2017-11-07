@@ -1,4 +1,4 @@
-module Bulma.Columns.SizeTest where
+module Bulma.Columns.SizesTest where
 
 import Prelude
 

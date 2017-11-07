@@ -2,12 +2,16 @@ module Test.Main where
 
 import Prelude
 
-import Bulma.Columns.ColumnsTest (testSuiteColumns) as C
-import Bulma.Columns.SizesTest (testSuiteSizes) as C
-import Bulma.Modifiers.HelpersTest (testSuiteHelpers) as M
-import Bulma.Modifiers.ModifiersTest (testSuiteModifiers) as M
-import Bulma.Modifiers.ResponsiveTest (testSuiteResponsive) as M
-import Bulma.Modifiers.TypographyTest (testSuiteTypography) as M
+import Bulma.Columns.ColumnsTest (testSuiteColumns)
+import Bulma.Columns.SizesTest (testSuiteSize)
+import Bulma.Components.NavbarTest (testSuiteNavbar)
+import Bulma.Elements.TitleTest (testSuiteTitle)
+import Bulma.Elements.ButtonTest (testSuiteButton)
+import Bulma.Layout.LayoutTest (testSuiteLayout)
+import Bulma.Modifiers.HelpersTest (testSuiteHelpers)
+import Bulma.Modifiers.ModifiersTest (testSuiteModifiers)
+import Bulma.Modifiers.ResponsiveTest (testSuiteResponsive)
+import Bulma.Modifiers.TypographyTest (testSuiteTypography)
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.AVar (AVAR)
 import Control.Monad.Eff.Console (CONSOLE)
@@ -18,10 +22,17 @@ import Test.Unit.Main (runTest)
 main :: forall e. Eff (avar :: AVAR, testOutput :: TESTOUTPUT, console :: CONSOLE | e) Unit
 main = runTest do
   suite "Modifiers" do
-    M.testSuiteHelpers
-    M.testSuiteModifiers
-    M.testSuiteResponsive
-    M.testSuiteTypography
+    testSuiteHelpers
+    testSuiteModifiers
+    testSuiteResponsive
+    testSuiteTypography
   suite "Columns" do
-    C.testSuiteColumns
-    C.testSuiteSizes
+    testSuiteColumns
+    testSuiteSize
+  suite "Elements" do
+    testSuiteButton
+    testSuiteTitle
+  suite "Layout" do
+    testSuiteLayout
+  suite "Components" do
+    testSuiteNavbar

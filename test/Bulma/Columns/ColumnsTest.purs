@@ -2,8 +2,8 @@ module Bulma.Columns.ColumnsTest where
 
 import Prelude
 
-import Bulma.Columns.Columns (column, columns, isMultiline)
-import Bulma.Core (runClassName)
+import Bulma.Columns.Columns (column, columns, isGapless, isMultiline)
+import Bulma.Core (ClassName(..))
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
@@ -12,7 +12,9 @@ testSuiteColumns :: forall e. Free (TestF e) Unit
 testSuiteColumns =
   suite "Columns" do
     test "basics" do
-      runClassName column `equal` "column"
-      runClassName columns `equal` "columns"
+      column `equal` ClassName "column"
+      columns `equal` ClassName "columns"
     test "options" do
-      runClassName isMultiline `equal` "is-multiline"
+      isMultiline `equal` ClassName "is-multiline"
+    test "gap" do
+      isGapless `equal` ClassName "is-gapless"

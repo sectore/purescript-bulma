@@ -12,3 +12,6 @@ column = ClassName "column"
 
 isMultiline :: ClassName
 isMultiline = isClass $ ClassPart "multiline"
+
+isGapless :: ClassName
+isGapless = isClass $ ClassPart "gapless"
