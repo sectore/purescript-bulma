@@ -5,8 +5,10 @@ import Prelude
 import Bulma.Columns.ColumnsTest (testSuiteColumns)
 import Bulma.Columns.SizesTest (testSuiteSize)
 import Bulma.Components.NavbarTest (testSuiteNavbar)
-import Bulma.Elements.TitleTest (testSuiteTitle)
 import Bulma.Elements.ButtonTest (testSuiteButton)
+import Bulma.Elements.ElementsTest (testSuiteElements)
+import Bulma.Elements.ImageTest (testSuiteImage)
+import Bulma.Elements.TitleTest (testSuiteTitle)
 import Bulma.Layout.LayoutTest (testSuiteLayout)
 import Bulma.Modifiers.HelpersTest (testSuiteHelpers)
 import Bulma.Modifiers.ModifiersTest (testSuiteModifiers)
@@ -31,6 +33,8 @@ main = runTest do
     testSuiteSize
   suite "Elements" do
     testSuiteButton
+    testSuiteElements
+    testSuiteImage
     testSuiteTitle
   suite "Layout" do
     testSuiteLayout
