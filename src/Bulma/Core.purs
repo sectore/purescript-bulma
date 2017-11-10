@@ -70,10 +70,12 @@ instance chBreakpoint :: ClassHelper Breakpoint where
 data Position
   = Left
   | Right
+  | Centered
 
 instance chPosition :: ClassHelper Position where
   toClassPart Left = ClassPart "left"
   toClassPart Right = ClassPart "right"
+  toClassPart Centered = ClassPart "centered"
 
 isPosition :: Position -> ClassName
 isPosition = isClass <<< toClassPart

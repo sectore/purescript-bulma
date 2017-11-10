@@ -13,6 +13,7 @@ testSuiteCore =
     test "position" do
       isPosition Left `equal` ClassName "is-left"
       isPosition Right `equal` ClassName "is-right"
+      isPosition Centered `equal` ClassName "is-centered"
     test "common" do
       isBoxed `equal` ClassName "is-boxed"
     test "helpers" do
