@@ -2,6 +2,7 @@ module Test.Main where
 
 import Prelude
 
+import Bulma.CoreTest (testSuiteCore)
 import Bulma.Columns.ColumnsTest (testSuiteColumns)
 import Bulma.Columns.SizesTest (testSuiteSize)
 import Bulma.Components.NavbarTest (testSuiteNavbar)
@@ -23,6 +24,7 @@ import Test.Unit.Main (runTest)
 
 main :: forall e. Eff (avar :: AVAR, testOutput :: TESTOUTPUT, console :: CONSOLE | e) Unit
 main = runTest do
+  testSuiteCore
   suite "Modifiers" do
     testSuiteHelpers
     testSuiteModifiers
