@@ -66,16 +66,40 @@ instance chBreakpoint :: ClassHelper Breakpoint where
   toClassPart WidescreenOnly = ClassPart "widescreen-only"
   toClassPart FullHD = ClassPart "fullhd"
 
+
+data Position
+  = Left
+  | Right
+
+instance chPosition :: ClassHelper Position where
+  toClassPart Left = ClassPart "left"
+  toClassPart Right = ClassPart "right"
+
+isPosition :: Position -> ClassName
+isPosition = isClass <<< toClassPart
+
+isBoxed :: ClassName
+isBoxed = isClass $ ClassPart "boxed"
+
+derive instance eqPosition :: Eq Position
+derive instance ordPosition :: Ord Position
+
+
 newtype ClassName = ClassName String
-derive instance eqClassPart :: Eq ClassName
+derive instance eqClassName :: Eq ClassName
 derive instance ntClassName :: Newtype ClassName _
 
-derive instance gClassPart :: Generic ClassName
-instance sClassPart :: Show ClassName where
+derive instance gClassName :: Generic ClassName
+instance sClassName :: Show ClassName where
   show = gShow
 
 newtype ClassPart = ClassPart String
+derive instance eqClassPart :: Eq ClassPart
 derive instance ntClassPart :: Newtype ClassPart _
+
+derive instance gClassPart :: Generic ClassPart
+instance sClassPart :: Show ClassPart where
+  show = gShow
 
 isClass :: ClassPart -> ClassName
 isClass cp =
