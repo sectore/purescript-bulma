@@ -9,6 +9,9 @@ import Data.String (joinWith)
 class ClassHelper a where
   toClassPart :: a -> ClassPart
 
+notSupportedPart :: ClassPart -> ClassPart
+notSupportedPart = over ClassPart (flip (<>) "-IS-NOT-SUPPORTED-HERE")
+
 notSupported :: ClassName -> ClassName
 notSupported = over ClassName (flip (<>) "-IS-NOT-SUPPORTED-HERE")
 
@@ -42,6 +45,23 @@ instance chIs :: ClassHelper Is where
   toClassPart Is10 = ClassPart "10"
   toClassPart Is11 = ClassPart "11"
   toClassPart Is12 = ClassPart "12"
+
+
+data Color
+  = Primary
+  | Link
+  | Info
+  | Success
+  | Warning
+  | Danger
+
+instance chColor :: ClassHelper Color where
+  toClassPart Primary = ClassPart "primary"
+  toClassPart Link = ClassPart "link"
+  toClassPart Info = ClassPart "info"
+  toClassPart Success = ClassPart "success"
+  toClassPart Warning = ClassPart "warning"
+  toClassPart Danger = ClassPart "danger"
 
 data Breakpoint
   = Mobile
