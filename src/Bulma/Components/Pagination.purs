@@ -5,8 +5,8 @@
 
 
 module Bulma.Components.Pagination
-  ( isCurrent
-  , isPosition
+  ( isAlignment
+  , isCurrent
   , pagination
   , paginationPrevious
   , paginationNext
@@ -17,7 +17,7 @@ module Bulma.Components.Pagination
 
 import Prelude
 
-import Bulma.Core (ClassName, ClassPart(..), Position(..), isClass, joinClassParts, notSupported, toClassName, toClassPart)
+import Bulma.Core (ClassName, ClassPart(..), Alignment(..), isClass, joinClassParts, notSupported, toClassName, toClassPart)
 
 pagination :: ClassName
 pagination = toClassName paginationPart
@@ -40,8 +40,8 @@ paginationEllipsis = paginationClass $ ClassPart "ellipsis"
 isCurrent :: ClassName
 isCurrent = isClass $ ClassPart "current"
 
-isPosition :: Position -> ClassName
-isPosition p =
+isAlignment :: Alignment -> ClassName
+isAlignment p =
   let className = isClass $ toClassPart p in
   if p == Right || p == Centered
   then className

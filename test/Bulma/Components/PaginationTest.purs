@@ -2,8 +2,8 @@ module Bulma.Components.PaginationTest where
 
 import Prelude
 
-import Bulma.Components.Pagination (isCurrent, isPosition, pagination, paginationEllipsis, paginationLink, paginationList, paginationNext, paginationPrevious)
-import Bulma.Core (ClassName(..), Position(..))
+import Bulma.Components.Pagination (isCurrent, isAlignment, pagination, paginationEllipsis, paginationLink, paginationList, paginationNext, paginationPrevious)
+import Bulma.Core (ClassName(..), Alignment(..))
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
@@ -20,6 +20,6 @@ testSuitePagination =
       paginationEllipsis `equal` ClassName "pagination-ellipsis"
       isCurrent `equal` ClassName "is-current"
     test "position" do
-      isPosition Right `equal` ClassName "is-right"
-      isPosition Centered `equal` ClassName "is-centered"
-      isPosition Left `equal` ClassName "is-left-IS-NOT-SUPPORTED-HERE"
+      isAlignment Right `equal` ClassName "is-right"
+      isAlignment Centered `equal` ClassName "is-centered"
+      isAlignment Left `equal` ClassName "is-left-IS-NOT-SUPPORTED-HERE"

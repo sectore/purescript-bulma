@@ -99,24 +99,24 @@ instance chBreakpoint :: ClassHelper Breakpoint where
   toClassPart FullHD = ClassPart "fullhd"
 
 
-data Position
+data Alignment
   = Left
   | Right
   | Centered
 
-instance chPosition :: ClassHelper Position where
+instance chAlignment :: ClassHelper Alignment where
   toClassPart Left = ClassPart "left"
   toClassPart Right = ClassPart "right"
   toClassPart Centered = ClassPart "centered"
 
-isPosition :: Position -> ClassName
-isPosition = isClass <<< toClassPart
+isAlignment :: Alignment -> ClassName
+isAlignment = isClass <<< toClassPart
 
 isBoxed :: ClassName
 isBoxed = isClass $ ClassPart "boxed"
 
-derive instance eqPosition :: Eq Position
-derive instance ordPosition :: Ord Position
+derive instance eqAlignment :: Eq Alignment
+derive instance ordAlignment :: Ord Alignment
 
 
 newtype ClassName = ClassName String
