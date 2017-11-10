@@ -18,7 +18,8 @@ module Bulma.Modifiers.Typography
 
 import Prelude
 
-import Bulma.Core (class ClassHelper, Breakpoint(..), ClassName, ClassPart(..), hasClass, isClass, joinClassParts, notSupported, toClassPart)
+import Bulma.Core (Color(..)) as C
+import Bulma.Core (class ClassHelper, Breakpoint(..), ClassName, ClassPart(..), hasClass, isClass, joinClassParts, notSupported, notSupportedPart, toClassName, toClassPart)
 
 -- | Typography sizes
 -- https://bulma.io/documentation/modifiers/typography-helpers/#size
@@ -61,17 +62,11 @@ isSizeResponsive s bp =
 -- https://bulma.io/documentation/modifiers/typography-helpers/#colors
 
 data Color
-  = White
+  = CoreColor C.Color
+  | White
   | Black
-  | LightColor
-  -- ^ Renamed from `Light` to `LightColor`
-  -- to avoid conficts of Weight's `Light`
+  | Light
   | Dark
-  | Primary
-  | Info
-  | Success
-  | Warning
-  | Danger
   | BlackBis
   | BlackTer
   | GreyDarker
@@ -83,15 +78,13 @@ data Color
   | WhiteBis
 
 instance chColor :: ClassHelper Color where
+  toClassPart (CoreColor C.Link) = notSupportedPart $ toClassPart C.Link
+  -- ^ `Link` is the only core color class, which is not support here
+  toClassPart (CoreColor color) = toClassPart color
   toClassPart White = ClassPart "white"
   toClassPart Black = ClassPart "black"
-  toClassPart LightColor = ClassPart "light"
+  toClassPart Light = ClassPart "light"
   toClassPart Dark = ClassPart "dark"
-  toClassPart Primary = ClassPart "primary"
-  toClassPart Info = ClassPart "info"
-  toClassPart Success = ClassPart "success"
-  toClassPart Warning = ClassPart "warning"
-  toClassPart Danger = ClassPart "danger"
   toClassPart BlackBis = ClassPart "black-bis"
   toClassPart BlackTer = ClassPart "black-ter"
   toClassPart GreyDarker = ClassPart "grey-darker"

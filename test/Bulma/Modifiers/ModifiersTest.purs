@@ -2,8 +2,8 @@ module Bulma.Modifiers.ModifiersTest where
 
 import Prelude
 
-import Bulma.Core (ClassName(..))
-import Bulma.Modifiers.Modifiers (Color(..), Size(..), State(..), isColor, isSize, isState)
+import Bulma.Core (ClassName(..), Color(..))
+import Bulma.Modifiers.Modifiers (Size(..), State(..), isColor, isSize, isState)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)

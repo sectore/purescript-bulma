@@ -19,6 +19,7 @@ module Bulma.Elements.Button
 import Prelude
 
 import Bulma.Core (class ClassHelper, ClassName(..), ClassPart(..), hasClass, isClass, toClassPart)
+import Bulma.Core (Color) as C
 
 button :: ClassName
 button = ClassName "button"
@@ -27,13 +28,15 @@ buttons :: ClassName
 buttons = ClassName "buttons"
 
 data Color
-  = White
+  = CoreColor C.Color
+  | White
   | Light
   | Dark
   | Black
   | Text
 
 instance chColor :: ClassHelper Color where
+  toClassPart (CoreColor color) = toClassPart color
   toClassPart White = ClassPart "white"
   toClassPart Light = ClassPart "light"
   toClassPart Dark = ClassPart "dark"
@@ -42,8 +45,6 @@ instance chColor :: ClassHelper Color where
 
 -- Button colors
 -- https://bulma.io/documentation/elements/button/#colors
--- Note: For using common colors such as `primary`, `link` etc.
--- use `isColor` function of `Bulma.Modifiers.Modifiers`
 isColor :: Color -> ClassName
 isColor = isClass <<< toClassPart
 

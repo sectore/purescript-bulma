@@ -2,8 +2,7 @@
 -- https://bulma.io/documentation/modifiers/syntax/
 
 module Bulma.Modifiers.Modifiers
-  ( Color(..)
-  , isColor
+  ( isColor
   , Size(..)
   , isSize
   , State(..)
@@ -12,23 +11,7 @@ module Bulma.Modifiers.Modifiers
 
 import Prelude
 
-import Bulma.Core (class ClassHelper, ClassName, ClassPart(..), isClass, toClassName, toClassPart)
-
-data Color
-  = Primary
-  | Link
-  | Info
-  | Success
-  | Warning
-  | Danger
-
-instance chColor :: ClassHelper Color where
-  toClassPart Primary = ClassPart "primary"
-  toClassPart Link = ClassPart "link"
-  toClassPart Info = ClassPart "info"
-  toClassPart Success = ClassPart "success"
-  toClassPart Warning = ClassPart "warning"
-  toClassPart Danger = ClassPart "danger"
+import Bulma.Core (class ClassHelper, ClassName, ClassPart(..), Color, isClass, toClassName, toClassPart)
 
 isColor :: Color -> ClassName
 isColor = isClass <<< toClassPart
