@@ -77,7 +77,7 @@ _coming soon_
   * [ ] [Message](https://bulma.io/documentation/components/message/)
   * [ ] [Modal](https://bulma.io/documentation/components/modal/)
   * [x] [Navbar](https://bulma.io/documentation/components/navbar/)
-  * [ ] [Pagination](https://bulma.io/documentation/components/pagination/)
+  * [x] [Pagination](https://bulma.io/documentation/components/pagination/)
   * [ ] [Panel](https://bulma.io/documentation/components/panel/)
   * [ ] [Tabs](https://bulma.io/documentation/components/tabs/)
 

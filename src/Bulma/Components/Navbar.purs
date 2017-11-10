@@ -1,8 +1,5 @@
 -- | Navbar
 -- https://bulma.io/documentation/components/navbar/
--- Note: Some navbar styles mentioned in https://bulma.io/documentation/components/navbar/ are "global"
--- and that's why they are defined in `Bulma.Core` only (for example to position dropdown)
-
 
 module Bulma.Components.Navbar
   ( Color(..)
