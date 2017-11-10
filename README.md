@@ -1,9 +1,10 @@
 # purescript-bulma
 
-[![Build Status](https://travis-ci.org/sectore/purescript-bulma.svg?branch=master)](https://travis-ci.org/sectore/purescript-bulma)
+<img src="https://raw.githubusercontent.com/sectore/purescript-bulma/master/misc/logo.png" width="400" height="150">
 
 [`PureScript`](http://www.purescript.org/) bindings of CSS framework [`Bulma`](https://github.com/jgthms/bulma).
 
+[![Build Status](https://travis-ci.org/sectore/purescript-bulma.svg?branch=master)](https://travis-ci.org/sectore/purescript-bulma)
 
 _Note:_ This is project is still in progress :construction_worker:
 
