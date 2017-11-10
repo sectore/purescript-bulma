@@ -22,7 +22,7 @@ module Bulma.Components.Navbar
 import Prelude
 
 import Bulma.Core (class ClassHelper, ClassName, ClassPart(..), hasClass, isClass, joinClassParts, toClassName, toClassPart)
-import Bulma.Core (Color(..)) as C
+import Bulma.Core (Color) as C
 
 navbar :: ClassName
 navbar = toClassName navbarPart

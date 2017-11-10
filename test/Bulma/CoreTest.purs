@@ -2,7 +2,7 @@ module Bulma.CoreTest where
 
 import Prelude
 
-import Bulma.Core (ClassName(..), ClassPart(..), Alignment(..), hasClass, isBoxed, isClass, isAlignment, joinClassParts, notSupported, notSupportedPart, runClassName, runClassNames, toClassName)
+import Bulma.Core (Alignment(..), ClassName(..), ClassPart(..), hasClass, isAlignment, isBoxed, isClass, isFullwidth, joinClassParts, notSupported, notSupportedPart, runClassName, runClassNames, toClassName)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
@@ -16,6 +16,7 @@ testSuiteCore =
       isAlignment Centered `equal` ClassName "is-centered"
     test "common" do
       isBoxed `equal` ClassName "is-boxed"
+      isFullwidth `equal` ClassName "is-fullwidth"
     test "not supported" do
       (notSupported $ ClassName "my-class") `equal` ClassName "my-class-IS-NOT-SUPPORTED-HERE"
       (notSupportedPart $ ClassPart "any-part") `equal` ClassPart "any-part-IS-NOT-SUPPORTED-HERE"

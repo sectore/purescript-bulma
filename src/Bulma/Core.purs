@@ -115,6 +115,9 @@ isAlignment = isClass <<< toClassPart
 isBoxed :: ClassName
 isBoxed = isClass $ ClassPart "boxed"
 
+isFullwidth :: ClassName
+isFullwidth = isClass $ ClassPart "fullwidth"
+
 derive instance eqAlignment :: Eq Alignment
 derive instance ordAlignment :: Ord Alignment
 
