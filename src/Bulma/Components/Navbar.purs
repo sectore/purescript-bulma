@@ -22,6 +22,7 @@ module Bulma.Components.Navbar
 import Prelude
 
 import Bulma.Core (class ClassHelper, ClassName, ClassPart(..), hasClass, isClass, joinClassParts, toClassName, toClassPart)
+import Bulma.Core (Color(..)) as C
 
 navbar :: ClassName
 navbar = toClassName navbarPart
@@ -89,12 +90,14 @@ isState = isClass <<< toClassPart
 
 
 data Color
-  = White
+  = CoreColor C.Color
+  | White
   | Light
   | Dark
   | Black
 
 instance chColor :: ClassHelper Color where
+  toClassPart (CoreColor c) = toClassPart c
   toClassPart White = ClassPart "white"
   toClassPart Light = ClassPart "light"
   toClassPart Dark = ClassPart "dark"
@@ -102,8 +105,6 @@ instance chColor :: ClassHelper Color where
 
 -- Navbar background colors
 -- https://bulma.io/documentation/components/navbar/#colors
--- Note: For using common colors such as `primary`, `link` etc.
--- use `isColor` function of `Bulma.Modifiers.Modifiers`
 isColor :: Color -> ClassName
 isColor = isClass <<< toClassPart
 
