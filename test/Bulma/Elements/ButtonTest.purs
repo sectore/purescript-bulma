@@ -2,7 +2,7 @@ module Bulma.Elements.ButtonTest where
 
 import Prelude
 
-import Bulma.Core (ClassName(..), Is(..), runClassName)
+import Bulma.Core (ClassName(..))
 import Bulma.Elements.Button (Color(..), State(..), Style(..), button, buttons, isColor, isState, isStatic, isGrouped, isSelected, isStyle, hasAddons)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)

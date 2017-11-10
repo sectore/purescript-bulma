@@ -2,7 +2,7 @@ module Bulma.Elements.TitleTest where
 
 import Prelude
 
-import Bulma.Core (ClassName(..), Is(..), runClassName)
+import Bulma.Core (ClassName(..), Is(..))
 import Bulma.Elements.Title (isSpaced, isSize, subtitle, title)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
