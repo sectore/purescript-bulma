@@ -77,8 +77,8 @@ _coming soon_
   * [ ] [Modal](https://bulma.io/documentation/components/modal/)
   * [x] [Navbar](https://bulma.io/documentation/components/navbar/)
   * [x] [Pagination](https://bulma.io/documentation/components/pagination/)
-  * [ ] [Panel](https://bulma.io/documentation/components/panel/)
-  * [ ] [Tabs](https://bulma.io/documentation/components/tabs/)
+  * [x] [Panel](https://bulma.io/documentation/components/panel/)
+  * [x] [Tabs](https://bulma.io/documentation/components/tabs/)
 
 ## License
 
