@@ -63,6 +63,18 @@ instance chColor :: ClassHelper Color where
   toClassPart Warning = ClassPart "warning"
   toClassPart Danger = ClassPart "danger"
 
+
+data Size
+  = Small
+  | Medium
+  | Large
+
+instance chSize :: ClassHelper Size where
+  toClassPart Small = ClassPart "small"
+  toClassPart Medium = ClassPart "medium"
+  toClassPart Large = ClassPart "large"
+
+
 data Breakpoint
   = Mobile
   | Tablet

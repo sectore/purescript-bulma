@@ -44,10 +44,10 @@ isPercentSizeResponsive s bp =
 
 isSize :: Is -> ClassName
 isSize i =
-  let clazzName = isClass $ toClassPart i in
+  let className = isClass $ toClassPart i in
   if i <= Is1 || i >= Is12
-  then notSupported clazzName
-  else clazzName
+  then notSupported className
+  else className
 
 isOffset :: Is -> ClassName
 isOffset = isOffsetClass <<< toClassPart

@@ -3,7 +3,6 @@
 
 module Bulma.Modifiers.Modifiers
   ( isColor
-  , Size(..)
   , isSize
   , State(..)
   , isState
@@ -11,21 +10,10 @@ module Bulma.Modifiers.Modifiers
 
 import Prelude
 
-import Bulma.Core (class ClassHelper, ClassName, ClassPart(..), Color, isClass, toClassName, toClassPart)
+import Bulma.Core (class ClassHelper, ClassName, ClassPart(..), Color, Size, isClass, toClassName, toClassPart)
 
 isColor :: Color -> ClassName
 isColor = isClass <<< toClassPart
-
-
-data Size
-  = Small
-  | Medium
-  | Large
-
-instance chSize :: ClassHelper Size where
-  toClassPart Small = ClassPart "small"
-  toClassPart Medium = ClassPart "medium"
-  toClassPart Large = ClassPart "large"
 
 isSize :: Size -> ClassName
 isSize = isClass <<< toClassPart

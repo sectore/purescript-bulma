@@ -19,7 +19,7 @@ module Bulma.Modifiers.Typography
 import Prelude
 
 import Bulma.Core (Color(..)) as C
-import Bulma.Core (class ClassHelper, Breakpoint(..), ClassName, ClassPart(..), hasClass, isClass, joinClassParts, notSupported, notSupportedPart, toClassName, toClassPart)
+import Bulma.Core (class ClassHelper, Breakpoint(..), ClassName, ClassPart(..), hasClass, isClass, joinClassParts, notSupported, notSupportedPart, toClassPart)
 
 -- | Typography sizes
 -- https://bulma.io/documentation/modifiers/typography-helpers/#size

@@ -20,10 +20,10 @@ subtitle = ClassName "subtitle"
 
 isSize :: Is -> ClassName
 isSize i =
-  let clazzName = isClass $ toClassPart i in
+  let className = isClass $ toClassPart i in
   if i > Is6
-  then notSupported clazzName
-  else clazzName
+  then notSupported className
+  else className
 
 isSpaced :: ClassName
 isSpaced = isClass $ ClassPart "spaced"
