@@ -6,6 +6,7 @@ import Bulma.CoreTest (testSuiteCore)
 import Bulma.Columns.ColumnsTest (testSuiteColumns)
 import Bulma.Columns.SizesTest (testSuiteSize)
 import Bulma.Components.MessageTest (testSuiteMessage)
+import Bulma.Components.MenuTest (testSuiteMenu)
 import Bulma.Components.ModalTest (testSuiteModal)
 import Bulma.Components.NavbarTest (testSuiteNavbar)
 import Bulma.Components.PaginationTest (testSuitePagination)
@@ -46,6 +47,7 @@ main = runTest do
   suite "Layout" do
     testSuiteLayout
   suite "Components" do
+    testSuiteMenu
     testSuiteMessage
     testSuiteModal
     testSuiteNavbar
