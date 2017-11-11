@@ -73,7 +73,7 @@ _coming soon_
   * [ ] [Card](https://bulma.io/documentation/components/card/)
   * [ ] [Dropdown](https://bulma.io/documentation/components/dropdown/)
   * [ ] [Menu](https://bulma.io/documentation/components/menu/)
-  * [ ] [Message](https://bulma.io/documentation/components/message/)
+  * [x] [Message](https://bulma.io/documentation/components/message/)
   * [x] [Modal](https://bulma.io/documentation/components/modal/)
   * [x] [Navbar](https://bulma.io/documentation/components/navbar/)
   * [x] [Pagination](https://bulma.io/documentation/components/pagination/)
