@@ -19,7 +19,7 @@ testSuitePagination =
       paginationLink `equal` ClassName "pagination-link"
       paginationEllipsis `equal` ClassName "pagination-ellipsis"
       isCurrent `equal` ClassName "is-current"
-    test "position" do
+    test "alignment" do
       isAlignment Right `equal` ClassName "is-right"
       isAlignment Centered `equal` ClassName "is-centered"
       isAlignment Left `equal` ClassName "is-left-IS-NOT-SUPPORTED-HERE"
