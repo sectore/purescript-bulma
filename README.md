@@ -14,7 +14,7 @@ _Note:_ This project is still in progress :construction_worker:
 npm install bulma
 ```
 
-2. Install `purescript-bulma`
+2. Install `purescript-bulma` (supported version: [`v.0.6.1`](https://github.com/jgthms/bulma/releases/tag/0.6.1))
 ```bash
 bower install --save purescript-bulma
 ```
