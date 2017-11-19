@@ -5,6 +5,7 @@ module Bulma.Components.Navbar
   ( Color(..)
   , isFixed
   , isColor
+  , isState
   , FixedPosition(..)
   , hasDropdown
   , navbar
@@ -17,6 +18,7 @@ module Bulma.Components.Navbar
   , navbarLink
   , navbarDropdown
   , navbarDivider
+  , State(..)
   ) where
 
 import Prelude

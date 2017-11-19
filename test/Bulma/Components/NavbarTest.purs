@@ -2,7 +2,7 @@ module Bulma.Components.NavbarTest where
 
 import Prelude
 
-import Bulma.Components.Navbar (Color(..), FixedPosition(..), hasDropdown, isColor, isFixed, navbar, navbarBrand, navbarBurger, navbarDivider, navbarDropdown, navbarEnd, navbarItem, navbarLink, navbarMenu, navbarStart)
+import Bulma.Components.Navbar (Color(..), FixedPosition(..), State(..), hasDropdown, isColor, isFixed, isState, navbar, navbarBrand, navbarBurger, navbarDivider, navbarDropdown, navbarEnd, navbarItem, navbarLink, navbarMenu, navbarStart)
 import Bulma.Core (ClassName(..))
 import Bulma.Core (Color(..)) as C
 import Control.Monad.Free (Free)
@@ -38,3 +38,6 @@ testSuiteNavbar =
       isColor Light `equal` ClassName "is-light"
       isColor Dark `equal` ClassName "is-dark"
       isColor Black `equal` ClassName "is-black"
+    test "state" do
+      isState Active `equal` ClassName "is-active"
+      isState Hoverable `equal` ClassName "is-hoverable"
