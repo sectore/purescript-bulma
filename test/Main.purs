@@ -2,16 +2,17 @@ module Test.Main where
 
 import Prelude
 
-import Bulma.CoreTest (testSuiteCore)
 import Bulma.Columns.ColumnsTest (testSuiteColumns)
 import Bulma.Columns.SizesTest (testSuiteSize)
-import Bulma.Components.MessageTest (testSuiteMessage)
+import Bulma.Components.DropdownTest (testSuiteDropdown)
 import Bulma.Components.MenuTest (testSuiteMenu)
+import Bulma.Components.MessageTest (testSuiteMessage)
 import Bulma.Components.ModalTest (testSuiteModal)
 import Bulma.Components.NavbarTest (testSuiteNavbar)
 import Bulma.Components.PaginationTest (testSuitePagination)
 import Bulma.Components.PanelTest (testSuitePanel)
 import Bulma.Components.TabsTest (testSuiteTabs)
+import Bulma.CoreTest (testSuiteCore)
 import Bulma.Elements.ButtonTest (testSuiteButton)
 import Bulma.Elements.ElementsTest (testSuiteElements)
 import Bulma.Elements.ImageTest (testSuiteImage)
@@ -47,6 +48,7 @@ main = runTest do
   suite "Layout" do
     testSuiteLayout
   suite "Components" do
+    testSuiteDropdown
     testSuiteMenu
     testSuiteMessage
     testSuiteModal
