@@ -69,9 +69,9 @@ _coming soon_
   * [ ] [Tag](https://bulma.io/documentation/elements/Tag/)
   * [x] [Title](https://bulma.io/documentation/elements/Title/)
 - **Components**
-  * [ ] [Breadcrumb](https://bulma.io/documentation/components/breadcrumb/)
-  * [ ] [Card](https://bulma.io/documentation/components/card/)
-  * [ ] [Dropdown](https://bulma.io/documentation/components/dropdown/)
+  * [x] [Breadcrumb](https://bulma.io/documentation/components/breadcrumb/)
+  * [x] [Card](https://bulma.io/documentation/components/card/)
+  * [x] [Dropdown](https://bulma.io/documentation/components/dropdown/)
   * [x] [Menu](https://bulma.io/documentation/components/menu/)
   * [x] [Message](https://bulma.io/documentation/components/message/)
   * [x] [Modal](https://bulma.io/documentation/components/modal/)

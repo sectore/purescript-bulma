@@ -4,6 +4,8 @@ import Prelude
 
 import Bulma.Columns.ColumnsTest (testSuiteColumns)
 import Bulma.Columns.SizesTest (testSuiteSize)
+import Bulma.Components.BreadcrumbTest (testSuiteBreadcrumb)
+import Bulma.Components.CardTest (testSuiteCard)
 import Bulma.Components.DropdownTest (testSuiteDropdown)
 import Bulma.Components.MenuTest (testSuiteMenu)
 import Bulma.Components.MessageTest (testSuiteMessage)
@@ -48,6 +50,8 @@ main = runTest do
   suite "Layout" do
     testSuiteLayout
   suite "Components" do
+    testSuiteBreadcrumb
+    testSuiteCard
     testSuiteDropdown
     testSuiteMenu
     testSuiteMessage

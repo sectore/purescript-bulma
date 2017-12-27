@@ -7,3 +7,8 @@
 /.psc*
 /.purs*
 /.psa*
+
+yarn.lock
+# ^ We don't need `yarn.lock` to publish `purescript-bulma`,
+# even Yarn's doc says it might be a good idea to have it in a repository
+# (https://yarnpkg.com/lang/en/docs/configuration/#toc-use-yarn-lock-to-pin-your-dependencies)
