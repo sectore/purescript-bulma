@@ -2,7 +2,7 @@ module Bulma.Elements.ElementsTest where
 
 import Prelude
 
-import Bulma.Core (ClassName(..))
+import Bulma.Common (ClassName(..))
 import Bulma.Elements.Elements (box, content, delete, icon, notification, progress)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)

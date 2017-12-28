@@ -11,7 +11,7 @@ module Bulma.Components.Card
 
 import Prelude
 
-import Bulma.Core (Alignment(..), ClassName, ClassPart(..), isClass, joinClassParts, notSupported, toClassName, toClassPart)
+import Bulma.Common (Alignment(..), ClassName, ClassPart(..), isClass, joinClassParts, notSupported, toClassName, toClassPart)
 
 card :: ClassName
 card = toClassName cardPart

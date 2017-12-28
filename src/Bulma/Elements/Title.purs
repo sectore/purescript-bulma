@@ -8,7 +8,7 @@ module Bulma.Elements.Title
   ) where
 
 import Prelude
-import Bulma.Core (ClassName(..), ClassPart(..), Is(..), isClass, notSupported, toClassPart)
+import Bulma.Common (ClassName(..), ClassPart(..), Is(..), isClass, notSupported, toClassPart)
 
 -- | `.title` class
 title :: ClassName

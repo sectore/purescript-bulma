@@ -1,15 +1,15 @@
-module Bulma.CoreTest where
+module Bulma.CommonTest where
 
 import Prelude
 
-import Bulma.Core (Alignment(..), ClassName(..), ClassPart(..), hasAddons, hasClass, isAlignment, isBoxed, isClass, isFullwidth, isGrouped, isSelected, joinClassParts, notSupported, notSupportedPart, runClassName, runClassNames, toClassName)
+import Bulma.Common (Alignment(..), ClassName(..), ClassPart(..), hasAddons, hasClass, isAlignment, isBoxed, isClass, isFullwidth, isGrouped, isSelected, joinClassParts, notSupported, notSupportedPart, runClassName, runClassNames, toClassName)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
 
-testSuiteCore :: forall e. Free (TestF e) Unit
-testSuiteCore =
-  suite "Core" do
+testSuiteCommon :: forall e. Free (TestF e) Unit
+testSuiteCommon =
+  suite "Common" do
     test "common" do
       isBoxed `equal` ClassName "is-boxed"
       isFullwidth `equal` ClassName "is-fullwidth"

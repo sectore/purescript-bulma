@@ -3,7 +3,7 @@ module Bulma.Components.MessageTest where
 import Prelude
 
 import Bulma.Components.Message (message, messageBody, messageHeader)
-import Bulma.Core (ClassName(..))
+import Bulma.Common (ClassName(..))
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)

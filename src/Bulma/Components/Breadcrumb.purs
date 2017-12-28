@@ -4,7 +4,7 @@
 -- Note: Following styles of messages are global
 -- and defined in `Bulma.Modifiers.Modifiers` only:
 -- * Alignment (https://bulma.io/documentation/components/breadcrumb/#alignment)
---    ^ Use `isAlignment` of `Bulma.Core`
+--    ^ Use `isAlignment` of `Bulma.Common`
 -- * Sizes (https://bulma.io/documentation/components/breadcrumb/#sizes)
 --    ^ Use `isSize` of `Bulma.Modifiers.Modifiers`
 
@@ -18,7 +18,7 @@ module Bulma.Components.Breadcrumb
 
 import Prelude
 
-import Bulma.Core (class ClassHelper, ClassName, ClassPart(..), hasClass, isClass, joinClassParts, toClassName, toClassPart)
+import Bulma.Common (class ClassHelper, ClassName, ClassPart(..), hasClass, isClass, joinClassParts, toClassName, toClassPart)
 
 breadcrumb :: ClassName
 breadcrumb = toClassName $ ClassPart "breadcrumb"

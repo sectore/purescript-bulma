@@ -9,7 +9,7 @@ module Bulma.Components.Menu
 
 import Prelude
 
-import Bulma.Core (ClassName, ClassPart(..), joinClassParts, toClassName)
+import Bulma.Common (ClassName, ClassPart(..), joinClassParts, toClassName)
 
 menu :: ClassName
 menu = toClassName menuPart

@@ -33,7 +33,7 @@ module Bulma.Layout.Layout
 
 import Prelude
 
-import Bulma.Core (class ClassHelper, ClassName(..), ClassPart(..), Is, isClass, joinClassParts, toClassName, toClassPart)
+import Bulma.Common (class ClassHelper, ClassName(..), ClassPart(..), Is, isClass, joinClassParts, toClassName, toClassPart)
 
 container :: ClassName
 container = ClassName "container"

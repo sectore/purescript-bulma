@@ -2,7 +2,7 @@ module Bulma.Modifiers.ModifiersTest where
 
 import Prelude
 
-import Bulma.Core (ClassName(..), Color(..), Size(..))
+import Bulma.Common (ClassName(..), Color(..), Size(..))
 import Bulma.Modifiers.Modifiers (State(..), isColor, isSize, isState)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)

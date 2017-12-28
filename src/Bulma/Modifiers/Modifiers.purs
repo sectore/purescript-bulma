@@ -1,5 +1,5 @@
 -- | Bulmas [`Modifier`](https://bulma.io/documentation/modifiers/syntax/) classes
--- | Some of
+
 module Bulma.Modifiers.Modifiers
   ( isColor
   , isSize
@@ -9,7 +9,7 @@ module Bulma.Modifiers.Modifiers
 
 import Prelude
 
-import Bulma.Core (class ClassHelper, ClassName, ClassPart(..), Color, Size, isClass, toClassName, toClassPart)
+import Bulma.Common (class ClassHelper, ClassName, ClassPart(..), Color, Size, isClass, toClassName, toClassPart)
 
 -- | Sets a `Color`
 isColor :: Color -> ClassName

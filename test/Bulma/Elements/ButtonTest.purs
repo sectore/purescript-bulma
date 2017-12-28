@@ -2,8 +2,8 @@ module Bulma.Elements.ButtonTest where
 
 import Prelude
 
-import Bulma.Core (ClassName(..))
-import Bulma.Core (Color(..)) as C
+import Bulma.Common (ClassName(..))
+import Bulma.Common (Color(..)) as C
 import Bulma.Elements.Button (Color(..), State(..), Style(..), button, buttons, isColor, isState, isStatic, isStyle)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
@@ -21,12 +21,12 @@ testSuiteButton =
       isColor Dark `equal` ClassName "is-dark"
       isColor Black `equal` ClassName "is-black"
       isColor Text `equal` ClassName "is-text"
-      isColor (CoreColor C.Primary) `equal` ClassName "is-primary"
-      isColor (CoreColor C.Link) `equal` ClassName "is-link"
-      isColor (CoreColor C.Info) `equal` ClassName "is-info"
-      isColor (CoreColor C.Success) `equal` ClassName "is-success"
-      isColor (CoreColor C.Warning) `equal` ClassName "is-warning"
-      isColor (CoreColor C.Danger) `equal` ClassName "is-danger"
+      isColor (CommonColor C.Primary) `equal` ClassName "is-primary"
+      isColor (CommonColor C.Link) `equal` ClassName "is-link"
+      isColor (CommonColor C.Info) `equal` ClassName "is-info"
+      isColor (CommonColor C.Success) `equal` ClassName "is-success"
+      isColor (CommonColor C.Warning) `equal` ClassName "is-warning"
+      isColor (CommonColor C.Danger) `equal` ClassName "is-danger"
     test "styles" do
       isStyle Outlined `equal` ClassName "is-outlined"
       isStyle Inverted `equal` ClassName "is-inverted"

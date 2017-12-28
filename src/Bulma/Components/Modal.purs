@@ -15,7 +15,7 @@ module Bulma.Components.Modal
 
 import Prelude
 
-import Bulma.Core (ClassName, ClassPart(..), joinClassParts, toClassName)
+import Bulma.Common (ClassName, ClassPart(..), joinClassParts, toClassName)
 
 modal :: ClassName
 modal = toClassName modalPart

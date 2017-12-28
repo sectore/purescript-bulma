@@ -3,7 +3,7 @@ module Bulma.Components.PanelTest where
 import Prelude
 
 import Bulma.Components.Panel (panel, panelBlock, panelHeading, panelIcon, panelTabs)
-import Bulma.Core (ClassName(..))
+import Bulma.Common (ClassName(..))
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)

@@ -10,7 +10,7 @@ module Bulma.Components.Tabs
 
 import Prelude
 
-import Bulma.Core (Alignment(..), ClassName, ClassPart(..), isClass, joinClassParts, notSupported, toClassName, toClassPart)
+import Bulma.Common (Alignment(..), ClassName, ClassPart(..), isClass, joinClassParts, notSupported, toClassName, toClassPart)
 
 tabs :: ClassName
 tabs = toClassName tabsPart

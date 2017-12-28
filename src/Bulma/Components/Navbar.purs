@@ -23,8 +23,8 @@ module Bulma.Components.Navbar
 
 import Prelude
 
-import Bulma.Core (class ClassHelper, ClassName, ClassPart(..), hasClass, isClass, joinClassParts, toClassName, toClassPart)
-import Bulma.Core (Color) as C
+import Bulma.Common (class ClassHelper, ClassName, ClassPart(..), hasClass, isClass, joinClassParts, toClassName, toClassPart)
+import Bulma.Common (Color) as C
 
 navbar :: ClassName
 navbar = toClassName navbarPart
@@ -92,14 +92,14 @@ isState = isClass <<< toClassPart
 
 
 data Color
-  = CoreColor C.Color
+  = CommonColor C.Color
   | White
   | Light
   | Dark
   | Black
 
 instance chColor :: ClassHelper Color where
-  toClassPart (CoreColor c) = toClassPart c
+  toClassPart (CommonColor c) = toClassPart c
   toClassPart White = ClassPart "white"
   toClassPart Light = ClassPart "light"
   toClassPart Dark = ClassPart "dark"

@@ -3,7 +3,7 @@ module Bulma.Columns.SizesTest where
 import Prelude
 
 import Bulma.Columns.Size (PercentSize(..), isNarrow, isOffset, isPercentOffset, isPercentSize, isNarrowResponsive, isPercentSizeResponsive, isSize)
-import Bulma.Core (Breakpoint(..), ClassName(..), Is(..))
+import Bulma.Common (Breakpoint(..), ClassName(..), Is(..))
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)

@@ -2,7 +2,7 @@ module Bulma.Elements.ImageTest where
 
 import Prelude
 
-import Bulma.Core (ClassName(..))
+import Bulma.Common (ClassName(..))
 import Bulma.Elements.Image (Dimension(..), Ratio(..), image, isDimension, isRatio)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)

@@ -3,7 +3,7 @@ module Bulma.Columns.ColumnsTest where
 import Prelude
 
 import Bulma.Columns.Columns (column, columns, isGapless, isMultiline)
-import Bulma.Core (ClassName(..))
+import Bulma.Common (ClassName(..))
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)

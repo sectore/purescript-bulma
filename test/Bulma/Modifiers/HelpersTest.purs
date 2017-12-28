@@ -2,7 +2,7 @@ module Bulma.Modifiers.HelpersTest where
 
 import Prelude
 
-import Bulma.Core (ClassName(..))
+import Bulma.Common (ClassName(..))
 import Bulma.Modifiers.Helpers (Helpers(..), is)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)

@@ -2,7 +2,7 @@ module Bulma.Modifiers.ResponsiveTest where
 
 import Prelude
 
-import Bulma.Core (Breakpoint(..), ClassName(..))
+import Bulma.Common (Breakpoint(..), ClassName(..))
 import Bulma.Modifiers.Responsive (isBreakpoint, isHiddenResponsive, isBlockResponsive, isFlexResponsive, isInlineResponsive, isInlineBlockResponsive , isInlineFlexResponsive)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)

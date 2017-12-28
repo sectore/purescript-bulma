@@ -2,7 +2,7 @@ module Bulma.Layout.LayoutTest where
 
 import Prelude
 
-import Bulma.Core (ClassName(..), Is(..))
+import Bulma.Common (ClassName(..), Is(..))
 import Bulma.Layout.Layout (TileContext(..), container, footer, hero, heroBody, heroFoot, isBold, isFluid, isFullHeight, isTileContext, isTileSize, isVerticalTile, level, levelItem, levelLeft, levelRight, media, mediaContent, mediaLeft, mediaRight, section, tile)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)

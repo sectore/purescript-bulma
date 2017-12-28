@@ -3,7 +3,7 @@ module Bulma.Components.PaginationTest where
 import Prelude
 
 import Bulma.Components.Pagination (isCurrent, isAlignment, pagination, paginationEllipsis, paginationLink, paginationList, paginationNext, paginationPrevious)
-import Bulma.Core (ClassName(..), Alignment(..))
+import Bulma.Common (ClassName(..), Alignment(..))
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)

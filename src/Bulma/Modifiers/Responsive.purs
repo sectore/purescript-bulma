@@ -14,7 +14,7 @@ module Bulma.Modifiers.Responsive
 
 import Prelude
 
-import Bulma.Core (Breakpoint, ClassName, ClassPart(..), isClass, joinClassParts, toClassPart)
+import Bulma.Common (Breakpoint, ClassName, ClassPart(..), isClass, joinClassParts, toClassPart)
 
 isFlexResponsive :: Breakpoint -> ClassName
 isFlexResponsive = isClass <<< flexPart <<< toClassPart

@@ -2,8 +2,8 @@ module Bulma.Modifiers.TypographyTest where
 
 import Prelude
 
-import Bulma.Core (Breakpoint(..), ClassName(..), runClassName)
-import Bulma.Core (Color(..)) as C
+import Bulma.Common (Breakpoint(..), ClassName(..), runClassName)
+import Bulma.Common (Color(..)) as C
 import Bulma.Modifiers.Typography (Alignment(..), Color(..), Size(..), Transformation(..), Weight(..), hasAlignment, hasAlignmentResponsive, hasColor, hasWeight, isSize, isSizeResponsive, isTransformed)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
@@ -81,12 +81,12 @@ testSuiteTypography =
       hasColor Black `equal` ClassName "has-text-black"
       hasColor Light `equal` ClassName "has-text-light"
       hasColor Dark `equal` ClassName "has-text-dark"
-      hasColor (CoreColor C.Primary) `equal` ClassName "has-text-primary"
-      hasColor (CoreColor C.Info) `equal` ClassName "has-text-info"
-      hasColor (CoreColor C.Success) `equal` ClassName "has-text-success"
-      hasColor (CoreColor C.Warning) `equal` ClassName "has-text-warning"
-      hasColor (CoreColor C.Danger) `equal` ClassName "has-text-danger"
-      hasColor (CoreColor C.Link) `equal` ClassName "has-text-link-IS-NOT-SUPPORTED-HERE"
+      hasColor (CommonColor C.Primary) `equal` ClassName "has-text-primary"
+      hasColor (CommonColor C.Info) `equal` ClassName "has-text-info"
+      hasColor (CommonColor C.Success) `equal` ClassName "has-text-success"
+      hasColor (CommonColor C.Warning) `equal` ClassName "has-text-warning"
+      hasColor (CommonColor C.Danger) `equal` ClassName "has-text-danger"
+      hasColor (CommonColor C.Link) `equal` ClassName "has-text-link-IS-NOT-SUPPORTED-HERE"
       hasColor BlackBis `equal` ClassName "has-text-black-bis"
       hasColor BlackTer `equal` ClassName "has-text-black-ter"
       hasColor GreyDarker `equal` ClassName "has-text-grey-darker"

@@ -11,7 +11,7 @@ module Bulma.Components.Panel
 
 import Prelude
 
-import Bulma.Core (ClassName, ClassPart(..), joinClassParts, toClassName)
+import Bulma.Common (ClassName, ClassPart(..), joinClassParts, toClassName)
 
 panel :: ClassName
 panel = toClassName panelPart

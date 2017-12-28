@@ -14,7 +14,7 @@ import Bulma.Components.NavbarTest (testSuiteNavbar)
 import Bulma.Components.PaginationTest (testSuitePagination)
 import Bulma.Components.PanelTest (testSuitePanel)
 import Bulma.Components.TabsTest (testSuiteTabs)
-import Bulma.CoreTest (testSuiteCore)
+import Bulma.CommonTest (testSuiteCommon)
 import Bulma.Elements.ButtonTest (testSuiteButton)
 import Bulma.Elements.ElementsTest (testSuiteElements)
 import Bulma.Elements.ImageTest (testSuiteImage)
@@ -35,7 +35,7 @@ import Test.Unit.Main (runTest)
 
 main :: forall e. Eff (avar :: AVAR, testOutput :: TESTOUTPUT, console :: CONSOLE | e) Unit
 main = runTest do
-  testSuiteCore
+  testSuiteCommon
   suite "Modifiers" do
     testSuiteHelpers
     testSuiteModifiers

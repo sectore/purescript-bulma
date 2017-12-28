@@ -1,10 +1,39 @@
-module Bulma.Core where
+-- | Shared classes and helpers
+
+module Bulma.Common where
 
 import Prelude
 
 import Data.Generic (class Generic, gShow)
 import Data.Newtype (class Newtype, over, unwrap, wrap)
 import Data.String (joinWith)
+
+-- | Sets an `Alignment`
+isAlignment :: Alignment -> ClassName
+isAlignment = isClass <<< toClassPart
+
+-- | `.is-boxed` class
+isBoxed :: ClassName
+isBoxed = isClass $ ClassPart "boxed"
+
+-- | `.is-fullwidth` class
+isFullwidth :: ClassName
+isFullwidth = isClass $ ClassPart "fullwidth"
+
+-- | `.is-selected` class
+isSelected :: ClassName
+isSelected = isClass $ ClassPart "selected"
+
+-- | `.has-addons` class
+hasAddons :: ClassName
+hasAddons = hasClass $ ClassPart "addons"
+
+-- | `.is-grouped` class
+isGrouped :: ClassName
+isGrouped = isClass groupedPart
+
+groupedPart :: ClassPart
+groupedPart = ClassPart "grouped"
 
 class ClassHelper a where
   toClassPart :: a -> ClassPart
@@ -114,33 +143,6 @@ instance chAlignment :: ClassHelper Alignment where
 
 derive instance eqAlignment :: Eq Alignment
 derive instance ordAlignment :: Ord Alignment
-
--- | Sets an `Alignment`
-isAlignment :: Alignment -> ClassName
-isAlignment = isClass <<< toClassPart
-
--- | `.is-boxed` class
-isBoxed :: ClassName
-isBoxed = isClass $ ClassPart "boxed"
-
--- | `.is-fullwidth` class
-isFullwidth :: ClassName
-isFullwidth = isClass $ ClassPart "fullwidth"
-
--- | `.is-selected` class
-isSelected :: ClassName
-isSelected = isClass $ ClassPart "selected"
-
--- | `.has-addons` class
-hasAddons :: ClassName
-hasAddons = hasClass $ ClassPart "addons"
-
--- | `.is-grouped` class
-isGrouped :: ClassName
-isGrouped = isClass groupedPart
-
-groupedPart :: ClassPart
-groupedPart = ClassPart "grouped"
 
 newtype ClassName = ClassName String
 derive instance eqClassName :: Eq ClassName

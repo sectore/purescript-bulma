@@ -11,7 +11,7 @@ module Bulma.Columns.Size
 
 import Prelude
 
-import Bulma.Core (class ClassHelper, Breakpoint, ClassName, ClassPart(..), Is(..), notSupported, isClass, joinClassParts, toClassPart)
+import Bulma.Common (class ClassHelper, Breakpoint, ClassName, ClassPart(..), Is(..), notSupported, isClass, joinClassParts, toClassPart)
 
 data PercentSize
   = ThreeQuarters

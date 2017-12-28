@@ -3,7 +3,7 @@ module Bulma.Components.CardTest where
 import Prelude
 
 import Bulma.Components.Card (card, cardHeader, isHeaderTitleAlignment)
-import Bulma.Core (Alignment(..), ClassName(..))
+import Bulma.Common (Alignment(..), ClassName(..))
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)

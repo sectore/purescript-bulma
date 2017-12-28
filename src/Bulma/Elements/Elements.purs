@@ -15,7 +15,7 @@ module Bulma.Elements.Elements
   , progress
   ) where
 
-import Bulma.Core (ClassName(..))
+import Bulma.Common (ClassName(..))
 
 -- | `.content` class
 content :: ClassName

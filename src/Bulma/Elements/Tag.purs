@@ -12,8 +12,8 @@ module Bulma.Elements.Tag
 
 import Prelude
 
-import Bulma.Core (Color) as C
-import Bulma.Core (class ClassHelper, ClassName(..), ClassPart(..), Size(..), groupedPart, isClass, joinClassParts, notSupported, toClassPart)
+import Bulma.Common (Color) as C
+import Bulma.Common (class ClassHelper, ClassName(..), ClassPart(..), Size(..), groupedPart, isClass, joinClassParts, notSupported, toClassPart)
 -- | `.tag` class
 tag :: ClassName
 tag = ClassName "tag"
@@ -24,14 +24,14 @@ tags = ClassName "tags"
 
 -- | [background colors](https://bulma.io/documentation/elements/tag/#colors) of a tag
 data Color
-  = CoreColor C.Color
+  = CommonColor C.Color
   | White
   | Light
   | Dark
   | Black
 
 instance chColor :: ClassHelper Color where
-  toClassPart (CoreColor c) = toClassPart c
+  toClassPart (CommonColor c) = toClassPart c
   toClassPart White = ClassPart "white"
   toClassPart Light = ClassPart "light"
   toClassPart Dark = ClassPart "dark"

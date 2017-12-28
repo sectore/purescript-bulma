@@ -2,7 +2,7 @@ module Bulma.Elements.TableTest where
 
 import Prelude
 
-import Bulma.Core (ClassName(..))
+import Bulma.Common (ClassName(..))
 import Bulma.Elements.Table (Modifier(..), isModifier, table)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)

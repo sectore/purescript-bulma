@@ -8,7 +8,7 @@ module Bulma.Elements.Table
 
 import Prelude
 
-import Bulma.Core (class ClassHelper, ClassName(..), ClassPart(..), isClass, toClassPart)
+import Bulma.Common (class ClassHelper, ClassName(..), ClassPart(..), isClass, toClassPart)
 
 -- | `.table` class
 table :: ClassName

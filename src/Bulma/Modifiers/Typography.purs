@@ -18,8 +18,8 @@ module Bulma.Modifiers.Typography
 
 import Prelude
 
-import Bulma.Core (Color(..)) as C
-import Bulma.Core (class ClassHelper, Breakpoint(..), ClassName, ClassPart(..), hasClass, isClass, joinClassParts, notSupported, notSupportedPart, toClassPart)
+import Bulma.Common (Color(..)) as C
+import Bulma.Common (class ClassHelper, Breakpoint(..), ClassName, ClassPart(..), hasClass, isClass, joinClassParts, notSupported, notSupportedPart, toClassPart)
 
 -- | Typography sizes
 -- https://bulma.io/documentation/modifiers/typography-helpers/#size
@@ -62,7 +62,7 @@ isSizeResponsive s bp =
 -- https://bulma.io/documentation/modifiers/typography-helpers/#colors
 
 data Color
-  = CoreColor C.Color
+  = CommonColor C.Color
   | White
   | Black
   | Light
@@ -78,9 +78,9 @@ data Color
   | WhiteBis
 
 instance chColor :: ClassHelper Color where
-  toClassPart (CoreColor C.Link) = notSupportedPart $ toClassPart C.Link
+  toClassPart (CommonColor C.Link) = notSupportedPart $ toClassPart C.Link
   -- ^ `Link` is the only core color class, which is not support here
-  toClassPart (CoreColor color) = toClassPart color
+  toClassPart (CommonColor color) = toClassPart color
   toClassPart White = ClassPart "white"
   toClassPart Black = ClassPart "black"
   toClassPart Light = ClassPart "light"

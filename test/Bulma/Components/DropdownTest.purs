@@ -3,7 +3,7 @@ module Bulma.Components.DropdownTest where
 import Prelude
 
 import Bulma.Components.Dropdown (Alignment(..), State(..), dropdown, dropdownContent, dropdownDivider, dropdownItem, dropdownMenu, dropdownTrigger, isAlignment, isState)
-import Bulma.Core (ClassName(..))
+import Bulma.Common (ClassName(..))
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)

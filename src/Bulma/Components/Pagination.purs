@@ -17,7 +17,7 @@ module Bulma.Components.Pagination
 
 import Prelude
 
-import Bulma.Core (ClassName, ClassPart(..), Alignment(..), isClass, joinClassParts, notSupported, toClassName, toClassPart)
+import Bulma.Common (ClassName, ClassPart(..), Alignment(..), isClass, joinClassParts, notSupported, toClassName, toClassPart)
 
 pagination :: ClassName
 pagination = toClassName paginationPart

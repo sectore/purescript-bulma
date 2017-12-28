@@ -9,7 +9,7 @@ module Bulma.Elements.Image
   ) where
 
 import Prelude
-import Bulma.Core (class ClassHelper, ClassName(..), ClassPart(..), isClass, toClassPart)
+import Bulma.Common (class ClassHelper, ClassName(..), ClassPart(..), isClass, toClassPart)
 
 -- | `.image` class
 image :: ClassName

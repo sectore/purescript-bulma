@@ -2,7 +2,7 @@ module Bulma.Columns.Columns where
 
 import Prelude
 
-import Bulma.Core (ClassName(..), ClassPart(..), isClass)
+import Bulma.Common (ClassName(..), ClassPart(..), isClass)
 
 columns :: ClassName
 columns = ClassName "columns"

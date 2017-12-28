@@ -16,7 +16,7 @@ module Bulma.Components.Dropdown
 
 import Prelude
 
-import Bulma.Core (class ClassHelper, ClassName, ClassPart(..), isClass, joinClassParts, toClassName, toClassPart)
+import Bulma.Common (class ClassHelper, ClassName, ClassPart(..), isClass, joinClassParts, toClassName, toClassPart)
 
 dropdown :: ClassName
 dropdown = toClassName dropdownPart

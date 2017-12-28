@@ -16,7 +16,7 @@ module Bulma.Components.Message
 
 import Prelude
 
-import Bulma.Core (ClassName, ClassPart(..), joinClassParts, toClassName)
+import Bulma.Common (ClassName, ClassPart(..), joinClassParts, toClassName)
 
 message :: ClassName
 message = toClassName messagePart
