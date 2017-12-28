@@ -2,7 +2,7 @@ module Bulma.CommonTest where
 
 import Prelude
 
-import Bulma.Common (Alignment(..), ClassName(..), ClassPart(..), hasAddons, hasClass, isAlignment, isBoxed, isClass, isFullwidth, isGrouped, isSelected, joinClassParts, notSupported, notSupportedPart, runClassName, runClassNames, toClassName)
+import Bulma.Common (Alignment(..), ClassName(..), ClassPart(..), hasAddons, hasClass, isAlignment, isBoxed, isClass, isFullwidth, isGrouped, isSelected, isStatic, joinClassParts, notSupported, notSupportedPart, runClassName, runClassNames, toClassName)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
@@ -16,6 +16,7 @@ testSuiteCommon =
       hasAddons `equal` ClassName "has-addons"
       isGrouped `equal` ClassName "is-grouped"
       isSelected `equal` ClassName "is-selected"
+      isStatic `equal` ClassName "is-static"
     test "position" do
       isAlignment Left `equal` ClassName "is-left"
       isAlignment Right `equal` ClassName "is-right"

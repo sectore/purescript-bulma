@@ -49,12 +49,12 @@ _coming soon_
   * [x] [Footer](https://bulma.io/documentation/layout/footer/)
   * [x] [Tiles](https://bulma.io/documentation/layout/tiles/)
 - **Form**
-  * [ ] [General](https://bulma.io/documentation/form/general/)
-  * [ ] [Input](https://bulma.io/documentation/form/input/)
-  * [ ] [TextArea](https://bulma.io/documentation/form/textarea/)
-  * [ ] [Select](https://bulma.io/documentation/form/select/)
-  * [ ] [CheckBox](https://bulma.io/documentation/form/checkbox/)
-  * [ ] [Radio](https://bulma.io/documentation/form/radio/)
+  * [x] [General](https://bulma.io/documentation/form/general/)
+  * [x] [Input](https://bulma.io/documentation/form/input/)
+  * [x] [TextArea](https://bulma.io/documentation/form/textarea/)
+  * [x] [Select](https://bulma.io/documentation/form/select/)
+  * [x] [CheckBox](https://bulma.io/documentation/form/checkbox/)
+  * [x] [Radio](https://bulma.io/documentation/form/radio/)
   * [ ] [File](https://bulma.io/documentation/form/file/)
 - **Elements**
   * [x] [Box](https://bulma.io/documentation/elements/box/)

@@ -4,7 +4,7 @@ import Prelude
 
 import Bulma.Common (ClassName(..))
 import Bulma.Common (Color(..)) as C
-import Bulma.Elements.Button (Color(..), State(..), Style(..), button, buttons, isColor, isState, isStatic, isStyle)
+import Bulma.Elements.Button (Color(..), State(..), Style(..), button, buttons, isColor, isState, isStyle)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
@@ -35,5 +35,3 @@ testSuiteButton =
       isState Focus `equal` ClassName "is-focused"
       isState Active `equal` ClassName "is-active"
       isState Loading `equal` ClassName "is-loading"
-    test "misc" do
-      isStatic `equal` ClassName "is-static"

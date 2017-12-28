@@ -9,7 +9,6 @@ module Bulma.Elements.Button
   , isStyle
   , State(..)
   , isState
-  , isStatic
   ) where
 
 import Prelude
@@ -75,7 +74,3 @@ instance chState :: ClassHelper State where
 -- | Sets a `State` of a button
 isState :: State -> ClassName
 isState = isClass <<< toClassPart
-
--- | `.is-static` class of a button
-isStatic :: ClassName
-isStatic = isClass $ ClassPart "static"

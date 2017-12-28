@@ -38,6 +38,10 @@ isGrouped = isClass groupedPart
 groupedPart :: ClassPart
 groupedPart = ClassPart "grouped"
 
+-- | `.is-static` class
+isStatic :: ClassName
+isStatic = isClass $ ClassPart "static"
+
 class ClassHelper a where
   toClassPart :: a -> ClassPart
 
@@ -86,6 +90,9 @@ data Color
   | Success
   | Warning
   | Danger
+
+derive instance eqColor :: Eq Color
+derive instance ordColor :: Ord Color
 
 instance chColor :: ClassHelper Color where
   toClassPart Primary = ClassPart "primary"

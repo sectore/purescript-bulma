@@ -12,14 +12,11 @@ module Bulma.Form.General
   , hasIconAlignment
   , help
   , IconAlignment(..)
-  , input
   , isExpanded
   , isGroupedRight
   , isHorizontal
   , label
   , radio
-  , select
-  , textarea
   ) where
 
 import Prelude
@@ -30,18 +27,6 @@ import Bulma.Elements.Elements (iconPart)
 -- | `.label` class
 label :: ClassName
 label = ClassName "label"
-
--- | `.input` class
-input :: ClassName
-input = ClassName "input"
-
--- | `.textarea` class
-textarea :: ClassName
-textarea = ClassName "textarea"
-
--- | `.select` class
-select :: ClassName
-select = ClassName "select"
 
 -- | `.checkbox` class
 checkbox :: ClassName
