@@ -26,7 +26,10 @@ isSelected = isClass $ ClassPart "selected"
 
 -- | `.has-addons` class
 hasAddons :: ClassName
-hasAddons = hasClass $ ClassPart "addons"
+hasAddons = hasClass addonsPart
+
+addonsPart :: ClassPart
+addonsPart = ClassPart "addons"
 
 -- | `.is-grouped` class
 isGrouped :: ClassName

@@ -53,10 +53,6 @@ isSize s =
 isDelete :: ClassName
 isDelete = isClass $ ClassPart "delete"
 
--- | `.field` class
-field :: ClassName
-field = ClassName "field"
-
 -- | `.is-grouped-multiline` class
 isGroupedMultiline :: ClassName
 isGroupedMultiline = isClass $ joinClassParts [groupedPart, ClassPart "multiline"]

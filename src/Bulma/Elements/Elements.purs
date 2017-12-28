@@ -11,11 +11,12 @@ module Bulma.Elements.Elements
   , content
   , delete
   , icon
+  , iconPart
   , notification
   , progress
   ) where
 
-import Bulma.Common (ClassName(..))
+import Bulma.Common (ClassName(..), ClassPart(..), toClassName)
 
 -- | `.content` class
 content :: ClassName
@@ -31,7 +32,10 @@ delete = ClassName "delete"
 
 -- | `.icon` class
 icon :: ClassName
-icon = ClassName "icon"
+icon = toClassName iconPart
+
+iconPart :: ClassPart
+iconPart = ClassPart "icon"
 
 -- | `.notification` class
 notification :: ClassName

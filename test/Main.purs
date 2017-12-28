@@ -4,6 +4,7 @@ import Prelude
 
 import Bulma.Columns.ColumnsTest (testSuiteColumns)
 import Bulma.Columns.SizesTest (testSuiteSize)
+import Bulma.CommonTest (testSuiteCommon)
 import Bulma.Components.BreadcrumbTest (testSuiteBreadcrumb)
 import Bulma.Components.CardTest (testSuiteCard)
 import Bulma.Components.DropdownTest (testSuiteDropdown)
@@ -14,9 +15,9 @@ import Bulma.Components.NavbarTest (testSuiteNavbar)
 import Bulma.Components.PaginationTest (testSuitePagination)
 import Bulma.Components.PanelTest (testSuitePanel)
 import Bulma.Components.TabsTest (testSuiteTabs)
-import Bulma.CommonTest (testSuiteCommon)
 import Bulma.Elements.ButtonTest (testSuiteButton)
 import Bulma.Elements.ElementsTest (testSuiteElements)
+import Bulma.Elements.GeneralTest (testSuiteGeneral)
 import Bulma.Elements.ImageTest (testSuiteImage)
 import Bulma.Elements.TableTest (testSuiteTable)
 import Bulma.Elements.TagTest (testSuiteTag)
@@ -44,6 +45,8 @@ main = runTest do
   suite "Columns" do
     testSuiteColumns
     testSuiteSize
+  suite "Form" do
+    testSuiteGeneral
   suite "Elements" do
     testSuiteButton
     testSuiteElements
