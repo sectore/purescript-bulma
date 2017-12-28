@@ -1,5 +1,4 @@
--- | Image
--- https://bulma.io/documentation/elements/image/
+-- | Bulma [`Image`](https://bulma.io/documentation/elements/image/)
 
 module Bulma.Elements.Image
   ( Dimension(..)
@@ -10,12 +9,13 @@ module Bulma.Elements.Image
   ) where
 
 import Prelude
-
 import Bulma.Core (class ClassHelper, ClassName(..), ClassPart(..), isClass, toClassPart)
 
+-- | `.image` class
 image :: ClassName
 image = ClassName "image"
 
+-- | Image [dimensions](https://bulma.io/documentation/elements/image/#fixed-square-images)
 data Dimension
   = D16x16
   | D24x24
@@ -32,12 +32,11 @@ instance chDimension :: ClassHelper Dimension where
   toClassPart D96x96 = ClassPart "96x96"
   toClassPart D128x128 = ClassPart "128x128"
 
--- Image dimensions
--- https://bulma.io/documentation/elements/image/#fixed-square-images
+-- | Sets a `Dimension` of an image
 isDimension :: Dimension -> ClassName
 isDimension = isClass <<< toClassPart
 
-
+-- | Responsive image w/ [ratios](https://bulma.io/documentation/elements/image/#fixed-square-images)
 data Ratio
   = Square
   | OneByOne
@@ -55,7 +54,6 @@ instance chRatio :: ClassHelper Ratio where
   toClassPart TwoByOne = ClassPart "2by1"
 
 
--- Responsive image w/ ratios
--- https://bulma.io/documentation/elements/image/#fixed-square-images
+-- | Sets a `Ratio` for an image
 isRatio :: Ratio -> ClassName
 isRatio = isClass <<< toClassPart

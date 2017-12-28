@@ -1,3 +1,11 @@
+-- | Styles of following Bulma `Elements`:
+-- | *  [`Content`](https://bulma.io/documentation/elements/content/)
+-- | *  [`Box`](https://bulma.io/documentation/elements/box/)
+-- | *  [`Delete`](https://bulma.io/documentation/elements/delete/)
+-- | *  [`Icon`](https://bulma.io/documentation/elements/icon/)
+-- | *  [`Notification`](https://bulma.io/documentation/elements/notification/)
+-- | *  [`Progress`](https://bulma.io/documentation/elements/progress/)
+
 module Bulma.Elements.Elements
   ( box
   , content
@@ -9,32 +17,26 @@ module Bulma.Elements.Elements
 
 import Bulma.Core (ClassName(..))
 
--- | Content
--- https://bulma.io/documentation/elements/content/
+-- | `.content` class
 content :: ClassName
 content = ClassName "content"
 
--- | Box
--- https://bulma.io/documentation/elements/box/
+-- | `.box` class
 box :: ClassName
 box = ClassName "box"
 
--- | Delete
--- https://bulma.io/documentation/elements/delete/
+-- | `.delete` class
 delete :: ClassName
 delete = ClassName "delete"
 
--- | Icon
--- https://bulma.io/documentation/elements/icon/
+-- | `.icon` class
 icon :: ClassName
 icon = ClassName "icon"
 
--- | Notification
--- https://bulma.io/documentation/elements/notification/
+-- | `.notification` class
 notification :: ClassName
 notification = ClassName "notification"
 
--- | Progress
--- https://bulma.io/documentation/elements/progress/
+-- | `.progress` class
 progress :: ClassName
 progress = ClassName "progress"

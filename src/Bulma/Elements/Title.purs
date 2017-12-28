@@ -1,5 +1,4 @@
--- | Title
--- https://bulma.io/documentation/elements/title/
+-- | Bulma [`Title`] (https://bulma.io/documentation/elements/title/)
 
 module Bulma.Elements.Title
   ( title
@@ -9,15 +8,17 @@ module Bulma.Elements.Title
   ) where
 
 import Prelude
-
 import Bulma.Core (ClassName(..), ClassPart(..), Is(..), isClass, notSupported, toClassPart)
 
+-- | `.title` class
 title :: ClassName
 title = ClassName "title"
 
+-- | `.subtitle` class
 subtitle :: ClassName
 subtitle = ClassName "subtitle"
 
+-- | Sets a [`Size`](https://bulma.io/documentation/elements/title/#sizes) of a title
 isSize :: Is -> ClassName
 isSize i =
   let className = isClass $ toClassPart i in
@@ -25,5 +26,6 @@ isSize i =
   then notSupported className
   else className
 
+-- | `.is-spaced` class
 isSpaced :: ClassName
 isSpaced = isClass $ ClassPart "spaced"
