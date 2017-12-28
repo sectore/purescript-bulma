@@ -4,7 +4,8 @@ import Prelude
 
 import Bulma.Core (ClassName(..))
 import Bulma.Core (Color(..)) as C
-import Bulma.Elements.Button (Color(..), State(..), Style(..), button, buttons, hasAddons, isColor, isGrouped, isSelected, isState, isStatic, isStyle)
+import Bulma.Elements.Button (Color(..), State(..), Style(..), button, buttons, hasAddons, isColor, isGrouped, isState, isStatic, isStyle)
+import Bulma.Modifiers.Modifiers (isSelected)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)

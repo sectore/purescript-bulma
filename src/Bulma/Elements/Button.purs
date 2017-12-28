@@ -12,7 +12,6 @@ module Bulma.Elements.Button
   , isStatic
   , isGrouped
   , hasAddons
-  , isSelected
   ) where
 
 import Prelude
@@ -90,7 +89,3 @@ isGrouped = isClass $ ClassPart "grouped"
 -- | `.has-addons` class of a button
 hasAddons :: ClassName
 hasAddons = hasClass $ ClassPart "addons"
-
--- | `.is-selected` class of a button
-isSelected :: ClassName
-isSelected = isClass $ ClassPart "selected"
