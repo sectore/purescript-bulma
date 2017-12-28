@@ -1,8 +1,7 @@
 -- | Bulmas [`Modifier`](https://bulma.io/documentation/modifiers/syntax/) classes
-
+-- | Some of
 module Bulma.Modifiers.Modifiers
   ( isColor
-  , isSelected
   , isSize
   , isState
   , State(..)
@@ -19,10 +18,6 @@ isColor = isClass <<< toClassPart
 -- | Sets a `Size`
 isSize :: Size -> ClassName
 isSize = isClass <<< toClassPart
-
--- | `.is-selected` class
-isSelected :: ClassName
-isSelected = isClass $ ClassPart "selected"
 
 -- | States
 data State

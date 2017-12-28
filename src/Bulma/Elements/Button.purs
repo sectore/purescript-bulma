@@ -10,13 +10,11 @@ module Bulma.Elements.Button
   , State(..)
   , isState
   , isStatic
-  , isGrouped
-  , hasAddons
   ) where
 
 import Prelude
 
-import Bulma.Core (class ClassHelper, ClassName(..), ClassPart(..), hasClass, isClass, toClassPart)
+import Bulma.Core (class ClassHelper, ClassName(..), ClassPart(..), isClass, toClassPart)
 import Bulma.Core (Color) as C
 
 -- | `.button` class
@@ -81,11 +79,3 @@ isState = isClass <<< toClassPart
 -- | `.is-static` class of a button
 isStatic :: ClassName
 isStatic = isClass $ ClassPart "static"
-
--- | `.is-grouped` class of a button
-isGrouped :: ClassName
-isGrouped = isClass $ ClassPart "grouped"
-
--- | `.has-addons` class of a button
-hasAddons :: ClassName
-hasAddons = hasClass $ ClassPart "addons"

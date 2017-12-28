@@ -69,6 +69,9 @@ data Size
   | Medium
   | Large
 
+derive instance eqSize :: Eq Size
+derive instance ordSize :: Ord Size
+
 instance chSize :: ClassHelper Size where
   toClassPart Small = ClassPart "small"
   toClassPart Medium = ClassPart "medium"
@@ -109,18 +112,35 @@ instance chAlignment :: ClassHelper Alignment where
   toClassPart Right = ClassPart "right"
   toClassPart Centered = ClassPart "centered"
 
-isAlignment :: Alignment -> ClassName
-isAlignment = isClass <<< toClassPart
-
-isBoxed :: ClassName
-isBoxed = isClass $ ClassPart "boxed"
-
-isFullwidth :: ClassName
-isFullwidth = isClass $ ClassPart "fullwidth"
-
 derive instance eqAlignment :: Eq Alignment
 derive instance ordAlignment :: Ord Alignment
 
+-- | Sets an `Alignment`
+isAlignment :: Alignment -> ClassName
+isAlignment = isClass <<< toClassPart
+
+-- | `.is-boxed` class
+isBoxed :: ClassName
+isBoxed = isClass $ ClassPart "boxed"
+
+-- | `.is-fullwidth` class
+isFullwidth :: ClassName
+isFullwidth = isClass $ ClassPart "fullwidth"
+
+-- | `.is-selected` class
+isSelected :: ClassName
+isSelected = isClass $ ClassPart "selected"
+
+-- | `.has-addons` class
+hasAddons :: ClassName
+hasAddons = hasClass $ ClassPart "addons"
+
+-- | `.is-grouped` class
+isGrouped :: ClassName
+isGrouped = isClass groupedPart
+
+groupedPart :: ClassPart
+groupedPart = ClassPart "grouped"
 
 newtype ClassName = ClassName String
 derive instance eqClassName :: Eq ClassName

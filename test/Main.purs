@@ -18,6 +18,8 @@ import Bulma.CoreTest (testSuiteCore)
 import Bulma.Elements.ButtonTest (testSuiteButton)
 import Bulma.Elements.ElementsTest (testSuiteElements)
 import Bulma.Elements.ImageTest (testSuiteImage)
+import Bulma.Elements.TableTest (testSuiteTable)
+import Bulma.Elements.TagTest (testSuiteTag)
 import Bulma.Elements.TitleTest (testSuiteTitle)
 import Bulma.Layout.LayoutTest (testSuiteLayout)
 import Bulma.Modifiers.HelpersTest (testSuiteHelpers)
@@ -46,6 +48,8 @@ main = runTest do
     testSuiteButton
     testSuiteElements
     testSuiteImage
+    testSuiteTable
+    testSuiteTag
     testSuiteTitle
   suite "Layout" do
     testSuiteLayout
