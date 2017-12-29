@@ -1,4 +1,4 @@
--- | Bulma [`File`] (https://bulma.io/documentation/form/file/) classes
+-- | Bulma [`File`](https://bulma.io/documentation/form/file/) classes
 
 module Bulma.Form.File
   ( Color(..)

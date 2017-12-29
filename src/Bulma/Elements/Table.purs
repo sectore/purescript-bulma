@@ -1,4 +1,4 @@
--- | Bulma [`Table`] (https://bulma.io/documentation/elements/table/) classes
+-- | Bulma [`Table`](https://bulma.io/documentation/elements/table/) classes
 
 module Bulma.Elements.Table
   ( isModifier

@@ -1,5 +1,4 @@
--- | Card
--- https://bulma.io/documentation/components/card/
+-- | [Card](https://bulma.io/documentation/components/card/)
 
 module Bulma.Components.Card
   ( card
@@ -13,27 +12,35 @@ import Prelude
 
 import Bulma.Common (Alignment(..), ClassName, ClassPart(..), isClass, joinClassParts, notSupported, toClassName, toClassPart)
 
+-- | `.card` class
 card :: ClassName
 card = toClassName cardPart
 
+-- | `.card-header` class
 cardHeader :: ClassName
 cardHeader = toClassName cardHeaderPart
 
+-- | `.card-header-title` class
 cardHeaderTitle :: ClassName
 cardHeaderTitle = cardHeaderClass $ ClassPart "title"
 
+-- | `.card-header-icon` class
 cardHeaderIcon :: ClassName
 cardHeaderIcon = cardHeaderClass $ ClassPart "icon"
 
+-- | `.card-image` class
 cardImage :: ClassName
 cardImage = cardClass $ ClassPart "image"
 
+-- | `.card-footer` class
 cardFooter :: ClassName
 cardFooter = toClassName cardFooterPart
 
+-- | `.card-footer-item` class
 cardFooterItem :: ClassName
 cardFooterItem = cardFooterClass $ ClassPart "item"
 
+-- | Sets an `Alignment` to a title of a card header
 isHeaderTitleAlignment :: Alignment -> ClassName
 isHeaderTitleAlignment a =
   let className = isClass $ toClassPart a in

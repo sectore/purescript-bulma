@@ -1,4 +1,4 @@
--- | Bulma [`Input`] (https://bulma.io/documentation/form/input/) classes
+-- | Bulma [`Input`](https://bulma.io/documentation/form/input/) classes
 
 module Bulma.Form.Input
   ( input

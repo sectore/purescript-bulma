@@ -1,4 +1,4 @@
--- | Bulma [`Radio`] (https://bulma.io/documentation/form/radio/) classes
+-- | Bulma [`Radio`](https://bulma.io/documentation/form/radio/) classes
 
 module Bulma.Form.Radio
   ( radio

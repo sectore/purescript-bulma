@@ -1,4 +1,4 @@
--- | Bulma [`Select`] (https://bulma.io/documentation/form/select/) classes
+-- | Bulma [`Select`](https://bulma.io/documentation/form/select/) classes
 
 module Bulma.Form.Select
   ( isMultiple

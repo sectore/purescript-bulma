@@ -1,4 +1,4 @@
--- | Bulma [`Checkbox`] (https://bulma.io/documentation/form/checkbox/) classes
+-- | Bulma [`Checkbox`](https://bulma.io/documentation/form/checkbox/) classes
 
 module Bulma.Form.Checkbox
   ( checkbox

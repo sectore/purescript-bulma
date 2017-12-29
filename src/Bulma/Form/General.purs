@@ -1,4 +1,4 @@
--- | Bulma [`General`] (https://bulma.io/documentation/form/general/) classes of a form
+-- | Bulma [`General`](https://bulma.io/documentation/form/general/) classes of a form
 
 module Bulma.Form.General
   ( button

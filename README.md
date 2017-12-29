@@ -3,6 +3,7 @@
 [`PureScript`](http://www.purescript.org/) bindings for CSS framework [`Bulma`](https://github.com/jgthms/bulma).
 
 [![Build Status](https://travis-ci.org/sectore/purescript-bulma.svg?branch=master)](https://travis-ci.org/sectore/purescript-bulma)
+[![purescript-bulma on Pursuit](https://pursuit.purescript.org/packages/purescript-bulma/badge)](https://pursuit.purescript.org/packages/purescript-bulma)
 
 
 ## Installation

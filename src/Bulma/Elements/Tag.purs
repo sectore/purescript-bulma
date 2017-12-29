@@ -1,4 +1,4 @@
--- | Bulma [`Tag`] (https://bulma.io/documentation/elements/tag/) classes
+-- | Bulma [`Tag`](https://bulma.io/documentation/elements/tag/) classes
 
 module Bulma.Elements.Tag
   ( Color(..)

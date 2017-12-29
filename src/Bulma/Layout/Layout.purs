@@ -1,7 +1,7 @@
 -- | Classes of following layout elements:
--- | * [`Container`] (https://bulma.io/documentation/layout/container/)
--- | * [`Level`] (https://bulma.io/documentation/layout/level/)
--- | * [`Media Object`] (https://bulma.io/documentation/layout/media-object/)
+-- | * [`Container`](https://bulma.io/documentation/layout/container/)
+-- | * [`Level`](https://bulma.io/documentation/layout/level/)
+-- | * [`Media Object`](https://bulma.io/documentation/layout/media-object/)
 -- | * [`Hero`](https://bulma.io/documentation/layout/hero/)
 -- | * [`Section`](https://bulma.io/documentation/layout/section/)
 -- | * [`Footer`](https://bulma.io/documentation/layout/footer/)
