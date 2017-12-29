@@ -189,3 +189,9 @@ runClassName (ClassName name) = name
 
 runClassNames :: Array ClassName -> String
 runClassNames = joinWith " " <<< map runClassName
+
+unsafeClassName :: String -> ClassName
+unsafeClassName = ClassName
+
+unsafeClassNames :: Array String -> Array ClassName
+unsafeClassNames = map unsafeClassName

@@ -2,7 +2,7 @@ module Bulma.CommonTest where
 
 import Prelude
 
-import Bulma.Common (Alignment(..), ClassName(..), ClassPart(..), hasAddons, hasClass, isAlignment, isBoxed, isClass, isFullwidth, isGrouped, isSelected, isStatic, joinClassParts, notSupported, notSupportedPart, runClassName, runClassNames, toClassName)
+import Bulma.Common (Alignment(..), ClassName(..), ClassPart(..), hasAddons, hasClass, isAlignment, isBoxed, isClass, isFullwidth, isGrouped, isSelected, isStatic, joinClassParts, notSupported, notSupportedPart, runClassName, runClassNames, toClassName, unsafeClassName, unsafeClassNames)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
@@ -35,3 +35,6 @@ testSuiteCommon =
       runClassNames [ ClassName "any-class"
                     , ClassName "other-class" ]
         `equal` "any-class other-class"
+    test "unsafe" do
+      unsafeClassName "hello" `equal` ClassName "hello"
+      unsafeClassNames ["hello", "world"] `equal` [ClassName "hello", ClassName "world"]
