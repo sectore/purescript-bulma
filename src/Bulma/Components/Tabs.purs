@@ -1,4 +1,5 @@
--- | [Tabs](https://bulma.io/documentation/components/tabs/)
+-- | Bulma [Tabs](https://bulma.io/documentation/components/tabs/)
+-- |
 -- | Note: Sizes of tabs styles mentioned in https://bulma.io/documentation/components/tabs/#sizes are "global"
 -- | and defined in `Bulma.Modifiers.Modifiers`
 

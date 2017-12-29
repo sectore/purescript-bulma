@@ -2,10 +2,8 @@
 -- |
 -- | Note: Following styles of messages are global
 -- | and defined in `Bulma.Modifiers.Modifiers` only:
--- | * Colors (https://bulma.io/documentation/components/message/#colors)
--- |    ^ Use `isColor` of `Bulma.Modifiers.Modifiers`
--- | * Sizes (https://bulma.io/documentation/components/message/#sizes)
--- |    ^ Use `isSize` of `Bulma.Modifiers.Modifiers`
+-- | * [Colors](https://bulma.io/documentation/components/message/#colors) (Use `isColor` of `Bulma.Modifiers.Modifiers`)
+-- | * [Sizes](https://bulma.io/documentation/components/message/#sizes) (Use `isSize` of `Bulma.Modifiers.Modifiers`)
 
 module Bulma.Components.Message
   ( message

@@ -1,4 +1,5 @@
 -- | [Pagination](https://bulma.io/documentation/components/pagination)
+-- |
 -- | Note: Sizes of pagination styles mentioned in https://bulma.io/documentation/components/pagination/#sizes are "global"
 -- | and defined in `Bulma.Modifiers.Modifiers` only
 

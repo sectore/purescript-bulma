@@ -1,10 +1,8 @@
 -- | [Breadcrumb](https://bulma.io/documentation/components/breadcrumb/)
 -- |
 -- | Note: Following styles of messages are global and defined in `Bulma.Modifiers.Modifiers` only:
--- | * Alignment (https://bulma.io/documentation/components/breadcrumb/#alignment)
--- |    ^ Use `isAlignment` of `Bulma.Common`
--- | * Sizes (https://bulma.io/documentation/components/breadcrumb/#sizes)
--- |    ^ Use `isSize` of `Bulma.Modifiers.Modifiers`
+-- | * [Alignment](https://bulma.io/documentation/components/breadcrumb/#alignment) (Use `isAlignment` of `Bulma.Common`)
+-- | * Sizes (https://bulma.io/documentation/components/breadcrumb/#sizes) (Use `isSize` of `Bulma.Modifiers.Modifiers`)
 
 module Bulma.Components.Breadcrumb
   ( breadcrumb
