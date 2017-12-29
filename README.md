@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/sectore/purescript-bulma/master/misc/logo.png" width="400" height="150">
 
-[`PureScript`](http://www.purescript.org/) bindings of CSS framework [`Bulma`](https://github.com/jgthms/bulma).
+[`PureScript`](http://www.purescript.org/) bindings for CSS framework [`Bulma`](https://github.com/jgthms/bulma).
 
 [![Build Status](https://travis-ci.org/sectore/purescript-bulma.svg?branch=master)](https://travis-ci.org/sectore/purescript-bulma)
 
@@ -19,7 +19,7 @@ bower install --save purescript-bulma
 
 ## Documentation
 
-Module documentation ~~is~~ will be [published on Pursuit](http://pursuit.purescript.org/packages/purescript-bulma)
+Module documentation is [published on Pursuit](http://pursuit.purescript.org/packages/purescript-bulma)
 
 ## Example
 

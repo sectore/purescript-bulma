@@ -1,5 +1,12 @@
 {
   "name": "purescript-bulma",
+  "homepage": "https://github.com/sectore/purescript-bulma",
+  "description": "PureScript bindings for Bulma",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sectore/purescript-bulma.git"
+  },
   "ignore": [
     "**/.*",
     "node_modules",
@@ -7,8 +14,7 @@
     "output"
   ],
   "dependencies": {
-    "purescript-prelude": "^3.1.1",
-    "purescript-console": "^3.0.0"
+    "purescript-prelude": "^3.1.1"
   },
   "devDependencies": {
     "purescript-psci-support": "^3.0.0",
