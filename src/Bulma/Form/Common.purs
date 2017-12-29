@@ -2,6 +2,7 @@
 -- | * [`Textarea`] (https://bulma.io/documentation/form/textarea/)
 -- | * [`Input`] (https://bulma.io/documentation/form/general/)
 -- | * [`Select`] (https://bulma.io/documentation/form/select/#colors)
+-- | * [`File Input`](https://bulma.io/documentation/form/file/#sizes)
 
 module Bulma.Form.Common
   ( isColor

@@ -1,4 +1,4 @@
--- | Bulma [`Title`] (https://bulma.io/documentation/elements/title/)
+-- | Bulma [`Title`] (https://bulma.io/documentation/elements/title/) classes
 
 module Bulma.Elements.Title
   ( title

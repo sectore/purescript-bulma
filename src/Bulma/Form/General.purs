@@ -63,6 +63,7 @@ fieldBody = toClassName $ joinClassParts [fieldPart, ClassPart "body"]
 fieldPart :: ClassPart
 fieldPart = ClassPart "field"
 
+-- | [Alignemnt](https://bulma.io/documentation/form/general/#with-icons) of a form icon
 data IconAlignment
   = IconLeft
   | IconRight

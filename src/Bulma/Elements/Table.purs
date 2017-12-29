@@ -1,4 +1,4 @@
--- | Bulma [`Table`] (https://bulma.io/documentation/elements/table/)
+-- | Bulma [`Table`] (https://bulma.io/documentation/elements/table/) classes
 
 module Bulma.Elements.Table
   ( isModifier
@@ -14,7 +14,7 @@ import Bulma.Common (class ClassHelper, ClassName(..), ClassPart(..), isClass, t
 table :: ClassName
 table = ClassName "table"
 
--- | [Modifier](https://bulma.io/documentation/elements/table/#modifiers) of a table
+-- | [Modifiers](https://bulma.io/documentation/elements/table/#modifiers) of a table
 data Modifier
   = Bordered
   | Striped

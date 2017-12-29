@@ -1,4 +1,4 @@
--- | Bulmas [`Modifier`](https://bulma.io/documentation/modifiers/syntax/) classes
+-- | Bulmas [`Modifiers`](https://bulma.io/documentation/modifiers/syntax/) classes
 
 module Bulma.Modifiers.Modifiers
   ( isColor

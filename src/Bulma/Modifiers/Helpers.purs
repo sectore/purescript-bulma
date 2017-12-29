@@ -1,5 +1,4 @@
--- | Modifier helpers
--- https://bulma.io/documentation/modifiers/helpers/
+-- | [Modifier helpers](https://bulma.io/documentation/modifiers/helpers/)
 
 module Bulma.Modifiers.Helpers
   ( Helpers(..)
@@ -37,5 +36,6 @@ instance chHelpers :: ClassHelper Helpers where
   toClassPart Unsectable = ClassPart "unselectable"
   toClassPart Invisible = ClassPart "invisible"
 
+-- | Sets a `Helper`
 is :: Helpers -> ClassName
 is = isClass <<< toClassPart

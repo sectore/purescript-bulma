@@ -72,7 +72,7 @@ isColor = isClass <<< toClassPart
 isSize :: Size -> ClassName
 isSize = isClass <<< toClassPart
 
--- | Sets a `Color` of a file input
+-- | Sets an `Alignment` of a file input
 isAlignment :: Alignment -> ClassName
 isAlignment p =
   let className = isClass $ toClassPart p in

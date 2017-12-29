@@ -45,12 +45,15 @@ isStatic = isClass $ ClassPart "static"
 class ClassHelper a where
   toClassPart :: a -> ClassPart
 
+-- | Helper to flag a `ClassPart` as "not supported"
 notSupportedPart :: ClassPart -> ClassPart
 notSupportedPart = over ClassPart (flip (<>) "-IS-NOT-SUPPORTED-HERE")
 
+-- | Helper to flag a `ClassName` as "not supported"
 notSupported :: ClassName -> ClassName
 notSupported = over ClassName (flip (<>) "-IS-NOT-SUPPORTED-HERE")
 
+-- | `is-X` classes, where `X` can be a value from `1` to `12`
 data Is
   = Is1
   | Is2
@@ -82,7 +85,7 @@ instance chIs :: ClassHelper Is where
   toClassPart Is11 = ClassPart "11"
   toClassPart Is12 = ClassPart "12"
 
-
+-- | Common colors used by different elements
 data Color
   = Primary
   | Link
@@ -102,7 +105,7 @@ instance chColor :: ClassHelper Color where
   toClassPart Warning = ClassPart "warning"
   toClassPart Danger = ClassPart "danger"
 
-
+-- | Common `Size`'s used by several elements
 data Size
   = Small
   | Medium
@@ -116,7 +119,7 @@ instance chSize :: ClassHelper Size where
   toClassPart Medium = ClassPart "medium"
   toClassPart Large = ClassPart "large"
 
-
+-- | Breakpoints
 data Breakpoint
   = Mobile
   | Tablet
@@ -140,7 +143,7 @@ instance chBreakpoint :: ClassHelper Breakpoint where
   toClassPart WidescreenOnly = ClassPart "widescreen-only"
   toClassPart FullHD = ClassPart "fullhd"
 
-
+-- | Common `Alignment`
 data Alignment
   = Left
   | Right
@@ -170,10 +173,12 @@ derive instance gClassPart :: Generic ClassPart
 instance sClassPart :: Show ClassPart where
   show = gShow
 
+-- | Helper to create a `is-...` class
 isClass :: ClassPart -> ClassName
 isClass cp =
   toClassName $ joinClassParts [ClassPart "is", cp]
 
+  -- | Helper to create a `has-...` class
 hasClass :: ClassPart -> ClassName
 hasClass cp =
   toClassName $ joinClassParts [ClassPart "has", cp]

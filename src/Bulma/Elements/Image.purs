@@ -1,4 +1,4 @@
--- | Bulma [`Image`](https://bulma.io/documentation/elements/image/)
+-- | Bulma [`Image`](https://bulma.io/documentation/elements/image/) classes
 
 module Bulma.Elements.Image
   ( Dimension(..)
@@ -52,7 +52,6 @@ instance chRatio :: ClassHelper Ratio where
   toClassPart ThreeByTwo = ClassPart "3by2"
   toClassPart SixteenByNine = ClassPart "16by9"
   toClassPart TwoByOne = ClassPart "2by1"
-
 
 -- | Sets a `Ratio` for an image
 isRatio :: Ratio -> ClassName

@@ -1,4 +1,4 @@
--- | Bulma [`Tag`] (https://bulma.io/documentation/elements/tag/)
+-- | Bulma [`Tag`] (https://bulma.io/documentation/elements/tag/) classes
 
 module Bulma.Elements.Tag
   ( Color(..)
@@ -14,6 +14,7 @@ import Prelude
 
 import Bulma.Common (Color) as C
 import Bulma.Common (class ClassHelper, ClassName(..), ClassPart(..), Size(..), groupedPart, isClass, joinClassParts, notSupported, toClassPart)
+
 -- | `.tag` class
 tag :: ClassName
 tag = ClassName "tag"

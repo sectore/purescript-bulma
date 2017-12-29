@@ -1,3 +1,12 @@
+-- | Classes of following layout elements:
+-- | * [`Container`] (https://bulma.io/documentation/layout/container/)
+-- | * [`Level`] (https://bulma.io/documentation/layout/level/)
+-- | * [`Media Object`] (https://bulma.io/documentation/layout/media-object/)
+-- | * [`Hero`](https://bulma.io/documentation/layout/hero/)
+-- | * [`Section`](https://bulma.io/documentation/layout/section/)
+-- | * [`Footer`](https://bulma.io/documentation/layout/footer/)
+-- | * [`Tiles`](https://bulma.io/documentation/layout/tiles/)
+
 module Bulma.Layout.Layout
   ( -- container
     container
@@ -35,24 +44,27 @@ import Prelude
 
 import Bulma.Common (class ClassHelper, ClassName(..), ClassPart(..), Is, isClass, joinClassParts, toClassName, toClassPart)
 
+-- | `.container` class
 container :: ClassName
 container = ClassName "container"
 
--- | Fluid container
+-- | Fluid container defined by `.is-fluid` class
 isFluid :: ClassName
 isFluid = isClass $ ClassPart "fluid"
 
--- | Horizontal level
--- https://bulma.io/documentation/layout/level/
+-- | `.level` class
 level :: ClassName
 level = toClassName levelPart
 
+-- | `.level-left` class
 levelLeft :: ClassName
 levelLeft = levelClass $ ClassPart "left"
 
+-- | `.level-right` class
 levelRight :: ClassName
 levelRight = levelClass $ ClassPart "right"
 
+-- | `.level-item` class
 levelItem :: ClassName
 levelItem = levelClass $ ClassPart "item"
 
@@ -64,17 +76,19 @@ levelClass :: ClassPart -> ClassName
 levelClass cp =
   toClassName $ joinClassParts [levelPart, cp]
 
--- Media object
--- https://bulma.io/documentation/layout/media-object/
+-- | `.media` class
 media :: ClassName
 media = toClassName mediaPart
 
+-- | `.media-content` class
 mediaContent :: ClassName
 mediaContent = mediaClass $ ClassPart "content"
 
+-- | `.media-left` class
 mediaLeft :: ClassName
 mediaLeft = mediaClass $ ClassPart "left"
 
+-- | `.media-right` class
 mediaRight :: ClassName
 mediaRight = mediaClass $ ClassPart "right"
 
@@ -87,14 +101,15 @@ mediaClass :: ClassPart -> ClassName
 mediaClass cp =
   toClassName $ joinClassParts [mediaPart, cp]
 
--- | Hero
--- https://bulma.io/documentation/layout/hero/
+-- | `.hero` class
 hero :: ClassName
 hero = toClassName heroPart
 
+-- | `.hero-body` class
 heroBody :: ClassName
 heroBody = heroClass $ ClassPart "body"
 
+-- | `.hero-foot` class
 heroFoot :: ClassName
 heroFoot = heroClass $ ClassPart "foot"
 
@@ -107,29 +122,27 @@ heroClass :: ClassPart -> ClassName
 heroClass cp =
   toClassName $ joinClassParts [heroPart, cp]
 
--- | A full height hero
+-- | `is-fullheight` class to have a full height hero
 isFullHeight :: ClassName
 isFullHeight = isClass $ ClassPart "fullheight"
 
--- | Adds a gradient to hero
+-- | `is-bold` class adds a gradient to hero
 isBold :: ClassName
 isBold = isClass $ ClassPart "bold"
 
--- | Section
--- https://bulma.io/documentation/layout/section/
+-- | `.section` class
 section :: ClassName
 section = ClassName "section"
 
--- | Footer
--- https://bulma.io/documentation/layout/footer/
+-- | `.footer` class
 footer :: ClassName
 footer = ClassName "footer"
 
--- | Tiles
--- https://bulma.io/documentation/layout/tiles/
+-- | `.tile` class
 tile :: ClassName
 tile = ClassName "tile"
 
+-- | [Contextual modifiers](https://bulma.io/documentation/layout/tiles/#modifiers) of a tile
 data TileContext
   = Ancestor
   | Parent
@@ -140,11 +153,14 @@ instance chTileContext :: ClassHelper TileContext where
   toClassPart Parent = ClassPart "parent"
   toClassPart Child = ClassPart "child"
 
+-- | Sets a `TileContext`
 isTileContext :: TileContext -> ClassName
 isTileContext = isClass <<< toClassPart
 
+-- | Sets a [directional modifier](https://bulma.io/documentation/layout/tiles/#modifiers) to a tile
 isVerticalTile :: ClassName
 isVerticalTile = isClass $ ClassPart "vertical"
 
+-- | Sets an [horizontal size modifier](https://bulma.io/documentation/layout/tiles/#modifiers) to a tile
 isTileSize :: Is -> ClassName
 isTileSize i = isClass $ toClassPart i

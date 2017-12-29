@@ -1,5 +1,4 @@
--- | Typography helpers
--- See https://bulma.io/documentation/modifiers/typography-helpers/
+-- | Bulmas [Typography helpers](https://bulma.io/documentation/modifiers/typography-helpers/)
 
 module Bulma.Modifiers.Typography
   ( Alignment(..)
@@ -21,9 +20,7 @@ import Prelude
 import Bulma.Common (Color(..)) as C
 import Bulma.Common (class ClassHelper, Breakpoint(..), ClassName, ClassPart(..), hasClass, isClass, joinClassParts, notSupported, notSupportedPart, toClassPart)
 
--- | Typography sizes
--- https://bulma.io/documentation/modifiers/typography-helpers/#size
-
+-- | [Typography sizes](https://bulma.io/documentation/modifiers/typography-helpers/#size)
 data Size
   = Size1
   | Size2
@@ -42,12 +39,12 @@ instance chSize :: ClassHelper Size where
   toClassPart Size6 = ClassPart "size-6"
   toClassPart Size7 = ClassPart "size-7"
 
+-- | Sets a `Size`
 isSize :: Size -> ClassName
 isSize = isClass <<< toClassPart
 
 
--- | Responsive size
--- https://bulma.io/documentation/modifiers/typography-helpers/#responsive-size
+-- | Sets a [responsive size](https://bulma.io/documentation/modifiers/typography-helpers/#responsive-size)
 
 isSizeResponsive :: Size -> Breakpoint -> ClassName
 isSizeResponsive s bp =
@@ -58,9 +55,7 @@ isSizeResponsive s bp =
     TabletOnly -> notSupported clazzName
     _ -> clazzName
 
--- | Text colors
--- https://bulma.io/documentation/modifiers/typography-helpers/#colors
-
+-- | [Text colors](https://bulma.io/documentation/modifiers/typography-helpers/#colors)
 data Color
   = CommonColor C.Color
   | White
@@ -95,11 +90,11 @@ instance chColor :: ClassHelper Color where
   toClassPart WhiteTer = ClassPart "white-ter"
   toClassPart WhiteBis = ClassPart "white-bis"
 
+-- | Sets a `Color` to a text
 hasColor :: Color -> ClassName
 hasColor = hasTextClass  <<< toClassPart
 
--- | Typography alignment
--- https://bulma.io/documentation/modifiers/typography-helpers/#alignment
+-- | [Typography alignment](https://bulma.io/documentation/modifiers/typography-helpers/#alignment)
 data Alignment
   = Centered
   | Justified
@@ -112,16 +107,17 @@ instance chAlignment :: ClassHelper Alignment where
   toClassPart Left = ClassPart "left"
   toClassPart Right = ClassPart "right"
 
+-- Sets an `Alignment`
 hasAlignment :: Alignment -> ClassName
 hasAlignment = hasTextClass <<< toClassPart
 
+-- | Sets an `Alignment` depending on breakpoints
 hasAlignmentResponsive :: Alignment -> Breakpoint -> ClassName
 hasAlignmentResponsive a bp =
   hasTextClass $ joinClassParts [toClassPart a, toClassPart bp]
 
 
--- | Typography transformation
--- https://bulma.io/documentation/modifiers/typography-helpers/#text-transformation
+-- | [Typography transformation](https://bulma.io/documentation/modifiers/typography-helpers/#text-transformation)
 data Transformation
   = Capitalized
   | Lowercase
@@ -132,12 +128,11 @@ instance chTransformation :: ClassHelper Transformation where
   toClassPart Lowercase = ClassPart "lowercase"
   toClassPart Uppercase = ClassPart "uppercase"
 
+-- | Transformes a text
 isTransformed :: Transformation -> ClassName
 isTransformed = isClass <<< toClassPart
 
--- | Typography weight
--- https://bulma.io/documentation/modifiers/typography-helpers/#weight
-
+-- | [Typography weight](https://bulma.io/documentation/modifiers/typography-helpers/#weight)
 data Weight
   = LightWeight
   -- ^ Renamed from `Light` to `LightWeight`
@@ -152,6 +147,7 @@ instance chWeight :: ClassHelper Weight where
   toClassPart Semibold = ClassPart "weight-semibold"
   toClassPart Bold = ClassPart "weight-bold"
 
+-- | Sets a `Weight` to a text
 hasWeight :: Weight -> ClassName
 hasWeight = hasTextClass <<< toClassPart
 
