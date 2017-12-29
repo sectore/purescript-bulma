@@ -26,6 +26,7 @@ import Bulma.Form.CommonTest (testSuiteCommon) as Form
 import Bulma.Form.GeneralTest (testSuiteGeneral)
 import Bulma.Form.InputTest (testSuiteInput)
 import Bulma.Form.RadioTest (testSuiteRadio)
+import Bulma.Form.FileTest (testSuiteFile)
 import Bulma.Form.SelectTest (testSuiteSelect)
 import Bulma.Form.TextareaTest (testSuiteTextArea)
 import Bulma.Layout.LayoutTest (testSuiteLayout)
@@ -59,6 +60,7 @@ main = runTest do
     testSuiteSelect
     testSuiteCheckbox
     testSuiteRadio
+    testSuiteFile
   suite "Elements" do
     testSuiteButton
     testSuiteElements

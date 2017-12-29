@@ -38,6 +38,7 @@ isState = isClass <<< toClassPart
 -- | * [`Input`](https://bulma.io/documentation/form/input/#sizes)
 -- | * [`TextArea`](https://bulma.io/documentation/form/textarea/#sizes)
 -- | * [`Select`](https://bulma.io/documentation/form/select/#sizes)
+-- | * [`File Input`](https://bulma.io/documentation/form/file/#sizes)
 isSize :: Size -> ClassName
 isSize = isClass <<< toClassPart
 

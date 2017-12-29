@@ -4,8 +4,6 @@
 
 [![Build Status](https://travis-ci.org/sectore/purescript-bulma.svg?branch=master)](https://travis-ci.org/sectore/purescript-bulma)
 
-_Note:_ This project is still in progress :construction_worker:
-
 
 ## Installation
 
@@ -55,7 +53,7 @@ _coming soon_
   * [x] [Select](https://bulma.io/documentation/form/select/)
   * [x] [CheckBox](https://bulma.io/documentation/form/checkbox/)
   * [x] [Radio](https://bulma.io/documentation/form/radio/)
-  * [ ] [File](https://bulma.io/documentation/form/file/)
+  * [x] [File](https://bulma.io/documentation/form/file/)
 - **Elements**
   * [x] [Box](https://bulma.io/documentation/elements/box/)
   * [x] [Button](https://bulma.io/documentation/elements/button/)
