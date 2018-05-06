@@ -2,9 +2,13 @@
 
 module Bulma.Components.Card
   ( card
+  , cardContent
+  , cardFooter
+  , cardFooterItem
   , cardHeader
   , cardHeaderTitle
   , cardHeaderIcon
+  , cardImage
   , isHeaderTitleAlignment
   ) where
 
@@ -31,6 +35,10 @@ cardHeaderIcon = cardHeaderClass $ ClassPart "icon"
 -- | `.card-image` class
 cardImage :: ClassName
 cardImage = cardClass $ ClassPart "image"
+
+-- | `.card-content` class
+cardContent :: ClassName
+cardContent = cardClass $ ClassPart "content"
 
 -- | `.card-footer` class
 cardFooter :: ClassName
