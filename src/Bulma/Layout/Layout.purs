@@ -27,11 +27,13 @@ module Bulma.Layout.Layout
   , mediaLeft
   , mediaRight
   -- hero
+  , HeroColor(..)
   , hero
   , heroBody
   , heroFoot
-  , isFullHeight
   , isBold
+  , isHeroColor
+  , isFullHeight
   -- tiles
   , TileContext(..)
   , tile
@@ -42,7 +44,7 @@ module Bulma.Layout.Layout
 
 import Prelude
 
-import Bulma.Common (class ClassHelper, ClassName(..), ClassPart(..), Is, isClass, joinClassParts, toClassName, toClassPart)
+import Bulma.Common (class ClassHelper, ClassName(..), ClassPart(..), Color(..), Is, isClass, joinClassParts, notSupported, toClassName, toClassPart)
 
 -- | `.container` class
 container :: ClassName
@@ -104,6 +106,28 @@ mediaClass cp =
 -- | `.hero` class
 hero :: ClassName
 hero = toClassName heroPart
+
+-- | [HeroColors](https://bulma.io/documentation/layout/hero/#colors) of a hero
+data HeroColor
+  = CommonColor Color
+  | Light
+  | Dark
+
+derive instance eqHeroColor :: Eq HeroColor
+
+instance chHeroColor :: ClassHelper HeroColor where
+  toClassPart (CommonColor color) = toClassPart color
+  toClassPart Light = ClassPart "light"
+  toClassPart Dark = ClassPart "dark"
+
+-- | Sets a `Color` of a hero
+isHeroColor :: HeroColor -> ClassName
+isHeroColor c = 
+  let className = isClass $ toClassPart c 
+  in
+    if c == (CommonColor Link)
+    then notSupported className
+    else className
 
 -- | `.hero-body` class
 heroBody :: ClassName

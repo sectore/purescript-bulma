@@ -3,7 +3,8 @@ module Bulma.Layout.LayoutTest where
 import Prelude
 
 import Bulma.Common (ClassName(..), Is(..))
-import Bulma.Layout.Layout (TileContext(..), container, footer, hero, heroBody, heroFoot, isBold, isFluid, isFullHeight, isTileContext, isTileSize, isVerticalTile, level, levelItem, levelLeft, levelRight, media, mediaContent, mediaLeft, mediaRight, section, tile)
+import Bulma.Common (Color(..)) as C
+import Bulma.Layout.Layout (HeroColor(..), TileContext(..), container, footer, hero, heroBody, heroFoot, isBold, isFluid, isFullHeight, isHeroColor, isTileContext, isTileSize, isVerticalTile, level, levelItem, levelLeft, levelRight, media, mediaContent, mediaLeft, mediaRight, section, tile)
 import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
@@ -30,6 +31,15 @@ testSuiteLayout =
       heroFoot `equal` ClassName "hero-foot"
       isFullHeight `equal` ClassName "is-fullheight"
       isBold `equal` ClassName "is-bold"
+    test "hero colors" do
+      isHeroColor Light `equal` ClassName "is-light"
+      isHeroColor Dark `equal` ClassName "is-dark"
+      isHeroColor (CommonColor C.Primary) `equal` ClassName "is-primary"
+      isHeroColor (CommonColor C.Info) `equal` ClassName "is-info"
+      isHeroColor (CommonColor C.Success) `equal` ClassName "is-success"
+      isHeroColor (CommonColor C.Warning) `equal` ClassName "is-warning"
+      isHeroColor (CommonColor C.Danger) `equal` ClassName "is-danger"
+      isHeroColor (CommonColor C.Link) `equal` ClassName "is-link-IS-NOT-SUPPORTED-HERE"
     test "section" do
       section `equal` ClassName "section"
     test "footer" do
