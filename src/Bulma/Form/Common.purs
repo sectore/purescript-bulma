@@ -35,7 +35,7 @@ instance chState :: ClassHelper State where
 isState :: State -> ClassName
 isState = isClass <<< toClassPart
 
--- | Sets a `State` to following form elements
+-- | Sets a `Size` to following form elements
 -- | * [`Input`](https://bulma.io/documentation/form/input/#sizes)
 -- | * [`TextArea`](https://bulma.io/documentation/form/textarea/#sizes)
 -- | * [`Select`](https://bulma.io/documentation/form/select/#sizes)
