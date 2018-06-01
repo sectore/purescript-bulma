@@ -13,8 +13,8 @@ module Bulma.Elements.Button
 
 import Prelude
 
-import Bulma.Common (class ClassHelper, ClassName(..), ClassPart(..), isClass, toClassPart)
 import Bulma.Common (Color) as C
+import Bulma.Common (class ClassHelper, ClassName(..), ClassPart(..), emptyClass, emptyPart, isClass, toClassPart)
 
 -- | `.button` class
 button :: ClassName
@@ -60,12 +60,16 @@ isStyle = isClass <<< toClassPart
 
 -- | [States](https://bulma.io/documentation/elements/button/#states) of a button
 data State
-  = Hover
+  = Normal
+  | Hover
   | Focus
   | Active
   | Loading
 
+derive instance eqState :: Eq State
+
 instance chState :: ClassHelper State where
+  toClassPart Normal = emptyPart
   toClassPart Hover = ClassPart "hovered"
   toClassPart Focus = ClassPart "focused"
   toClassPart Active = ClassPart "active"
@@ -73,4 +77,7 @@ instance chState :: ClassHelper State where
 
 -- | Sets a `State` of a button
 isState :: State -> ClassName
-isState = isClass <<< toClassPart
+isState st =
+  if st == Normal 
+    then emptyClass
+    else isClass $ toClassPart st

@@ -38,6 +38,9 @@ isGrouped = isClass groupedPart
 groupedPart :: ClassPart
 groupedPart = ClassPart "grouped"
 
+emptyPart :: ClassPart 
+emptyPart = ClassPart ""
+
 -- | `.is-static` class
 isStatic :: ClassName
 isStatic = isClass $ ClassPart "static"
@@ -182,6 +185,9 @@ isClass cp =
 hasClass :: ClassPart -> ClassName
 hasClass cp =
   toClassName $ joinClassParts [ClassPart "has", cp]
+
+emptyClass :: ClassName 
+emptyClass = toClassName emptyPart
 
 joinClassParts :: Array ClassPart -> ClassPart
 joinClassParts arr = ClassPart $ joinWith "-" $ map unwrap arr

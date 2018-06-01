@@ -31,6 +31,7 @@ testSuiteButton =
       isStyle Outlined `equal` ClassName "is-outlined"
       isStyle Inverted `equal` ClassName "is-inverted"
     test "states" do
+      isState Normal `equal` ClassName ""
       isState Hover `equal` ClassName "is-hovered"
       isState Focus `equal` ClassName "is-focused"
       isState Active `equal` ClassName "is-active"
