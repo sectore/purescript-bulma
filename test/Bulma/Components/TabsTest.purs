@@ -8,7 +8,7 @@ import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
 
-testSuiteTabs :: forall e. Free (TestF e) Unit
+testSuiteTabs :: Free TestF Unit
 testSuiteTabs =
   suite "Tabs" do
     test "common" do

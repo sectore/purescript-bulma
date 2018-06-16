@@ -34,14 +34,11 @@ import Bulma.Modifiers.HelpersTest (testSuiteHelpers)
 import Bulma.Modifiers.ModifiersTest (testSuiteModifiers)
 import Bulma.Modifiers.ResponsiveTest (testSuiteResponsive)
 import Bulma.Modifiers.TypographyTest (testSuiteTypography)
-import Control.Monad.Eff (Eff)
-import Control.Monad.Eff.AVar (AVAR)
-import Control.Monad.Eff.Console (CONSOLE)
+import Effect (Effect)
 import Test.Unit (suite)
-import Test.Unit.Console (TESTOUTPUT)
 import Test.Unit.Main (runTest)
 
-main :: forall e. Eff (avar :: AVAR, testOutput :: TESTOUTPUT, console :: CONSOLE | e) Unit
+main :: forall e. Effect Unit
 main = runTest do
   testSuiteCommon
   suite "Modifiers" do

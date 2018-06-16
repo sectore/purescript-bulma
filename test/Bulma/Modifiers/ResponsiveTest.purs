@@ -8,7 +8,7 @@ import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
 
-testSuiteResponsive :: forall e. Free (TestF e) Unit
+testSuiteResponsive :: Free TestF Unit
 testSuiteResponsive =
   suite "Responsive" do
     test "show flex" do

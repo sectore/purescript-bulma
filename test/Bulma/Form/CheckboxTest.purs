@@ -8,7 +8,7 @@ import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
 
-testSuiteCheckbox :: forall e. Free (TestF e) Unit
+testSuiteCheckbox :: Free TestF Unit
 testSuiteCheckbox =
   suite "Form/Checkbox" do
     test "common" do

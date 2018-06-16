@@ -8,7 +8,7 @@ import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
 
-testSuiteRadio :: forall e. Free (TestF e) Unit
+testSuiteRadio :: Free TestF Unit
 testSuiteRadio =
   suite "Form/Radio" do
     test "common" do

@@ -8,7 +8,7 @@ import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
 
-testSuiteImage :: forall e. Free (TestF e) Unit
+testSuiteImage :: Free TestF Unit
 testSuiteImage =
   suite "Image" do
     test "common" do

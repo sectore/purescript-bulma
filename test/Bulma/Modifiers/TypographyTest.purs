@@ -9,7 +9,7 @@ import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
 
-testSuiteTypography :: forall e. Free (TestF e) Unit
+testSuiteTypography :: Free TestF Unit
 testSuiteTypography =
   suite "Typography" do
     test "sizes" do

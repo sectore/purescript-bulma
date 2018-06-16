@@ -8,7 +8,7 @@ import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
 
-testSuiteColumns :: forall e. Free (TestF e) Unit
+testSuiteColumns :: Free TestF Unit
 testSuiteColumns =
   suite "Columns" do
     test "basics" do

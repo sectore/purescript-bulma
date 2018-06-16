@@ -8,7 +8,7 @@ import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
 
-testSuiteSize :: forall e. Free (TestF e) Unit
+testSuiteSize :: Free TestF Unit
 testSuiteSize =
   suite "Size" do
     test "sizes" do
