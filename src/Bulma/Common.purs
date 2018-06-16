@@ -4,7 +4,8 @@ module Bulma.Common where
 
 import Prelude
 
-import Data.Generic (class Generic, gShow)
+import Data.Generic.Rep (class Generic)
+import Data.Generic.Rep.Show (genericShow)
 import Data.Newtype (class Newtype, over, unwrap, wrap)
 import Data.String (joinWith)
 
@@ -164,17 +165,17 @@ newtype ClassName = ClassName String
 derive instance eqClassName :: Eq ClassName
 derive instance ntClassName :: Newtype ClassName _
 
-derive instance gClassName :: Generic ClassName
+derive instance gClassName :: Generic ClassName _
 instance sClassName :: Show ClassName where
-  show = gShow
+  show = genericShow
 
 newtype ClassPart = ClassPart String
 derive instance eqClassPart :: Eq ClassPart
 derive instance ntClassPart :: Newtype ClassPart _
 
-derive instance gClassPart :: Generic ClassPart
+derive instance gClassPart :: Generic ClassPart _
 instance sClassPart :: Show ClassPart where
-  show = gShow
+  show = genericShow
 
 -- | Helper to create a `is-...` class
 isClass :: ClassPart -> ClassName
