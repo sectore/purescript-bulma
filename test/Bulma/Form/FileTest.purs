@@ -9,7 +9,7 @@ import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
 
-testSuiteFile :: forall e. Free (TestF e) Unit
+testSuiteFile :: Free TestF Unit
 testSuiteFile =
   suite "Form/File" do
     test "common" do

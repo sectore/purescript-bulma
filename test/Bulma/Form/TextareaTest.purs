@@ -8,7 +8,7 @@ import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
 
-testSuiteTextArea :: forall e. Free (TestF e) Unit
+testSuiteTextArea :: Free TestF Unit
 testSuiteTextArea =
   suite "Form/TextArea" do
     test "common" do

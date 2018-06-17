@@ -9,7 +9,7 @@ import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
 
-testSuiteButton :: forall e. Free (TestF e) Unit
+testSuiteButton :: Free TestF Unit
 testSuiteButton =
   suite "Button" do
     test "common" do

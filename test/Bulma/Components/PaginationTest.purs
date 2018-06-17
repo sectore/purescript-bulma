@@ -8,7 +8,7 @@ import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
 
-testSuitePagination :: forall e. Free (TestF e) Unit
+testSuitePagination :: Free TestF Unit
 testSuitePagination =
   suite "Pagination" do
     test "common" do

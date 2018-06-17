@@ -9,7 +9,7 @@ import Control.Monad.Free (Free)
 import Test.Unit (TestF, suite, test)
 import Test.Unit.Assert (equal)
 
-testSuiteLayout :: forall e. Free (TestF e) Unit
+testSuiteLayout :: Free TestF Unit
 testSuiteLayout =
   suite "Layout" do
     test "container" do
