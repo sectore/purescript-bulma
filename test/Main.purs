@@ -38,7 +38,7 @@ import Effect (Effect)
 import Test.Unit (suite)
 import Test.Unit.Main (runTest)
 
-main :: forall e. Effect Unit
+main :: Effect Unit
 main = runTest do
   testSuiteCommon
   suite "Modifiers" do
