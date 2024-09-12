@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> Original `purescript-bulma` is not maintained anymore. However, there is an actively maintained fork by @tusharad at https://github.com/tusharad/purescript-bulma 
+
 <img src="https://raw.githubusercontent.com/sectore/purescript-bulma/master/misc/logo.png" width="400" height="150">
 
 [`PureScript`](http://www.purescript.org/) bindings for CSS framework [`Bulma`](https://github.com/jgthms/bulma).
